@@ -1,0 +1,33 @@
+.top {
+  display: flex;
+  position: fixed;
+  justify-content: left;
+  height: 80px;
+}
+
+.store {
+  margin-left: 1%;
+  display: flex;
+  font-weight: 300;
+
+  width: 23%;
+  font-size: 20px;
+  justify-content: space-between;
+}
+.logo {
+  margin-left: 27%;
+  margin-top: 10px;
+}
+.textfield {
+  margin-top: 20px;
+  margin-left: 2%;
+}
+
+.nav {
+  visibility: hidden;
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+}
+.nav_black {
+  visibility: visible;
+}
