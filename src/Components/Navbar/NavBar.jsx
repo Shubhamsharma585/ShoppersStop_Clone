@@ -55,40 +55,61 @@ export default function NavBar() {
             alt="shopperStop logo"
           />
         </div>
-        <div className="textfield">
-          <TextField
-            id="standard-basic"
-            placeholder="search product & brand"
-            style={{ width: "350px" }}
-          />
-        </div>
-        <div>
-          <SearchOutlinedIcon
-            fontSize="large"
-            color="action"
-            style={{ paddingTop: "20px" }}
-          />
-        </div>
-        <div>
-          <FavoriteBorderOutlinedIcon
-            fontSize="large"
-            color="action"
-            style={{ paddingTop: "17px", marginLeft: "20px" }}
-          />
-        </div>
-        <div>
-          <LocalMallOutlinedIcon
-            fontSize="large"
-            color="action"
-            style={{ paddingTop: "17px", marginLeft: "20px" }}
-          />
-        </div>
-        <div>
-          <AccountCircleOutlinedIcon
-            fontSize="large"
-            color="action"
-            style={{ paddingTop: "17px", marginLeft: "20px" }}
-          />
+        <div
+          style={{
+            backgroundColor: "white",
+            display: "flex",
+            marginLeft: "40px",
+          }}
+        >
+          <div className="textfield">
+            <TextField
+              id="standard-basic"
+              placeholder="search product & brand"
+              style={{ width: "350px" }}
+            />
+          </div>
+
+          <div>
+            <SearchOutlinedIcon
+              fontSize="large"
+              color="action"
+              style={{ paddingTop: "20px", background: "white" }}
+            />
+          </div>
+          <div>
+            <FavoriteBorderOutlinedIcon
+              fontSize="large"
+              color="action"
+              style={{
+                paddingTop: "17px",
+                marginLeft: "20px",
+                background: "white",
+              }}
+            />
+          </div>
+          <div>
+            <LocalMallOutlinedIcon
+              fontSize="large"
+              color="action"
+              style={{
+                paddingTop: "17px",
+                marginLeft: "20px",
+                background: "white",
+              }}
+            />
+          </div>
+          <div>
+            <AccountCircleOutlinedIcon
+              fontSize="large"
+              color="action"
+              style={{
+                paddingTop: "17px",
+                marginLeft: "20px",
+                background: "white",
+              }}
+            />
+          </div>
         </div>
       </div>
       <div className="temp"></div>

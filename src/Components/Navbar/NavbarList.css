@@ -5,73 +5,73 @@
   font-size: 18px;
   cursor: pointer;
 }
-.barg {
-}
-.barg:hover + .barg2 {
-  /* visibility: visible; */
-  /* display: block;
-  background-color: aqua; */
-}
-.barg1 {
-}
-.barg2 {
-  /* visibility: hidden; */
-  /* display: none; */
-  /* display: flex; */
-  /* flex-direction: column; */
-}
+
 .drop_one {
-  margin-top: 20px;
+  margin-top: 0px;
+  list-style: none;
 }
 
-.menu_one,
-.menu_two,
-.menu_three,
-.menu_four,
-.menu_five,
-.menu_six,
-.menu_seven {
+.menu_one {
   position: absolute;
-  width: max-content;
-  background: rgb(255, 255, 255, 1);
+  width: 95%;
+  background: rgb(250, 250, 250);
   display: flex;
-  box-shadow: 0 0 3px rgb(216, 213, 213);
-  padding-top: 10px;
+
+  padding-top: 20px;
   transition: 0.5s;
+  box-shadow: 2px 0px 40px rgb(223, 217, 217) inset,
+    2px 0px 40px rgb(224, 218, 218) inset;
 }
 .menu_experiment {
   display: none;
 }
-.drop_one:hover > .menu_experiment,
-.drop_two:hover > .menu_experiment,
-.drop_three:hover > .menu_experiment,
-.drop_four:hover > .menu_experiment,
-.drop_five:hover > .menu_experiment,
-.drop_six:hover > .menu_experiment,
-.drop_seven:hover > .menu_experiment {
+.drop_one:hover > .menu_experiment {
   display: block;
   z-index: 7;
   margin-top: 15px;
 }
-.menu_one > ul li:hover,
-.menu_two > ul li:hover,
-.menu_three > ul li:hover,
-.menu_four > ul li:hover,
-.menu_five > ul li:hover,
-.menu_six > ul li:hover,
-.menu_seven > ul li:hover {
+.menu_one > ul li:hover {
   border-bottom: 3px solid #2f82ab;
   transition: 0.5s;
   cursor: pointer;
 }
-.menu_one ul,
-.menu_two ul,
-.menu_three ul,
-.menu_four ul,
-.menu_five ul,
-.menu_six ul,
-.menu_seven ul {
+.menu_one > ul > li {
   list-style: none;
-  padding: 10px;
-  color: #1d1d1d;
+  margin-top: 20px;
+  color: #615e5e;
+}
+span:hover {
+  color: red;
+  text-decoration: underline;
+  text-decoration-color: red;
+}
+.bargain {
+  margin-left: -2.5%;
+}
+.women {
+  margin-left: -13%;
+}
+.kids {
+  margin-left: -23%;
+}
+.beauty {
+  margin-left: -30%;
+}
+.men {
+  margin-left: -39.5%;
+}
+.home {
+  margin-left: -47%;
+}
+.cross {
+  margin-left: -58%;
+}
+.brand {
+  margin-left: -70%;
+}
+.gift {
+  margin-left: -79.5%;
+}
+.discover {
+  margin-left: -87%;
 }
