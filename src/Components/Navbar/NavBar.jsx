@@ -92,6 +92,7 @@ export default function NavBar() {
         </div>
       </div>
       <div className="temp"></div>
+      <div className="temp1"></div>
     </div>
   );
 }
