@@ -6,6 +6,7 @@ import Login from "../Fireauth/Login"
 import Profile from "../Components/Profile/Profile"
 import NavBar from "../Components/Navbar/NavBar"
 import NavbarList from "../Components/Navbar/NavbarList"
+import Home from "../Pages/Home";
 
 
 function Routes()
@@ -18,11 +19,10 @@ function Routes()
             <NavBar/>
             <NavbarList/>
 
-
             <Switch>
 
                 <Route path="/" exact>
-                    <h4>HI</h4>
+                   <Home/>
                 </Route>
 
                <Route path="/regi" exact>
