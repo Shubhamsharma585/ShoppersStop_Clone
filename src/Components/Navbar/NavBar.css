@@ -2,7 +2,8 @@
   display: flex;
   position: fixed;
   justify-content: left;
-  height: 80px;
+  height: 74px;
+  background-color: white;
 }
 
 .store {
@@ -33,7 +34,16 @@
 }
 .temp {
   position: relative;
+  visibility: hidden;
   height: 70px;
   box-shadow: 0 2px 5px 0 rgba(170, 162, 162, 0.2),
     0 2px 5px 0 rgba(204, 199, 199, 0.19);
+}
+.temp1 {
+  height: 5px;
+  box-shadow: 0 2px 5px 0 rgba(170, 162, 162, 0.2),
+    0 2px 5px 0 rgba(204, 199, 199, 0.19);
+}
+.navbar {
+  background-color: white;
 }
