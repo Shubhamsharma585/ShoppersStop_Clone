@@ -1,0 +1,7 @@
+.list {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 18px;
+  cursor: pointer;
+}

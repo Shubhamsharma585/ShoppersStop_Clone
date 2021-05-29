@@ -3,7 +3,9 @@ import { Route, Switch } from "react-router-dom"
 import Reg from "../Fireauth/Reg"
 import { useSelector } from "react-redux";
 import Login from "../Fireauth/Login"
-import Profile from "../Component/Profile/Profile"
+import Profile from "../Components/Profile/Profile"
+import NavBar from "../Components/Navbar/NavBar"
+import NavbarList from "../Components/Navbar/NavbarList"
 
 
 function Routes()
@@ -13,6 +15,10 @@ function Routes()
     return( 
         <div>
            
+            <NavBar/>
+            <NavbarList/>
+
+
             <Switch>
 
                 <Route path="/" exact>
