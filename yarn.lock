@@ -1477,12 +1477,31 @@
   "resolved" "https://registry.npmjs.org/aws4/-/aws4-1.11.0.tgz"
   "version" "1.11.0"
 
+<<<<<<< HEAD
+"axe-core@^4.0.2":
+  "integrity" "sha512-V+Nq70NxKhYt89ArVcaNL9FDryB3vQOd+BFXZIfO3RP6rwtj+2yqqqdHEkacutglPaZLkJeuXKCjCJDMGPtPqg=="
+  "resolved" "https://registry.npmjs.org/axe-core/-/axe-core-4.1.2.tgz"
+  "version" "4.1.2"
+
+"axios@^0.21.1":
+  "integrity" "sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA=="
+  "resolved" "https://registry.npmjs.org/axios/-/axios-0.21.1.tgz"
+  "version" "0.21.1"
+  dependencies:
+    "follow-redirects" "^1.10.0"
+
+"axobject-query@^2.2.0":
+  "integrity" "sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA=="
+  "resolved" "https://registry.npmjs.org/axobject-query/-/axobject-query-2.2.0.tgz"
+  "version" "2.2.0"
+=======
 "axobject-query@^0.1.0":
   "integrity" "sha1-YvWdvFnJ+SQnWco0mWDnov48NsA="
   "resolved" "https://registry.npmjs.org/axobject-query/-/axobject-query-0.1.0.tgz"
   "version" "0.1.0"
   dependencies:
     "ast-types-flow" "0.0.7"
+>>>>>>> 13b7c1fec9a648d0682e1d5e03218d14147c754b
 
 "babel-code-frame@^6.11.0", "babel-code-frame@^6.22.0", "babel-code-frame@^6.26.0", "babel-code-frame@6.26.0":
   "integrity" "sha1-Y/1D99weO7fONZR9uP42mj9Yx0s="
@@ -4569,10 +4588,25 @@
   "resolved" "https://registry.npmjs.org/flatten/-/flatten-1.0.3.tgz"
   "version" "1.0.3"
 
+<<<<<<< HEAD
+"flush-write-stream@^1.0.0":
+  "integrity" "sha512-3Z4XhFZ3992uIq0XOqb9AreonueSYphE6oYbpt5+3u06JWklbsPkNv3ZKkP9Bz/r+1MWCaMoSQ28P85+1Yc77w=="
+  "resolved" "https://registry.npmjs.org/flush-write-stream/-/flush-write-stream-1.1.1.tgz"
+  "version" "1.1.1"
+  dependencies:
+    "inherits" "^2.0.3"
+    "readable-stream" "^2.3.6"
+
+"follow-redirects@^1.0.0", "follow-redirects@^1.10.0":
+  "integrity" "sha512-6mPTgLxYm3r6Bkkg0vNM0HTjfGrOEtsfbhagQvbxDEsEkpNhw582upBaoRZylzen6krEmxXJgt9Ju6HiI4O7BA=="
+  "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.13.2.tgz"
+  "version" "1.13.2"
+=======
 "follow-redirects@^1.0.0":
   "integrity" "sha512-HWqDgT7ZEkqRzBvc2s64vSZ/hfOceEol3ac/7tKwzuvEyWx3/4UegXh5oBOIotkGsObyk3xznnSRVADBgWSQVg=="
   "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.14.1.tgz"
   "version" "1.14.1"
+>>>>>>> 13b7c1fec9a648d0682e1d5e03218d14147c754b
 
 "for-in@^1.0.1", "for-in@^1.0.2":
   "integrity" "sha1-gQaNKVqBQuwKxybG4iAMMPttXoA="

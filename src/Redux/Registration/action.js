@@ -1,22 +1,53 @@
 
-
-import { REGISTER_REQUEST, REGISTER_SUCCESS } from "./actiontype"
+import { REGISTER_REQUEST, REGISTER_SUCCESS, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_SUCCESS } from "./actiontype"
 import Axios from "axios"
+
 
 
 
 export const registering = (payload) => dispatch => {
     console.log("registering")
-    console.log(payload)
+    console.log(payload)  
 
     dispatch(registerrequest())
-    Axios.post("",{
-        ...payload
+    Axios.post("https://json-heroku-shubham.herokuapp.com/users",{
+        ...payload,
+        address: [],
+        favorite: [],
+        orders: [],
+        cart: [],
+        wallet: 0
     })
-    .then((res) => {
+    .then((res) => { 
         console.log(res.data)
         dispatch(registersuccess(res.data))
     })
+}
+
+
+
+export const loggingout = (payload) => dispatch => {
+    console.log(payload)
+    dispatch(logout())
+}
+
+
+export const SignInlogin = (payload) => dispatch => {
+    console.log(payload)
+    console.log(payload.user.phoneNumber)
+    dispatch(loginRequest())
+    
+    Axios.get("https://json-heroku-shubham.herokuapp.com/users",{
+        params: {
+            number: payload.user.phoneNumber
+        }  
+    })
+    .then((res) => {
+        console.log(res.data[0])
+        dispatch(loginSuccessfull(res.data[0]))
+    })
+
+
 }
 
 
@@ -31,6 +62,28 @@ const registerrequest = (payload) => {
 const registersuccess = (payload) => {
     return {
         type: REGISTER_SUCCESS,
+        payload
+    }
+}
+
+const loginRequest = (payload) => {
+    return {
+        type: LOGIN_REQUEST,
+        payload
+    } 
+}
+
+const loginSuccessfull = (payload) => {
+    return {
+        type: LOGIN_SUCCESS,
+        payload
+    } 
+}
+
+
+const logout = (payload) => {
+    return {
+        type: LOGOUT_SUCCESS,
         payload
     }
 }
