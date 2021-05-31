@@ -1,11 +1,11 @@
 import React, { useReducer } from "react"
 import { Route, Switch } from "react-router-dom"
-import Reg from "../Fireauth/Reg"
-import { useSelector } from "react-redux";
-import Login from "../Fireauth/Login"
+import Login from "../Components/Fireauth/Login"
+import Reg from "../Components/Fireauth/Reg"
 import Profile from "../Components/Profile/Profile"
 import NavBar from "../Components/Navbar/NavBar"
 import NavbarList from "../Components/Navbar/NavbarList"
+import Testing from "../Components/Testing";
 
 
 function Routes()
@@ -21,12 +21,8 @@ function Routes()
 
             <Switch>
 
-                <Route path="/" exact>
-                    <h4>HI</h4>
-                </Route>
-
-               <Route path="/regi" exact>
-                   <Reg/>
+               <Route path="/registration" exact>
+                   <Reg/> 
                </Route>
 
                <Route path="/login" exact>
@@ -35,6 +31,11 @@ function Routes()
 
                <Route path="/profile" exact>
                    <Profile/>
+               </Route>
+
+
+               <Route path="/testing" exact>
+                   <Testing/>
                </Route>
 
 
