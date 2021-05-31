@@ -6,6 +6,7 @@ import Profile from "../Components/Profile/Profile"
 import NavBar from "../Components/Navbar/NavBar"
 import NavbarList from "../Components/Navbar/NavbarList"
 import Testing from "../Components/Testing";
+import Home from "../Pages/Home";
 
 
 function Routes()
@@ -18,11 +19,14 @@ function Routes()
             <NavBar/>
             <NavbarList/>
 
-
             <Switch>
 
+                <Route path="/" exact>
+                   <Home/>
+                </Route>
+
                <Route path="/registration" exact>
-                   <Reg/> 
+                   <Reg/>
                </Route>
 
                <Route path="/login" exact>

@@ -3,11 +3,31 @@ import React from "react"
 import { Avatar } from '@material-ui/core';
 import styles from "../Profile/Profile.module.css"
 import { Link } from "react-router-dom";
+import {firebase, auth } from "../Fireauth/firebase"
+import { useSelector, useDispatch } from "react-redux"
+import { loggingout } from "../../Redux/Registration/action"
+
+
 
 
 function Profile()
-{
+{ 
 
+
+    const Dispatch = useDispatch()
+    var isloggedIn = useSelector(state => state.regi.isloggedIn)
+      
+
+
+    const LogOut = () => {
+        auth.signOut().then(function() {
+            Dispatch(loggingout())
+            console.log('User Logged Out!');
+          }).catch(function(error) {
+            // An error happened.
+            console.log(error);
+          });
+    }
 
 
 
@@ -56,7 +76,7 @@ function Profile()
                         <hr></hr>
                         <Link to="user/myoffer" className={styles.bottomleft_link}><p className={styles.bottomleft_link}>STORE LOCATOR</p></Link>
                         <hr></hr>
-                        <Link to="user/myoffer" className={styles.bottomleft_link}><p className={styles.bottomleft_link}>LOGOUT</p></Link>
+                        <p className={styles.bottomleft_link} onClick={LogOut}>LOGOUT</p>
                         <hr></hr>                
                    </div>
                  

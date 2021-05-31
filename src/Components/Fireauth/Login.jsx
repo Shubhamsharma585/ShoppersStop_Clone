@@ -149,7 +149,7 @@ if (user) {
     
 
     return isloggedIn?( 
-      <Redirect to="/" push/>
+      <Redirect to="/testing" push/>
     ):(
           <div className={styles.left}>
                 <h4 style={{marginLeft:"150px"}}>SIGN IN <span style={{marginLeft:"150px", fontSize:"25px", color:"gray", cursor:"pointer"}}>x</span></h4>  
