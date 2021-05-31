@@ -10,15 +10,17 @@ function Carousel({images}) {
 
       const carousel_div={ 
             width: "100%",
-            position: 'relative',
+            // position: 'relative',
+            margin:"10px 0px 10px 0"
       }
       const indicator_box={
       display:"flex",
       margin:"auto",
-      position: 'absolute',
+    //   position: 'relative',
       justifyContent:"center",
       bottom:"3%",
-      left:`${55-images.length*3}%`
+      left:`${55-images.length*3}%`,
+      background: "lightgray"
     }
 
     return (
