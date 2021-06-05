@@ -7,6 +7,7 @@ import NavBar from "../Components/Navbar/NavBar"
 import NavbarList from "../Components/Navbar/NavbarList"
 import Testing from "../Components/Testing";
 import Home from "../Pages/Home";
+import OneProduct from "../Components/OneProduct/OneProduct"
 
 
 function Routes()
@@ -37,9 +38,17 @@ function Routes()
                    <Profile/>
                </Route>
 
+               <Route path="/product/:id" exact>
+                   <OneProduct/>
+               </Route>
+
 
                <Route path="/testing" exact>
                    <Testing/>
+               </Route>
+
+               <Route>
+                   <h2>Page not found!</h2>
                </Route>
 
 
