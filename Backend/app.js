@@ -35,9 +35,44 @@ const usersSchema = mongoose.Schema({
     image_url: String,
     gender: String,
     address: [String],
-    favorite: [String],
-    orders: [],
-    cart: [],
+    favorite: [{
+        size: String,
+        id: String,
+        quantity: Number,
+        category: String,
+        name: String,
+        img: String,
+        company: String,
+        description: String,
+        color: String,
+        mrp: Number,
+        discount: Number,
+    }],
+    orders: [{
+        size: String,
+        _id: String,
+        quantity: Number,
+        category: String,
+        name: String,
+        img: String,
+        company: String,
+        description: String,
+        color: String,
+        mrp: Number,
+        discount: Number,
+    }],
+    cart: [{
+        size: String,
+        quantity: Number,
+        category: String,
+        name: String,
+        img: String,
+        company: String,
+        description: String,
+        color: String,
+        mrp: Number,
+        discount: Number,
+    }],
 }, {
 
     versionKey: false
@@ -72,37 +107,29 @@ app.post("/product", async (req, res) => {
 })
 
 
-app.get("/user", async (req, res) => {
-    let age = +req.query.age
-    let sort = req.query._sort;
-    let order = req.query._order
-    age = age ? { age } : {}
-    let obj = {}
-    sort ? obj[sort] = order == "asc" ? 1 : -1 : {}
-    const user = await User.find(age).sort(obj)
-    res.json({ data: user })
-})
-app.get("/user", async (req, res) => {
-    const user = await User.find()
+app.get("/user/:phoneNumber", async (req, res) => {
+    let mobile = req.params.phoneNumber
+    const user = await User.find({ phone: mobile })
     res.json({ data: user })
 })
 app.post("/user", async (req, res) => {
-    const user = await User.create(...req.body)
-    res.json({ data: user })
-})
-app.delete("/user/:id", async (req, res) => {
-    let id = req.params.id;
-    let user = await User.findByIdAndDelete(id)
-    res.status(203).json({ data: user })
+    const user = await User.create(req.body)
+    res.status(201).json({ data: user })
 })
 app.patch("/user/:id", async (req, res) => {
     let id = req.params.id;
-    const user = await User.findByIdAndUpdate(id, req.body, { new: true })
-    res.status(203).json({ data: user })
+    let productId = req.query.productId;
+    let user = await User.findByIdAndUpdate(id, req.body, { new: true });
+    res.status(201).json({ data: user })
 })
-
-
-
+// app.patch("/user/phone/:phone", async (req, res) => {
+//     let phone = req.params.phone;
+//     let productId = req.query.productId;
+//     let temp = req.body;
+//     let user = await User.find({ phone: phone }, { cart: { $set: temp } })
+//     // let user = await User.findByIdAndUpdate(id, req.body, { new: true });
+//     res.status(201).json({ data: user })
+// })
 
 const start = async () => {
     await connect();
