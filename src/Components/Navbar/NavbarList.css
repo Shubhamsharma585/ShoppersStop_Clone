@@ -40,7 +40,7 @@
   margin-top: 20px;
   color: #615e5e;
 }
-span:hover {
+.spanHover:hover {
   color: red;
   text-decoration: underline;
   text-decoration-color: red;

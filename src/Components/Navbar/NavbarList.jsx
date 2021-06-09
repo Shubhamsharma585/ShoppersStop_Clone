@@ -6,7 +6,7 @@ export default function NavbarList() {
     <div>
       <div className="list">
         <li className="drop_one">
-          <span>BARGAINS</span>
+          <span className="spanHover">BARGAINS</span>
           <div className="menu_experiment">
             <div className="menu_one bargain">
               <ul>
@@ -37,7 +37,7 @@ export default function NavbarList() {
         </li>
 
         <li className="drop_one">
-          <span>WOMEN</span>
+          <span className="spanHover">WOMEN</span>
           <div className="menu_experiment">
             <div className="menu_one women">
               <ul>
@@ -77,7 +77,7 @@ export default function NavbarList() {
           </div>
         </li>
         <li className="drop_one ">
-          <span>KIDS</span>
+          <span className="spanHover">KIDS</span>
           <div className="menu_experiment">
             <div className="menu_one kids">
               <ul>
@@ -122,7 +122,7 @@ export default function NavbarList() {
           </div>
         </li>
         <li className="drop_one ">
-          <span>BEAUTY</span>
+          <span className="spanHover">BEAUTY</span>
           <div className="menu_experiment">
             <div className="menu_one  beauty">
               <ul>
@@ -165,7 +165,7 @@ export default function NavbarList() {
           </div>
         </li>
         <li className="drop_one ">
-          <span>MEN</span>
+          <span className="spanHover">MEN</span>
           <div className="menu_experiment">
             <div className="menu_one men">
               <ul>
@@ -205,7 +205,7 @@ export default function NavbarList() {
         </li>
 
         <li className="drop_one ">
-          <span>HOMESHOP</span>
+          <span className="spanHover">HOMESHOP</span>
           <div className="menu_experiment">
             <div className="menu_one home">
               <ul>
@@ -246,7 +246,7 @@ export default function NavbarList() {
           </div>
         </li>
         <li className="drop_one ">
-          <span>CROSSWORD</span>
+          <span className="spanHover">CROSSWORD</span>
           <div className="menu_experiment">
             <div className="menu_one  cross">
               <ul>
@@ -292,7 +292,7 @@ export default function NavbarList() {
           </div>
         </li>
         <li className="drop_one ">
-          <span>BRAND</span>
+          <span className="spanHover">BRAND</span>
           <div className="menu_experiment">
             <div className="menu_one  brand">
               <ul>
@@ -322,7 +322,7 @@ export default function NavbarList() {
           </div>
         </li>
         <li className="drop_one ">
-          <span>GIFTS</span>
+          <span className="spanHover">GIFTS</span>
           <div className="menu_experiment">
             <div className="menu_one  gift">
               <ul>
@@ -353,7 +353,7 @@ export default function NavbarList() {
           </div>
         </li>
         <li className="drop_one ">
-          <span>DISCOVER</span>
+          <span className="spanHover">DISCOVER</span>
           <div className="menu_experiment">
             <div className="menu_one kids discover">
               <ul>
