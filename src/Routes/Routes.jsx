@@ -6,7 +6,9 @@ import Profile from "../Components/Profile/Profile"
 import NavBar from "../Components/Navbar/NavBar"
 import NavbarList from "../Components/Navbar/NavbarList"
 import Testing from "../Components/Testing";
+import Cart from "../Components/Cart/Cart"
 import Home from "../Pages/Home";
+import Payment from "../Components/Payment/Payment"
 
 
 function Routes()
@@ -37,6 +39,13 @@ function Routes()
                    <Profile/>
                </Route>
 
+               <Route path="/cart" exact>
+                   <Cart/>
+               </Route>
+
+               <Route path="/payment" exact>
+                   <Payment/>
+               </Route>
 
                <Route path="/testing" exact>
                    <Testing/>
