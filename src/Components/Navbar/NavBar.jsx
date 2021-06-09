@@ -11,6 +11,7 @@ import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined"
 
 export default function NavBar() {
   const [show, handleShow] = React.useState(false);
+  const [login] = React.useState(false);
   React.useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 100) {
@@ -31,7 +32,9 @@ export default function NavBar() {
           <div style={{ display: "flex" }}>
             {" "}
             <StoreOutlinedIcon color="action" style={{ paddingTop: "20px" }} />
-            <p style={{ width: "120px" }}>&nbsp;&nbsp; All Stores</p>
+            <p style={{ width: "120px", color: "#615e5e" }}>
+              &nbsp;&nbsp; All Stores
+            </p>
           </div>
           <div style={{ display: "flex" }}>
             <PermContactCalendarOutlinedIcon
@@ -39,14 +42,19 @@ export default function NavBar() {
               style={{ paddingTop: "20px" }}
             />
 
-            <p style={{ width: "120px" }}> &nbsp;&nbsp;Contact Us</p>
+            <p style={{ width: "120px", color: "#615e5e" }}>
+              {" "}
+              &nbsp;&nbsp;Contact Us
+            </p>
           </div>
           <div
             style={{ display: "flex" }}
             className={`nav ${show && "nav_black"}`}
           >
             <MenuOutlinedIcon color="action" style={{ paddingTop: "20px" }} />
-            <p style={{ width: "120px" }}>&nbsp;&nbsp;Category</p>
+            <p style={{ width: "120px", color: "#615e5e" }}>
+              &nbsp;&nbsp;Category
+            </p>
           </div>
         </div>
         <div className="logo">
@@ -66,20 +74,20 @@ export default function NavBar() {
             <TextField
               id="standard-basic"
               placeholder="search product & brand"
-              style={{ width: "350px" }}
+              style={{ width: "320px" }}
             />
           </div>
 
           <div>
             <SearchOutlinedIcon
-              fontSize="large"
+              fontSize="default"
               color="action"
               style={{ paddingTop: "20px", background: "white" }}
             />
           </div>
           <div>
             <FavoriteBorderOutlinedIcon
-              fontSize="large"
+              fontSize="default"
               color="action"
               style={{
                 paddingTop: "17px",
@@ -90,7 +98,7 @@ export default function NavBar() {
           </div>
           <div>
             <LocalMallOutlinedIcon
-              fontSize="large"
+              fontSize="default"
               color="action"
               style={{
                 paddingTop: "17px",
@@ -99,9 +107,9 @@ export default function NavBar() {
               }}
             />
           </div>
-          <div>
+          <div className="signIn">
             <AccountCircleOutlinedIcon
-              fontSize="large"
+              fontSize="default"
               color="action"
               style={{
                 paddingTop: "17px",
@@ -109,6 +117,43 @@ export default function NavBar() {
                 background: "white",
               }}
             />
+            {!login && (
+              <div className="signHover">
+                <li>
+                  SIGN IN
+                  <hr
+                    style={{ marginLeft: "-20px", border: "solid 1px #e0dede" }}
+                  />
+                </li>
+                <li>SIGN OUT</li>
+              </div>
+            )}
+            {login && (
+              <div className="signHover">
+                <li>
+                  MY ACCOUNT
+                  <hr
+                    style={{ marginLeft: "-20px", border: "solid 1px #e0dede" }}
+                  />
+                </li>
+                <li>
+                  ORDERS{" "}
+                  <hr
+                    style={{ marginLeft: "-20px", border: "solid 1px #e0dede" }}
+                  />
+                </li>
+                <li>
+                  PROFILE
+                  <hr
+                    style={{
+                      marginLeft: "-20px",
+                      border: "solid 1px #e0dede",
+                    }}
+                  />
+                </li>
+                <li>SIGN OUT</li>
+              </div>
+            )}
           </div>
         </div>
       </div>
