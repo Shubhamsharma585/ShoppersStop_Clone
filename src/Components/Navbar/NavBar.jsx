@@ -1,5 +1,6 @@
 import React from "react";
 import "./NavBar.css";
+import { Link } from "react-router-dom" 
 import StoreOutlinedIcon from "@material-ui/icons/StoreOutlined";
 import PermContactCalendarOutlinedIcon from "@material-ui/icons/PermContactCalendarOutlined";
 import MenuOutlinedIcon from "@material-ui/icons/MenuOutlined";
@@ -8,9 +9,34 @@ import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutlined";
 import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
+import {firebase, auth } from "../Fireauth/firebase"
+import { useSelector, useDispatch } from "react-redux"
+import { loggingout } from "../../Redux/Registration/action"
 
-export default function NavBar() {
+
+export default function NavBar() { 
+
+  const Dispatch = useDispatch();
+  var login = useSelector(state => state.regi.isloggedIn)
+
+
   const [show, handleShow] = React.useState(false);
+
+
+
+  const LogOut = () => {
+    auth.signOut().then(function() {
+        Dispatch(loggingout())
+        console.log('User Logged Out!');
+      }).catch(function(error) {
+        // An error happened.
+        console.log(error);
+      });
+}
+
+
+
+  
   React.useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 100) {
@@ -31,7 +57,9 @@ export default function NavBar() {
           <div style={{ display: "flex" }}>
             {" "}
             <StoreOutlinedIcon color="action" style={{ paddingTop: "20px" }} />
-            <p style={{ width: "120px" }}>&nbsp;&nbsp; All Stores</p>
+            <p style={{ width: "120px", color: "#615e5e" }}>
+              &nbsp;&nbsp; All Stores
+            </p>
           </div>
           <div style={{ display: "flex" }}>
             <PermContactCalendarOutlinedIcon
@@ -39,14 +67,19 @@ export default function NavBar() {
               style={{ paddingTop: "20px" }}
             />
 
-            <p style={{ width: "120px" }}> &nbsp;&nbsp;Contact Us</p>
+            <p style={{ width: "120px", color: "#615e5e" }}>
+              {" "}
+              &nbsp;&nbsp;Contact Us
+            </p>
           </div>
           <div
             style={{ display: "flex" }}
             className={`nav ${show && "nav_black"}`}
           >
             <MenuOutlinedIcon color="action" style={{ paddingTop: "20px" }} />
-            <p style={{ width: "120px" }}>&nbsp;&nbsp;Category</p>
+            <p style={{ width: "120px", color: "#615e5e" }}>
+              &nbsp;&nbsp;Category
+            </p>
           </div>
         </div>
         <div className="logo">
@@ -72,14 +105,14 @@ export default function NavBar() {
 
           <div>
             <SearchOutlinedIcon
-              fontSize="large"
+              fontSize="default"
               color="action"
               style={{ paddingTop: "20px", background: "white" }}
             />
           </div>
           <div>
             <FavoriteBorderOutlinedIcon
-              fontSize="large"
+              fontSize="default"
               color="action"
               style={{
                 paddingTop: "17px",
@@ -90,7 +123,7 @@ export default function NavBar() {
           </div>
           <div>
             <LocalMallOutlinedIcon
-              fontSize="large"
+              fontSize="default"
               color="action"
               style={{
                 paddingTop: "17px",
@@ -99,9 +132,9 @@ export default function NavBar() {
               }}
             />
           </div>
-          <div>
+          <div className="signIn">
             <AccountCircleOutlinedIcon
-              fontSize="large"
+              fontSize="default"
               color="action"
               style={{
                 paddingTop: "17px",
@@ -109,6 +142,48 @@ export default function NavBar() {
                 background: "white",
               }}
             />
+            {!login && (
+              <div className="signHover">
+                <li><Link to={"/login"}>
+                    SIGN IN
+                </Link> 
+                  <hr
+                    style={{ marginLeft: "-20px", border: "solid 1px #e0dede" }}
+                  />
+                </li>
+                <li>
+                <Link to={"/registration"}>
+                  SIGN UP
+                 </Link>
+                  </li>
+              </div>
+            )}
+            {login && (
+              <div className="signHover">
+                <li>
+                  MY ACCOUNT
+                  <hr
+                    style={{ marginLeft: "-20px", border: "solid 1px #e0dede" }}
+                  />
+                </li>
+                <li>
+                  ORDERS{" "}
+                  <hr
+                    style={{ marginLeft: "-20px", border: "solid 1px #e0dede" }}
+                  />
+                </li>
+                <li>
+                  PROFILE
+                  <hr
+                    style={{
+                      marginLeft: "-20px",
+                      border: "solid 1px #e0dede",
+                    }}
+                  />
+                </li>
+                <li onClick={LogOut}>SIGN OUT</li>
+              </div>
+            )}
           </div>
         </div>
       </div>

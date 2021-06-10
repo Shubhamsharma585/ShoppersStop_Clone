@@ -1,51 +1,61 @@
-import React, { useReducer } from "react";
-import { Route, Switch } from "react-router-dom";
-import Login from "../Components/Fireauth/Login";
-import Reg from "../Components/Fireauth/Reg";
-import Profile from "../Components/Profile/Profile";
-import NavBar from "../Components/Navbar/NavBar";
-import NavbarList from "../Components/Navbar/NavbarList";
-import Testing from "../Components/Testing";
+import React from "react"
+import { Route, Switch } from "react-router-dom"
+import Login from "../Components/Fireauth/Login"
+import Reg from "../Components/Fireauth/Reg"
+import Profile from "../Components/Profile/Profile"
+import NavBar from "../Components/Navbar/NavBar"
+import NavbarList from "../Components/Navbar/NavbarList"
+import Cart from "../Components/Cart/Cart"
 import Home from "../Pages/Home";
-import OneProduct from "../Components/OneProduct/OneProduct";
+import OneProduct from "../Components/OneProduct/OneProduct"
+import Payment from "../Components/Payment/Payment"
 
-function Routes() {
-  return (
-    <div>
-      <NavBar />
-      <NavbarList />
 
-      <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
+function Routes()
+{
+ 
 
-        <Route path="/registration" exact>
-          <Reg />
-        </Route>
+    return( 
+        <div>
+           
+            <NavBar/>
+            <NavbarList/>
 
-        <Route path="/login" exact>
-          <Login />
-        </Route>
+            <Switch>
 
-        <Route path="/profile" exact>
-          <Profile />
-        </Route>
+                <Route path="/" exact>
+                   <Home/>
+                </Route>
 
-        <Route path="/product/:id" exact>
-          <OneProduct />
-        </Route>
+               <Route path="/registration" exact> 
+                   <Reg/>
+               </Route>
 
-        <Route path="/testing" exact>
-          <Testing />
-        </Route>
+               <Route path="/login" exact>
+                   <Login/>
+               </Route>
 
-        <Route>
-          <h2>Page not found!</h2>
-        </Route>
-      </Switch>
-    </div>
-  );
+               <Route path="/profile" exact>
+                   <Profile/>
+               </Route>
+
+               <Route path="/cart" exact>
+                   <Cart/>
+               </Route>
+
+           <Route path="/product/:id">
+               <OneProduct/>
+           </Route>
+               <Route path="/payment" exact>
+                   <Payment/>
+               </Route>
+
+
+            </Switch>
+
+
+        </div>
+    )
 }
 
 export default Routes;

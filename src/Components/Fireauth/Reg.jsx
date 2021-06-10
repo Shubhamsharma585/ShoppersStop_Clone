@@ -80,7 +80,7 @@ function Reg()
                 console.log(err)
             })
         }) 
-    } 
+    }  
   
   
   
@@ -96,9 +96,8 @@ function Reg()
       // [END auth_simple_link]
     }
  
-
-
-
+   
+     
 
 
     return isloggedIn?(

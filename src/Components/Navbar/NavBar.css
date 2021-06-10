@@ -10,13 +10,12 @@
   margin-left: 1%;
   display: flex;
   font-weight: 300;
-
-  width: 23%;
+  width: 27%;
   font-size: 20px;
   justify-content: space-between;
 }
 .logo {
-  margin-left: 27%;
+  margin-left: 20%;
   margin-top: 10px;
 }
 .textfield {
@@ -46,4 +45,33 @@
 }
 .navbar {
   background-color: white;
+}
+.signHover {
+  width: 100px;
+  background: white;
+  visibility: hidden;
+  margin-top: 20px;
+  /* margin-left: 100px; */
+}
+.signHover > li {
+  list-style: none;
+  /* line-height: 1cm; */
+  color: rgb(92, 94, 95);
+  background: white;
+  width: 150px;
+  text-decoration: none;
+  height: 35px;
+  padding-left: 20px;
+  cursor: pointer;
+  margin-left: -100px;
+}
+
+.signHover > li > Link 
+{
+  text-decoration: none;
+}
+
+.signIn:hover > div {
+  /* display: block; */
+  visibility: visible;
 }
