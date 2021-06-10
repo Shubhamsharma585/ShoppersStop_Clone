@@ -7,10 +7,10 @@ import Axios from "axios"
 
 export const registering = (payload) => dispatch => {
     console.log("registering")
-    console.log(payload)  
+    console.log(payload)
 
     dispatch(registerrequest())
-    Axios.post("https://json-heroku-shubham.herokuapp.com/users",{
+    Axios.post("https://json-heroku-shubham.herokuapp.com/users", {
         ...payload,
         address: [],
         favorite: [],
@@ -18,10 +18,10 @@ export const registering = (payload) => dispatch => {
         cart: [],
         wallet: 0
     })
-    .then((res) => { 
-        console.log(res.data)
-        dispatch(registersuccess(res.data))
-    })
+        .then((res) => {
+            console.log(res.data)
+            dispatch(registersuccess(res.data))
+        })
 }
 
 
@@ -36,16 +36,16 @@ export const SignInlogin = (payload) => dispatch => {
     console.log(payload)
     console.log(payload.user.phoneNumber)
     dispatch(loginRequest())
-    
-    Axios.get("https://json-heroku-shubham.herokuapp.com/users",{
+
+    Axios.get("https://json-heroku-shubham.herokuapp.com/users", {
         params: {
             number: payload.user.phoneNumber
-        }  
+        }
     })
-    .then((res) => {
-        console.log(res.data[0])
-        dispatch(loginSuccessfull(res.data[0]))
-    })
+        .then((res) => {
+            console.log(res.data[0])
+            dispatch(loginSuccessfull(res.data[0]))
+        })
 
 
 }
@@ -53,10 +53,10 @@ export const SignInlogin = (payload) => dispatch => {
 
 
 const registerrequest = (payload) => {
-      return {
-          type: REGISTER_REQUEST,
-          payload
-      }
+    return {
+        type: REGISTER_REQUEST,
+        payload
+    }
 }
 
 const registersuccess = (payload) => {
@@ -70,14 +70,14 @@ const loginRequest = (payload) => {
     return {
         type: LOGIN_REQUEST,
         payload
-    } 
+    }
 }
 
 const loginSuccessfull = (payload) => {
     return {
         type: LOGIN_SUCCESS,
         payload
-    } 
+    }
 }
 
 
