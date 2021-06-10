@@ -10,14 +10,15 @@ import { loggingout } from "../../Redux/Registration/action"
 
 
 
+ 
 function Profile()
 { 
 
 
     const Dispatch = useDispatch()
     var isloggedIn = useSelector(state => state.regi.isloggedIn)
-      
-
+    var object_id = useSelector(state => state.regi.object_id) 
+    
 
     const LogOut = () => {
         auth.signOut().then(function() {

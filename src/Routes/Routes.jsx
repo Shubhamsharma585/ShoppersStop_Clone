@@ -1,12 +1,13 @@
-import React, { useReducer } from "react"
+import React from "react"
 import { Route, Switch } from "react-router-dom"
 import Login from "../Components/Fireauth/Login"
 import Reg from "../Components/Fireauth/Reg"
 import Profile from "../Components/Profile/Profile"
 import NavBar from "../Components/Navbar/NavBar"
 import NavbarList from "../Components/Navbar/NavbarList"
-import Testing from "../Components/Testing";
+import Cart from "../Components/Cart/Cart"
 import Home from "../Pages/Home";
+import Payment from "../Components/Payment/Payment"
 
 
 function Routes()
@@ -25,7 +26,7 @@ function Routes()
                    <Home/>
                 </Route>
 
-               <Route path="/registration" exact>
+               <Route path="/registration" exact> 
                    <Reg/>
                </Route>
 
@@ -37,9 +38,12 @@ function Routes()
                    <Profile/>
                </Route>
 
+               <Route path="/cart" exact>
+                   <Cart/>
+               </Route>
 
-               <Route path="/testing" exact>
-                   <Testing/>
+               <Route path="/payment" exact>
+                   <Payment/>
                </Route>
 
 

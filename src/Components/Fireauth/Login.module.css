@@ -116,14 +116,14 @@
     background-position-x: -101px;
     background-position-y: -1400px;
     margin: auto;
-    height: 40px;
+    height: 40px; 
     width: 20%;
 }
 
 .google
 {
     background-image: url(../../database/image.webp);
-    background-position-x: -133px;
+    background-position-x: -125px;
     background-position-y: -1398px;
     margin: auto;
     height: 40px;

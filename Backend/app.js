@@ -1,20 +1,27 @@
 const express = require("express");
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+const cors = require("cors");
+
 const app = express();
+app.use(cors({
+    origin:"*"
+}))
 app.use(express.json())
+
+
 const connect = () => {
     return mongoose.connect("mongodb+srv://manisgdb:manish@cluster0.ufnzw.mongodb.net/shoppers?retryWrites=true&w=majority", {
         useNewUrlParser: true,
         useCreateIndex: true,
         useFindAndModify: false,
-        useUnifiedTopology: true
+        useUnifiedTopology: true 
     });
-}
+} 
 const productSchema = mongoose.Schema({
     size: [String],
     category: String,
     name: String,
-    img: String,
+    img: String, 
     company: String,
     description: String,
     color: String,
@@ -27,7 +34,7 @@ const usersSchema = mongoose.Schema({
 
     first_name: String,
     last_name: String,
-    phone: Number,
+    number: String,
     password: Number,
     wallet: Number,
     email: String,
@@ -109,7 +116,7 @@ app.post("/product", async (req, res) => {
 
 app.get("/user/:phoneNumber", async (req, res) => {
     let mobile = req.params.phoneNumber
-    const user = await User.find({ phone: mobile })
+    const user = await User.find({ number: mobile })
     res.json({ data: user })
 })
 app.post("/user", async (req, res) => {
