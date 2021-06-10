@@ -144,7 +144,7 @@ export default function NavBar() {
             />
             {!login && (
               <div className="signHover">
-                <li><Link to={"/login"}>
+                <li><Link to={"/login"} style={{textDecoration:"none", color:"grey"}}>
                     SIGN IN
                 </Link> 
                   <hr
@@ -152,7 +152,7 @@ export default function NavBar() {
                   />
                 </li>
                 <li>
-                <Link to={"/registration"}>
+                <Link to={"/registration"} style={{textDecoration:"none", color:"grey"}}>
                   SIGN UP
                  </Link>
                   </li>
@@ -173,7 +173,9 @@ export default function NavBar() {
                   />
                 </li>
                 <li>
+                <Link to={"/profile"} style={{textDecoration:"none"}}>
                   PROFILE
+                 </Link> 
                   <hr
                     style={{
                       marginLeft: "-20px",

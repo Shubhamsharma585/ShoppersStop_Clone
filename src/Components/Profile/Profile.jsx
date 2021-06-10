@@ -2,7 +2,7 @@
 import React from "react"
 import { Avatar } from '@material-ui/core';
 import styles from "../Profile/Profile.module.css"
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import {firebase, auth } from "../Fireauth/firebase"
 import { useSelector, useDispatch } from "react-redux"
 import { loggingout } from "../../Redux/Registration/action"
@@ -17,8 +17,40 @@ function Profile()
 
     const Dispatch = useDispatch()
     var isloggedIn = useSelector(state => state.regi.isloggedIn)
-    var object_id = useSelector(state => state.regi.object_id) 
+    var fname = useSelector(state => state.regi.first_name)
+    var lname = useSelector(state => state.regi.last_name)
+    var gender = useSelector(state => state.regi.gender)
+    var email = useSelector(state => state.regi.email)
+    var mobile = useSelector(state => state.regi.number)
+    var isverified = useSelector(state => state.regi.email_verified)
+    var address = useSelector(state => state.regi.address)
+    var wallet = useSelector(state => state.regi.wallet)
+
     
+
+
+    const PassReset = () => {
+
+        auth.sendPasswordResetEmail(email).then(function() {
+            console.log("email sent")
+        }).catch(function(error) {
+            console.log(error)
+        });
+      }
+
+
+      const verificationEmail = () => {
+
+        var user = auth.currentUser;
+        user.sendEmailVerification().then(function() {
+            console.log("verification email sent!")
+        }).catch(function(error) {
+            console.log("Email Already verified!")
+        });
+    }
+
+      
+
 
     const LogOut = () => {
         auth.signOut().then(function() {
@@ -32,7 +64,9 @@ function Profile()
 
 
 
-    return(
+    return !isloggedIn? (
+             <Redirect to={"/"} push/>
+       ):(
         <div>
             <div className={styles.main}>
                     
@@ -44,9 +78,9 @@ function Profile()
                        </div>
 
                        <div className={styles.topleft_detail}>
-                           <p>Name: Shubham sharma</p>
-                           <p>Email: shubhamsharma585@gmail.com</p>
-                           <p>Mobile: 8619941818</p>
+                           <p>Name: <span>{fname+" "+lname}</span></p>
+                           <p>Email: <span>{email}</span></p>
+                           <p>Mobile: <span>{mobile}</span></p>
                        </div>
 
                    </div>
@@ -57,7 +91,7 @@ function Profile()
                           <p>54675455</p>
                      </div>  
                        <div className={styles.middlediv}/>
-                       <p>Change password</p>
+                       <p className={styles.pass_reset} onClick={() => PassReset()}>Change password</p>
                    </div>
 
                    <div className={styles.bottomleft}>
@@ -95,12 +129,13 @@ function Profile()
                        <p> Gender</p>
                         </div>
 
+                
                         <div className={styles.rightCont_right}>
-                         <p> shubham </p>  
-                         <p> sharma </p>         
-                         <p> shubhamsharma585@gmail.com</p>
-                         <p> +91 8619941188   (Not Verified)</p>
-                         <p> Male</p>
+                           <p>{fname}</p>
+                           <p>{lname}</p>
+                           <p>{email} <span className={styles.verify} onClick={() => verificationEmail()}> {isverified? ("verified"): ("verify?")}</span></p>
+                           <p>{mobile}</p>
+                           <p>{gender}</p>
                         </div>
                     </div>
                   

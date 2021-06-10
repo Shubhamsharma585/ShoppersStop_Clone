@@ -31,7 +31,7 @@ function regireducer(state = initstate, {type, payload})
     switch(type)
     {
         case REGISTER_REQUEST: 
-            {
+            { 
                 return {
                    ...state,
                 isloading: true,
@@ -81,7 +81,7 @@ function regireducer(state = initstate, {type, payload})
                     object_id: payload._id,
                     first_name: payload.first_name,
                     last_name: payload.last_name,
-                    number: payload.phone,
+                    number: payload.number,
                     email: payload.email,
                     email_verified: false,
                     image_url: "",

@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 const FireLogin = () => {
 
 
-
+ 
   const dispatch = useDispatch();
   const classes = useStyles();
   const isloggedIn = useSelector(state => state.regi.isloggedIn)
@@ -50,9 +50,9 @@ const FireLogin = () => {
     
    auth.signInWithEmailAndPassword(email, pass)
    .then((res) => {
-      console.log(res.user.phoneNumber)
-      console.log(res.user.emailVerified)
-      console.log("logged In")
+      //console.log(res.user.phoneNumber)
+      //console.log(res.user.emailVerified)
+      //console.log("logged In")
       dispatch(SignInlogin(res))
    })
    .catch(function(error) {
@@ -126,16 +126,6 @@ if (user) {
 
 
 
-
-    const verificationEmail = () => {
-
-        var user = auth.currentUser;
-        user.sendEmailVerification().then(function() {
-          // Email sent.
-        }).catch(function(error) {
-          // An error happened.
-        });
-    }
 
 
 
@@ -232,7 +222,7 @@ if (user) {
           
             <button onClick={stateobserver}>stateobserver</button>
             <button onClick={SignedInUserDetails}>Signed-InUserDetails</button>
-            <button onClick={verificationEmail}>verificationEmail</button>
+           
 
 
         </div>

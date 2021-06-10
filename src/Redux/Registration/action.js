@@ -33,7 +33,7 @@ export const loggingout = (payload) => dispatch => {
 
 
 export const SignInlogin = (payload) => dispatch => {
-    console.log(payload)
+    //console.log(payload)
     console.log(payload.user.phoneNumber)
     dispatch(loginRequest())
     
