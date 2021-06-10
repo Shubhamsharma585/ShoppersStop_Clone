@@ -1,13 +1,19 @@
 import React, { useState } from "react"
 import styles from "./Cart.module.css"
 import banner from "../../database/covid.webp"
+import { useDispatch, useSelector } from "react-redux"
 
 
 
 function Cart()
 {
 
-  
+   
+
+    const Dispatch = useDispatch()
+    var isloggedIn = useSelector(state => state.regi.isloggedIn)
+    var object_id = useSelector(state => state.regi.object_id)
+      
 
 
     const [cart, setCart] = useState([{

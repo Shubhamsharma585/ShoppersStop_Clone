@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({ 
   root: {
     display: 'flex',
     '& > * + *': {
@@ -31,7 +31,7 @@ const FireLogin = () => {
   const isloading = useSelector(state => state.regi.isloading)
   
 
-  const [email, setEmail] = useState("")
+  const [email, setEmail] = useState("") 
   const [pass, setPass] = useState("")
   const [wrongpass, setWrongpass] = useState(false)
 
@@ -56,7 +56,7 @@ const FireLogin = () => {
       dispatch(SignInlogin(res))
    })
    .catch(function(error) {
-   console.log(error.code);
+   console.log(error.code); 
    console.log(error.message);
    setWrongpass(true)
 });
@@ -149,7 +149,7 @@ if (user) {
     
 
     return isloggedIn?( 
-      <Redirect to="/testing" push/>
+      <Redirect to="/" push/>
     ):(
           <div className={styles.left}>
                 <h4 style={{marginLeft:"150px"}}>SIGN IN <span style={{marginLeft:"150px", fontSize:"25px", color:"gray", cursor:"pointer"}}>x</span></h4>  
@@ -219,16 +219,9 @@ if (user) {
             <div className={styles.offer}>
                  Sign up & get 10% off
             </div>
+ 
 
-
-           
-
-
-
-
-
-
-
+      
 
  
 

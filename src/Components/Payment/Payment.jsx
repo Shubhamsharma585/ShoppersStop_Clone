@@ -3,12 +3,19 @@ import styles from "./Payment.module.css"
 import banner from "../../database/covid.webp"
 import { Button } from "@material-ui/core"
 import payment_banner from "../../database/payment_banner.webp"
+import { useDispatch, useSelector } from "react-redux"
 
+ 
 
-
-function Payment()
+function Payment() 
 {
 
+    const Dispatch = useDispatch()
+    var isloggedIn = useSelector(state => state.regi.isloggedIn)
+    var object_id = useSelector(state => state.regi.object_id)
+    var fn = useSelector(state => state.first_name)
+    console.log(object_id, fn, isloggedIn)
+   
  
      const [delivery, setDelivery] = useState(true)
      const [payment, setPayment] = useState(false)
