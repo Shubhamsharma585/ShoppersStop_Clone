@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Card from '../Components/Card/Card'
 import Carousel from "../Components/Carousel/Carousel"
+import { useSelector } from "react-redux"
+
 
 const carousel1=[
     "https://sslimages.shoppersstop.com/sys-master/root/h21/h17/16769219199006/ELCA-Clinuique-Banner-Web.jpg",
@@ -48,6 +50,13 @@ const carousel6=[
 ]
 
 function Home() {
+
+
+    var isloggedIn = useSelector(state => state.regi.isloggedIn)
+    var object_id = useSelector(state => state.regi.object_id)
+    var fn = useSelector(state => state.regi.first_name)
+    console.log(object_id, fn, isloggedIn)
+
 
     return (
         <div>

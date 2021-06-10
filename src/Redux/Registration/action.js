@@ -10,7 +10,7 @@ export const registering = (payload) => dispatch => {
     console.log(payload)  
 
     dispatch(registerrequest())
-    Axios.post("https://json-heroku-shubham.herokuapp.com/users",{
+    Axios.post("http://localhost:1200/user",{
         ...payload,
         address: [],
         favorite: [],
@@ -27,7 +27,7 @@ export const registering = (payload) => dispatch => {
 
 
 export const loggingout = (payload) => dispatch => {
-    console.log(payload)
+    //console.log(payload)
     dispatch(logout())
 }
 
@@ -37,16 +37,13 @@ export const SignInlogin = (payload) => dispatch => {
     console.log(payload.user.phoneNumber)
     dispatch(loginRequest())
     
-    Axios.get("https://json-heroku-shubham.herokuapp.com/users",{
-        params: {
-            number: payload.user.phoneNumber
-        }  
-    })
+    Axios.get(`http://localhost:1200/user/${payload.user.phoneNumber}`,{
+      
+   })
     .then((res) => {
-        console.log(res.data[0])
-        dispatch(loginSuccessfull(res.data[0]))
+        console.log(res.data.data[0])
+        dispatch(loginSuccessfull(res.data.data[0]))
     })
-
 
 }
 
