@@ -1,80 +1,185 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router'
-import styles from "./oneProduct.module.css"
-const black={
-    color:"black"
-}
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import Card from "../Card/Card";
+
+const black = {
+  color: "black",
+  marginLeft: "5px",
+  fontWeight: "bold",
+};
 
 function OneProduct() {
-    const {id}=useParams();
-    const [data,setData]=useState({})
+  const { id } = useParams();
+  const [data, setData] = useState({});
 
-    useEffect(()=>{
-        axios.get("https://json-heroku-shubham.herokuapp.com/products/"+id)
-        .then(res=>setData(res.data))
-        .catch(err=>console.log(err))
-    },[])
-    
-    return (
-        <div style={{width:"80%",margin:"auto",display:"flex"}}>
-            <div>
-                <img src={data.img} alt="picture" />
-            </div>
-       <h1 className={styles.red}>hi</h1>
-            <div style={{marginLeft:"5%",color:"gray"}}>
-             <h3 style={black}>{data.company}</h3>
-             <p>{data.description} <br /><br />
-                <span style={{...black,fontWeight:"bold"}}>
-                &#x20b9;{`${data.mrp-(data.mrp*(data.discount/100)).toFixed(0)}`} 
-                </span> 
-                MRP <span style={{textDecoration:"line-through"}}>&#x20b9;{data.mrp} </span> 
-                <span style={{color:"red"}}>({data.discount}% off)</span>
-             </p>
-             <p>111 People Have Viewed This Product Recently!</p>
-             <div style={{width:"100%"}}>
-                 <img width="3%" src="https://1np0ul34036x2u10a61dxecl-wpengine.netdna-ssl.com/wp-content/uploads/2019/11/discount-3.png" alt="" />
-                 <span style={black}> 1 offer | Get {data.discount}% off</span>
-             </div><br />
-             <div>COLOR | {data.color}</div>
-             <br />
-             <button>ADD TO BAG</button>
-             <br />
-             <br />
-             <div style={{display:"flex"}}>
-                 <div>100% Authentic<br/>Products</div>
-                 <hr />
-                 <div>Free<br/>Shipping*</div>
-                 <hr />
-                 <div>Express<br/>Store Pick Up</div>
-             </div>
-              <div>
-                    <p style={black}>DELIVERY</p>
-                    <p>
-                    Cash on delivery may be available *
-                    </p> 
-                    <p>
-                    Free shipping on orders above 900
-                    </p>
-              </div>
-              <hr />
-              <div>
-                  <div style={{display:"flex",width:"0%"}}>
-                  <div><img width="20px" src="https://image.flaticon.com/icons/png/512/70/70007.png" alt="" />
-                  </div>
-                    <div style={black}>EXPRESS STORE PICK UP NEW</div>
-                  </div>
-                    <p>Can't wait for your order? Get it early!</p>
-                    <p>Please select size and pin code to see availability at your nearest store</p>
-              </div>
-              <hr />
-              <div>
-                  <p style={black}>14 DAYS EASY RETURNS AND EXCHANGE</p>
-                  <p>We offer free and easy return to get 100% refund and exchange through courier pickup or you can exchange most items bought online at any of our stores</p>
-              </div>
-            </div>
+  useEffect(() => {
+    axios
+      .get("https://json-heroku-shubham.herokuapp.com/products/" + id)
+      .then((res) => setData(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  return (
+      <div>
+      <Card image="https://sslimages.shoppersstop.com/sys-master/root/he0/h6c/16769226899486/Covid-Strip-WEB.jpg"/>
+    <div style={{ width: "80%", margin: "auto", display: "flex" }}>
+      <div>
+        <img src={data.img} alt="picture" />
+      </div>
+
+      <div style={{ marginLeft: "2%", color: "gray" }}>
+        <p style={black}>{`${data.company}`}</p>
+        <p>
+          {data.description} <br />
+          <br />
+          <span style={{ ...black, fontWeight: "bold" }}>
+            &#x20b9;
+            {` ${data.mrp - (data.mrp * (data.discount / 100)).toFixed(0)} `}
+          </span>
+          MRP{" "}
+          <span style={{ textDecoration: "line-through" }}>
+            &#x20b9;{data.mrp}{" "}
+          </span>
+          <span style={{ color: "red" }}>({data.discount}% off)</span>
+        </p>
+        <p>111 People Have Viewed This Product Recently!</p>
+        <div style={{ display: "flex" }}>
+          <img
+            width="15px"
+            src="https://i.pinimg.com/originals/43/cd/e1/43cde10967f2bfba9c792364eba88afa.png"
+            alt=""
+          />
+          <div style={black}> {`1 offer | Get ${data.discount}% off`}</div>
         </div>
-    )
+        <br />
+        <div>COLOR | {data.color}</div>
+        <br />
+        <div>SIZE |</div>
+        <div>
+          {
+            ["S","M","L"].map(item=><button style={{padding:"1% 3%",margin:"10px 10px 0px 0px",fontWeight:"bold"}}>{item}</button>)
+          }
+        </div>
+        <br />
+
+        <button
+          style={{
+            fontSize: "1rem",
+            fontWeight: "bold",
+            color: "white",
+            background: "linear-gradient(to right, #ff0066 44%, #ff3300 100%)",
+            border: "0px solid",
+            padding: "2% 8%",
+            borderRadius: "6px",
+            cursor: "pointer",
+          }}
+        >
+          ADD TO BAG
+        </button>
+        <br />
+        <br />
+        <div style={{ display: "flex" }}>
+          <div style={{ display: "flex" }}>
+            <div>
+              <img
+                width="35px"
+                src="https://icon-library.com/images/sports-apparel-24-512.png"
+                alt=""
+              />
+            </div>
+            <div>
+              100% Authentic
+              <br />
+              Products
+            </div>
+          </div>
+          <hr />
+          <div style={{ display: "flex" }}>
+            <div>
+              <img
+                width="45px"
+                src="https://image.flaticon.com/icons/png/512/70/70007.png"
+                alt=""
+              />
+            </div>
+            <div>
+              Free
+              <br />
+              Shipping*
+            </div>
+          </div>
+          <hr />
+          <div style={{ display: "flex" }}>
+            <div>
+              <img
+                width="45px"
+                src="https://www.tkpoultrysupplies.com.au/wp-content/uploads/2016/01/LocalPickup.png"
+                alt=""
+              />
+            </div>
+            <div>
+              Express
+              <br />
+              Store Pick Up
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div>
+          <div style={{ display: "flex", width: "70%" }}>
+            <div>
+              <img
+                width="20px"
+                src="https://image.flaticon.com/icons/png/512/70/70007.png"
+                alt=""
+              />
+            </div>
+            <div style={black}>DELIVERY</div>
+          </div>
+          <p>Cash on delivery may be available *</p>
+          <p>Free shipping on orders above 900</p>
+        </div>
+        <hr />
+        <div>
+          <div style={{ display: "flex", width: "70%" }}>
+            <div>
+              <img
+                width="20px"
+                src="https://www.tkpoultrysupplies.com.au/wp-content/uploads/2016/01/LocalPickup.png"
+                alt=""
+              />
+            </div>
+            <div style={black}> EXPRESS STORE PICK UP NEW</div>
+          </div>
+          <p>Can't wait for your order? Get it early!</p>
+          <p>
+            Please select size and pin code to see availability at your nearest
+            store
+          </p>
+        </div>
+        <hr />
+        <div>
+          <div style={{ display: "flex", width: "70%" }}>
+            <div>
+              <img
+                width="20px"
+                src="https://www.placedeslices.com/wp-content/uploads/2019/03/icon-undo-14-x.svg"
+                alt=""
+              />
+            </div>
+            <div style={black}>14 DAYS EASY RETURNS AND EXCHANGE</div>
+          </div>
+          <p>
+            We offer free and easy return to get 100% refund and exchange
+            through courier pickup or you can exchange most items bought online
+            at any of our stores
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+  );
 }
 
-export default OneProduct
+export default OneProduct;
