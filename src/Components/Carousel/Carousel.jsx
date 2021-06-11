@@ -10,13 +10,13 @@ function Carousel({images}) {
 
       const carousel_div={ 
             width: "100%",
-            // position: 'relative',
+           
             margin:"10px 0px 10px 0"
       }
       const indicator_box={
       display:"flex",
       margin:"auto",
-    //   position: 'relative',
+    
       justifyContent:"center",
       bottom:"3%",
       left:`${55-images.length*3}%`,
@@ -24,7 +24,6 @@ function Carousel({images}) {
     }
 
     return (
-        <>
         <div style={carousel_div}>   
             <img width="100%"  src={images[index]}/>
             <span style={indicator_box}>
@@ -42,7 +41,7 @@ function Carousel({images}) {
             }
             </span>  
         </div>
-        </>
+       
     )
 }
 

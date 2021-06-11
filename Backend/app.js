@@ -108,6 +108,11 @@ app.get("/product", async (req, res) => {
     console.log(data)
     res.status(200).json({ data: data })
 })
+app.get("/product/:id",async(req,res)=>{
+    let id=req.params.id;
+    const data=await Product.findById(id)
+    res.json({data})
+})
 app.post("/product", async (req, res) => {
     const user = await Product.create(...req.body)
     res.json({ data: user })
@@ -125,7 +130,6 @@ app.post("/user", async (req, res) => {
 })
 app.patch("/user/:id", async (req, res) => {
     let id = req.params.id;
-    let productId = req.query.productId;
     let user = await User.findByIdAndUpdate(id, req.body, { new: true });
     res.status(201).json({ data: user })
 })
