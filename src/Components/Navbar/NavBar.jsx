@@ -1,6 +1,6 @@
 import React from "react";
 import "./NavBar.css";
-import { Link } from "react-router-dom" 
+import { Link } from "react-router-dom";
 import StoreOutlinedIcon from "@material-ui/icons/StoreOutlined";
 import PermContactCalendarOutlinedIcon from "@material-ui/icons/PermContactCalendarOutlined";
 import MenuOutlinedIcon from "@material-ui/icons/MenuOutlined";
@@ -9,34 +9,29 @@ import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutlined";
 import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
-import {firebase, auth } from "../Fireauth/firebase"
-import { useSelector, useDispatch } from "react-redux"
-import { loggingout } from "../../Redux/Registration/action"
+import { firebase, auth } from "../Fireauth/firebase";
+import { useSelector, useDispatch } from "react-redux";
+import { loggingout } from "../../Redux/Registration/action";
 
-
-export default function NavBar() { 
-
+export default function NavBar() {
   const Dispatch = useDispatch();
-  var login = useSelector(state => state.regi.isloggedIn)
-
+  var login = useSelector((state) => state.regi.isloggedIn);
 
   const [show, handleShow] = React.useState(false);
 
-
-
   const LogOut = () => {
-    auth.signOut().then(function() {
-        Dispatch(loggingout())
-        console.log('User Logged Out!');
-      }).catch(function(error) {
+    auth
+      .signOut()
+      .then(function () {
+        Dispatch(loggingout());
+        console.log("User Logged Out!");
+      })
+      .catch(function (error) {
         // An error happened.
         console.log(error);
       });
-}
+  };
 
-
-
-  
   React.useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 100) {
@@ -52,7 +47,7 @@ export default function NavBar() {
 
   return (
     <div className="navbar">
-      <div className="top">
+      <div className="top1">
         <div className="store">
           <div style={{ display: "flex" }}>
             {" "}
@@ -83,10 +78,12 @@ export default function NavBar() {
           </div>
         </div>
         <div className="logo">
-          <img
-            src="https://prodstatic.shoppersstop.com/_ui/responsive/common/assets/images/sslogo.svg"
-            alt="shopperStop logo"
-          />
+          <Link to={"/"}>
+            <img
+              src="https://prodstatic.shoppersstop.com/_ui/responsive/common/assets/images/sslogo.svg"
+              alt="shopperStop logo"
+            />
+          </Link>
         </div>
         <div
           style={{
@@ -144,18 +141,15 @@ export default function NavBar() {
             />
             {!login && (
               <div className="signHover">
-                <li><Link to={"/login"}>
-                    SIGN IN
-                </Link> 
+                <li>
+                  <Link to={"/login"}>SIGN IN</Link>
                   <hr
                     style={{ marginLeft: "-20px", border: "solid 1px #e0dede" }}
                   />
                 </li>
                 <li>
-                <Link to={"/registration"}>
-                  SIGN UP
-                 </Link>
-                  </li>
+                  <Link to={"/registration"}>SIGN UP</Link>
+                </li>
               </div>
             )}
             {login && (
