@@ -97,7 +97,7 @@ function Reg()
     }
  
    
-     
+      
 
 
     return isloggedIn?(

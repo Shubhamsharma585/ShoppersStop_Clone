@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import styles from "./Cart.module.css"
 import banner from "../../database/covid.webp"
 import { useDispatch, useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 
 
 
@@ -13,31 +14,11 @@ function Cart()
     const Dispatch = useDispatch()
     var isloggedIn = useSelector(state => state.regi.isloggedIn)
     var object_id = useSelector(state => state.regi.object_id)
+    var cart = useSelector(state => state.regi.cart)
       
 
 
-    const [cart, setCart] = useState([{
-    category: "women",
-    name: "saree",
-    img: "https://sslimages.shoppersstop.com/sys-master/images/h92/hcc/15897506152478/ISHIKAISH20083_RED.jpg_230Wx334H",
-    company: "ISHIN",
-    description: "Womens Poly Georgette Red Foil Printed Saree",
-    mrp: 9605,
-    discount: 14,
-    color: "Green"
-    },
-    {
-        "id": 25,
-        "category": "beauty",
-        "name": "eye",
-        "img": "https://sslimages.shoppersstop.com/sys-master/images/ha4/he7/16342091563038/MAC-SLAF01_NoColour.jpg_230Wx334H",
-        "company": "LAKME",
-        "description": "Absolute Illuminating Eye Shadow Palette Nude Beach - 7.5 g",
-        "mrp": 1376,
-        "discount": 35,
-        "color": "Turquoise"
-      }])
-
+   
 
     return(
         <div>
@@ -190,7 +171,9 @@ function Cart()
 
 
               <div className={styles.rightCont_checkout}>
-                          CHECKOUT
+                  <Link to={"/payment"}>
+                      CHECKOUT
+                  </Link>                    
                </div>   
 
                <div className={styles.below_checkout}>

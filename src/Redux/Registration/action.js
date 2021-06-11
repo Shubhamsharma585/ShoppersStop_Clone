@@ -3,6 +3,18 @@ import { REGISTER_REQUEST, REGISTER_SUCCESS, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOU
 import Axios from "axios"
 
 
+//local storage
+const login_success_localstorage = (data) => {
+    localStorage.setItem('userObj',JSON.stringify(data))
+}
+const logout_success_localstorage = () => {
+    localStorage.clear()
+}
+//var loadVal = JSON.Parse(localStorage.getItem('name'))
+//local storage
+
+
+
 
 
 export const registering = (payload) => dispatch => {
@@ -12,6 +24,7 @@ export const registering = (payload) => dispatch => {
     dispatch(registerrequest())
     Axios.post("http://localhost:1200/user", {
         ...payload,
+        emailVerified: false,
         address: [],
         favorite: [],
         orders: [],
@@ -33,7 +46,7 @@ export const loggingout = (payload) => dispatch => {
 
 
 export const SignInlogin = (payload) => dispatch => {
-    //console.log(payload)
+    console.log(payload.user.emailVerified)
     console.log(payload.user.phoneNumber)
     dispatch(loginRequest())
 
@@ -42,13 +55,8 @@ export const SignInlogin = (payload) => dispatch => {
     })
         .then((res) => {
             console.log(res.data.data[0])
-            dispatch(loginSuccessfull(res.data.data[0]))
+            dispatch(loginSuccessfull({...res.data.data[0], emailVerified: payload.user.emailVerified}))
         })
-        .then((res) => {
-            console.log(res.data[0])
-            dispatch(loginSuccessfull(res.data[0]))
-        })
-
 }
 
 
@@ -61,6 +69,7 @@ const registerrequest = (payload) => {
 }
 
 const registersuccess = (payload) => {
+       login_success_localstorage(payload)
     return {
         type: REGISTER_SUCCESS,
         payload
@@ -75,6 +84,7 @@ const loginRequest = (payload) => {
 }
 
 const loginSuccessfull = (payload) => {
+        login_success_localstorage(payload)
     return {
         type: LOGIN_SUCCESS,
         payload
@@ -83,6 +93,7 @@ const loginSuccessfull = (payload) => {
 
 
 const logout = (payload) => {
+       logout_success_localstorage()
     return {
         type: LOGOUT_SUCCESS,
         payload

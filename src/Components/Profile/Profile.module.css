@@ -130,6 +130,7 @@
 {
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
 .bottomleft_link:hover
 {

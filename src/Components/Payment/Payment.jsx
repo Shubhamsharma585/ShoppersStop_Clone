@@ -16,7 +16,7 @@ function Payment()
     var fn = useSelector(state => state.first_name)
     console.log(object_id, fn, isloggedIn)
    
- 
+  
      const [delivery, setDelivery] = useState(true)
      const [payment, setPayment] = useState(false)
 

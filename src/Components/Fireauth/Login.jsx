@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
+ 
 const FireLogin = () => {
 
 
@@ -42,7 +42,7 @@ const FireLogin = () => {
         .catch((err) => console.log(err));
     }
 
-
+ 
  
 
 
