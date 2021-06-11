@@ -70,7 +70,7 @@ const usersSchema = mongoose.Schema({
     }],
     cart: [{
         size: String,
-        quantity: Number,
+        quantity: Number,  
         category: String,
         name: String,
         img: String,
@@ -105,8 +105,13 @@ app.get("/product", async (req, res) => {
     color ? obj.color = color : null;
     sort ? sortObj[sort] = order == "asc" ? 1 : -1 : {}
     const data = await Product.find(obj).sort(sortObj).lean().exec()
-    console.log(data)
+    //console.log(data)
     res.status(200).json({ data: data })
+})
+app.get("/product/:id",async(req,res)=>{
+    let id=req.params.id;
+    const data=await Product.findById(id)
+    res.json({data})
 })
 app.post("/product", async (req, res) => {
     const user = await Product.create(...req.body)
@@ -125,7 +130,6 @@ app.post("/user", async (req, res) => {
 })
 app.patch("/user/:id", async (req, res) => {
     let id = req.params.id;
-    let productId = req.query.productId;
     let user = await User.findByIdAndUpdate(id, req.body, { new: true });
     res.status(201).json({ data: user })
 })

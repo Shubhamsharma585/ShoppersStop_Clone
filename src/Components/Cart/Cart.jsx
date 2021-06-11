@@ -1,26 +1,49 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import styles from "./Cart.module.css"
 import banner from "../../database/covid.webp"
 import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
+import axios from "axios"
 
 
 
 function Cart()
 {
 
+    const [ cart, setCart ] = useState([]);
    
 
     const Dispatch = useDispatch()
     var isloggedIn = useSelector(state => state.regi.isloggedIn)
     var object_id = useSelector(state => state.regi.object_id)
-    var cart = useSelector(state => state.regi.cart)
+    var mobile = useSelector(state => state.regi.number)
+   
+
+    useEffect(() => {
+       axios.get(`http://localhost:1200/user/${mobile}`)
+        .then(res =>  setCart(res.data.data[0].cart))
+
+    },[])
       
 
 
-   
+    var total_payable = 0;
+    var total_discount = 0;
+    
+    
+    for(var i = 0; i<cart.length; i++)
+    {
+        var price = 0;
+        total_payable = total_payable + Number(cart[i].mrp - (cart[i].mrp * (cart[i].discount / 100)).toFixed(0));
+        total_discount = total_discount + Number((cart[i].mrp * (cart[i].discount / 100)).toFixed(0));
+      
+    }
+    
 
-    return(
+
+    return !isloggedIn? (
+        <Redirect to={"/"} />
+    ):(
         <div>
             <div>
                 <img src={banner} className={styles.top}/>
@@ -30,8 +53,8 @@ function Cart()
            <div className={styles.left_cont}>
                 <div className={styles.left_top}>
                     <div className={styles.shopping}>SHOPPING BAG</div>
-                    <div className={styles.items}>(5 ITEMS)</div>
-                    <div className={styles.price}>RS 14,196.4</div>
+                    <div className={styles.items}>{`(${cart.length} ITEMS)`}</div>
+                    <div className={styles.price}>{`RS ${total_payable}`}</div>
                     <div className={styles.total}>TOTAL</div>
                 </div>
                 <div className={styles.line1}/>  
@@ -86,7 +109,7 @@ function Cart()
                                 <div style={{display:"flex", flexDirection:"row", marginLeft:"-20px"}}><div className={styles.item_availabilitySign}/><span>Express Store Pick Up</span></div>
                             </ul>
                         </div>
-                        <div className={styles.item_amount}>{itm.mrp}</div>
+                        <div className={styles.item_amount}>{itm.mrp - (itm.mrp * (itm.discount / 100)).toFixed(0)}</div>
                       </div>
                         <div className={styles.line1}/>
                       </div>
@@ -114,7 +137,7 @@ function Cart()
 		   <div className={styles.label_txt}>
 			Sub total</div>
 		   <div className={styles.amount_txt}>
-			<span><strong>Rs</strong>14196</span>
+			<span><strong>Rs </strong>{total_payable + total_discount}</span>
 			</div>
 	     </div>
 	      <div>
@@ -135,7 +158,7 @@ function Cart()
 			Offer Discount
 		</div>
 		<div className={styles.amount_txt}>
-			799.6</div>
+			{total_discount}</div>
 	      </div>
 
 
@@ -156,14 +179,14 @@ function Cart()
         <div className={styles.label_txt}>
             Payable Amount</div>
         <div className={styles.amount_txt}>       
-            <strong><span class="rupee">Rs</span> 14,196.4</strong>
+            <strong><span class="rupee">Rs </span>{total_payable}</strong>
         </div>
          </div>
          <div>
         <div className={styles.label_txt}>
             You have saved</div>
         <div className={styles.amount_txt}>
-            <strong className={styles.saved}><span class="rupee">Rs</span> 799.6</strong>
+            <strong className={styles.saved}><span class="rupee">Rs </span>{total_discount}</strong>
         </div>
         </div>
      </ul>
@@ -171,8 +194,10 @@ function Cart()
 
 
               <div className={styles.rightCont_checkout}>
-                  <Link to={"/payment"}>
-                      CHECKOUT
+                  <Link to={"/payment"} style={{textDecoration:"none"}}>
+                    <span style={{color:"white"}}>
+                       CHECKOUT
+                    </span>
                   </Link>                    
                </div>   
 

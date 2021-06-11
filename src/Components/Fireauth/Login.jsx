@@ -218,11 +218,11 @@ if (user) {
              <div id="recaptcha"></div> 
              <label></label>
            
-        
+{/*         
           
             <button onClick={stateobserver}>stateobserver</button>
             <button onClick={SignedInUserDetails}>Signed-InUserDetails</button>
-           
+            */}
 
 
         </div>

@@ -1,4 +1,4 @@
-.top {
+.top1 {
   display: flex;
   position: fixed;
   justify-content: left;
@@ -20,7 +20,7 @@
 }
 .textfield {
   margin-top: 20px;
-  margin-left: 2%;
+  margin-left: 1%;
 }
 
 .nav {
@@ -66,12 +66,20 @@
   margin-left: -100px;
 }
 
-.signHover > li > Link  
-{
+.signHover > li > Link {
   text-decoration: none;
 }
 
 .signIn:hover > div {
   /* display: block; */
   visibility: visible;
+}
+
+@media only screen and (max-width: 1380px) {
+  .logo {
+    margin-left: 17%;
+  }
+  .store {
+    width: 25%;
+  }
 }
