@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./NavbarList.css";
 
 export default function NavbarList() {
@@ -37,7 +38,10 @@ export default function NavbarList() {
         </li>
 
         <li className="drop_one">
-          <span className="spanHover">WOMEN</span>
+          <Link to={"/product?c=women"}>
+            {" "}
+            <span className="spanHover">WOMEN</span>
+          </Link>
           <div className="menu_experiment">
             <div className="menu_one women">
               <ul>
@@ -77,7 +81,9 @@ export default function NavbarList() {
           </div>
         </li>
         <li className="drop_one ">
-          <span className="spanHover">KIDS</span>
+          <Link to={"/product?c=kids"}>
+            <span className="spanHover">KIDS</span>
+          </Link>
           <div className="menu_experiment">
             <div className="menu_one kids">
               <ul>
@@ -122,7 +128,9 @@ export default function NavbarList() {
           </div>
         </li>
         <li className="drop_one ">
-          <span className="spanHover">BEAUTY</span>
+          <Link to={"/product?c=beauty"}>
+            <span className="spanHover">BEAUTY</span>
+          </Link>
           <div className="menu_experiment">
             <div className="menu_one  beauty">
               <ul>
@@ -165,7 +173,9 @@ export default function NavbarList() {
           </div>
         </li>
         <li className="drop_one ">
-          <span className="spanHover">MEN</span>
+          <Link to={"/product?c=men"}>
+            <span className="spanHover">MEN</span>
+          </Link>
           <div className="menu_experiment">
             <div className="menu_one men">
               <ul>
