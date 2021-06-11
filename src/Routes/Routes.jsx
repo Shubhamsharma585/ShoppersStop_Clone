@@ -37,10 +37,10 @@ function Routes() {
         <Route path="/cart" exact>
           <Cart />
         </Route>
-        <Route path="/product">
+        <Route path="/product" exact>
           <Product />
         </Route>
-        <Route path="/product/:id">
+        <Route path="/product/:id" exact>
           <OneProduct />
         </Route>
         <Route path="/payment" exact>

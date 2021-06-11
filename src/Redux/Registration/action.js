@@ -44,10 +44,6 @@ export const SignInlogin = (payload) => dispatch => {
             console.log(res.data.data[0])
             dispatch(loginSuccessfull(res.data.data[0]))
         })
-        .then((res) => {
-            console.log(res.data[0])
-            dispatch(loginSuccessfull(res.data[0]))
-        })
 
 }
 
