@@ -1,7 +1,7 @@
 
 import React from "react"
 import { Avatar } from '@material-ui/core';
-import styles from "../Profile/Profile.module.css"
+import styles from "./Profile.module.css"
 import { Link, Redirect } from "react-router-dom";
 import {firebase, auth } from "../Fireauth/firebase"
 import { useSelector, useDispatch } from "react-redux"

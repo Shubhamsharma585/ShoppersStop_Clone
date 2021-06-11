@@ -145,13 +145,13 @@ export default function NavBar() {
             {!login && (
               <div className="signHover">
                 <li>
-                  <Link to={"/login"}>SIGN IN</Link>
+                  <Link to={"/login"} style={{textDecoration:"none"}}> <span style={{textDecoration:"none", color:"grey"}}>SIGN IN</span></Link>
                   <hr
                     style={{ marginLeft: "-20px", border: "solid 1px #e0dede" }}
                   />
                 </li>
                 <li>
-                  <Link to={"/registration"}>SIGN UP</Link>
+                  <Link to={"/registration"} style={{textDecoration:"none"}}> <span style={{textDecoration:"none", color:"grey"}}>SIGN UP</span></Link>
                 </li>
               </div>
             )}
