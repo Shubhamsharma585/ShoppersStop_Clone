@@ -53,6 +53,20 @@
     font-size: 12px;
 }
 
+.pass_reset
+{
+    cursor: pointer;
+    color: rgb(33, 33, 33);
+    font-weight: 550;
+}
+
+.pass_reset:hover
+{
+    color: rgb(201, 42, 42);
+    font-weight: 550;
+}
+
+
 .middleleft
 {
     border-radius: 5px;
@@ -116,6 +130,7 @@
 {
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
 .bottomleft_link:hover
 {
@@ -147,9 +162,16 @@
 {
     border: black 0px solid;
     margin-right: 50px;
-    font-weight: 600;
+    font-weight: 700;
     color: rgb(65, 64, 64);
-}
+} 
+
+.rightCont_left > p
+{
+    font-weight: 700;
+    font-size: 14px;
+    color: rgb(65, 64, 64);
+} 
 
 .rightCont_right
 {
@@ -157,6 +179,23 @@
     font-weight: 200;
     color: rgb(33, 32, 32);
 }
+
+.rightCont_right > p
+{
+    font-size: 14px;
+}
+
+.verify
+{
+    color: #eb0000;
+    cursor: pointer;
+}
+
+.verify:hover
+{
+    color:#bd0505;
+    cursor: pointer;
+}  
 
 .rightCont_edit
 {

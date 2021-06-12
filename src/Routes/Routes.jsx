@@ -7,6 +7,7 @@ import NavBar from "../Components/Navbar/NavBar";
 import NavbarList from "../Components/Navbar/NavbarList";
 import Cart from "../Components/Cart/Cart";
 import Home from "../Pages/Home";
+import OneProduct from "../Components/OneProduct/OneProduct";
 import Payment from "../Components/Payment/Payment";
 import Product from "../Components/ProductPage/Product";
 
@@ -36,18 +37,14 @@ function Routes() {
         <Route path="/cart" exact>
           <Cart />
         </Route>
-
-        <Route path="/payment" exact>
-          <Payment />
-        </Route>
         <Route path="/product" exact>
           <Product />
         </Route>
-        <Route path="/women" exact>
-          <Product />
-        </Route>
         <Route path="/product/:id" exact>
-          <div>hii</div>
+          <OneProduct />
+        </Route>
+        <Route path="/payment" exact>
+          <Payment />
         </Route>
       </Switch>
     </div>

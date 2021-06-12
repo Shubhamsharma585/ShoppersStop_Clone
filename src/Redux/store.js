@@ -4,10 +4,14 @@ import thunk from "redux-thunk"
 import { dataReducer } from "./Filters/dataReducer"
 import regireducer from "./Registration/regireducer"
 
+
+
 const rootreducer = combineReducers({
     regi: regireducer,
     data: dataReducer
 })
+
+
 
 const store = createStore(rootreducer,
     compose(applyMiddleware(thunk),
