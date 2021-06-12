@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import styles from "./Payment.module.css"
 import banner from "../../database/covid.webp"
-import { Button } from "@material-ui/core"
+import { Button, Checkbox } from "@material-ui/core"
 import payment_banner from "../../database/payment_banner.webp"
 import { useDispatch, useSelector } from "react-redux"
 
@@ -20,6 +20,20 @@ function Payment()
      const [delivery, setDelivery] = useState(true)
      const [payment, setPayment] = useState(false)
 
+     const [afn, setAfn] = useState("");
+     const [aln, setAln] = useState("");
+     const [amobile, setAmobile] = useState("");
+     const [apin, setApin] = useState("");
+     const [acity, setAcity] = useState("");
+     const [astate, setAstate] = useState("");
+     const [aline1, setAline1] = useState("");
+     const [aline2, setAline2] = useState("");
+
+     const [checked, setChecked] = React.useState(true);
+        const handleChange = (event) => {
+          setChecked(event.target.checked);
+        };
+
 
 
      const [the, setThe] = useState({
@@ -34,7 +48,12 @@ function Payment()
      const pay = () => {
          setDelivery(false)
          setPayment(true)
-     } 
+     }
+     
+     const change_address = () => {
+        setDelivery(true)
+        setPayment(false)
+     }
 
      const stylesP = {
          "active" : {
@@ -128,24 +147,45 @@ function Payment()
                   <div className={styles.changebtn}> <Button  variant="contained" style={{backgroundColor: 'white', color: 'red', height: '30px'}}>CHANGE</Button> </div>
              </div>
              <div className={styles.left_optionbar}>
-                <div className={styles.delivery}>2.DELIVERY METHOD</div>   
+                 {payment &&  <div className={styles.signedinsymbol2}/>}
+                <div className={styles.delivery}>2.DELIVERY METHOD</div> 
+                {payment && <div className={styles.changebtn}> <Button  variant="contained" style={{backgroundColor: 'white', color: 'red', height: '30px'}} onClick={() => change_address()}>CHANGE</Button> </div>}  
              </div>
              {delivery && <div className={styles.delivery_cont}>
                      <div className={styles.addressbarswitch}>
-                           <div className={styles.addressbarswitch1}>DELIVERY ADDRESS</div>
-                           <div className={styles.addressbarswitch2}>EXPRESS STORE PICK UP</div>
+                           <div className={styles.addressbarswitch1}>Delivery Address</div>
+                           <div className={styles.addressbarswitch2}>Express Store Pick Up</div>
                            <div className={styles.addressbarswitch3}></div>
+                           <div className={styles.addressbarswitch_new}> <div className={styles.addressbarswitch_new1}/> NEW </div>
                      </div>
-
+ 
                      <div className={styles.addressbartop}>
-                         <p>Shubham Sharma (Default)</p>
-                         <p>1.8k hostel,nitw, Churu, Rajasthan - 331403</p>
-                         <p>Cash on Delivery available.</p>
-                     </div>
+                         <p>Add New Address</p>
+                         <p><input placeholder="First Name" value={afn} onChange={(e) => setAfn(e.target.value)} /> <input placeholder="Last Name" value={aln} onChange={(e) => setAln(e.target.value)} /> </p>
+                         <p><input className={styles.address_inp1} value="+91" /> <input placeholder="Mobile Number" value={amobile} onChange={(e) => setAmobile(e.target.value)} /> </p>
+                         <p> <input className={styles.address_inp2} placeholder="Pincode" value={apin} onChange={(e) => setApin(e.target.value)} /> </p>
+                         <p> <input className={styles.address_inp3} placeholder="City" value={acity} onChange={(e) => setAcity(e.target.value)} /> <input className={styles.address_inp3} placeholder="State" value={astate} onChange={(e) => setAstate(e.target.value)} /> </p>
+                         <p> <input className={styles.address_inp2} placeholder="Address Line 1" value={aline1} onChange={(e) => setAline1(e.target.value)} /> </p>
+                         <p> <input className={styles.address_inp2} placeholder="Address Line 2 (Optional)" value={aline2} onChange={(e) => setAline2(e.target.value)} /> </p>
+                         <p className={styles.check_box}><Checkbox
+                               defaultChecked
+                               onChange={handleChange}
+                                style={{color:"#c7c7c7"}}
+                                size="small"
+                                inputProps={{ 'aria-label': 'checkbox with default color' }}
+                              /> Use this as my default delivery address</p>
+                         <p className={styles.check_box}><Checkbox 
+                                defaultChecked
+                                onChange={handleChange}
+                                size="small"
+                                style={{color:"#c7c7c7"}}
+                                inputProps={{ 'aria-label': 'checkbox with primary color' }}
+                              /> I agree to the <span style={{color:"red", fontWeight:"300"}}>Terms and Conditions</span></p>                
+                      </div>
 
                  <div className={styles.line1}/>
                     <div className={styles.addressbar}>
-                    <div className={styles.addnew}>ADD NEW</div>
+                    {/* <div className={styles.addnew}>ADD NEW</div> */}
                     <div className={styles.addnew}>SAVED ADDRESSES(2)</div> 
                  </div>
             
@@ -156,10 +196,18 @@ function Payment()
                 </div>
                  }
 
-             <div className={styles.left_optionbar}>
-                 <div className={styles.delivery}>3.MAKE PAYMENT</div>
-                 <div style={{marginRight:"30px"}}>Payable Amount: Rs<span>13705.65</span></div>
-             </div>
+              {payment? (
+                  <div className={styles.left_optionbar}>
+                     <div className={styles.delivery}>3.MAKE PAYMENT</div>
+                     <div style={{marginRight:"30px"}}>Payable Amount: Rs<span>13705.65</span></div>
+                 </div>
+              ):(
+                <div className={styles.left_optionbar2}>
+                <div className={styles.delivery}>3.MAKE PAYMENT</div>
+                <div style={{marginRight:"30px"}}>Payable Amount: Rs<span>13705.65</span></div>
+                </div>
+              )}   
+
 
              {payment && <div className={styles.payment_div}> 
                        <img src={payment_banner} className={styles.payment_banner}/>
@@ -279,7 +327,7 @@ function Payment()
             <div className={styles.amount_txt}>NA</div>
          </div>
         </ul>
-                   
+                    
 
 
       <div className={styles.line}/>    

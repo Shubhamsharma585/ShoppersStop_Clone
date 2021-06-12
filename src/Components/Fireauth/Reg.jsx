@@ -149,6 +149,7 @@ function Reg()
                     style ={{width: '80%'}} 
                     inputProps={{ autoFocus: false }}
                     label="Password"
+                    type="password"
                     value={Rpass}
                     onChange={(e) => setRpass(e.target.value)}
                     />
@@ -175,7 +176,7 @@ function Reg()
                   <div className={styles.line1}></div>
                   <div className={styles.box}>Or via Social Account</div>
                   <div className={styles.line1}></div>
-               </div>
+               </div> 
 
                 <div className={styles.social}>
                    <div className={styles.social_cont}><div className={styles.fb}></div></div> 

@@ -69,7 +69,7 @@
 
 .line1
 {  
-   border: 1px rgb(189, 188, 188) solid;
+   border: 1px rgb(219, 218, 218) solid;
    border-bottom: 0;
    margin-top: 16px;
 }
@@ -100,11 +100,45 @@
     margin-bottom: -10px;
 }
 
+.heartsymbol
+{
+   background-image: url("../../database/image.webp");
+   background-position-x: -382px;
+   background-position-y: -334px;
+   border: black 0px solid;
+   width: 20px;
+   height: 20px;
+}
+
+.deletesymbol
+{
+    background-image: url("../../database/image.webp");
+    background-position-x: -367px;
+    background-position-y: -1362px;
+    margin-left: 60px;
+    border: black 0px solid;
+    width: 23px;
+    height: 20px;
+}
+
+.wish_dlt
+{
+    margin-left: 2px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.wish_dlt:hover
+{
+   color: rgb(43, 43, 43);
+}
+
+
 .right_cont
 {
-    border: rgb(133, 132, 132) 1px solid;
+    border: rgb(216, 214, 214) 1px solid;
     width: 300px;
-    height: 500px;
+    height: 550px;
     margin-left: 40px;
     text-align: center;
 }
@@ -131,7 +165,7 @@
 {
     border: solid 1px gray;
     height: 25px;
-    width: 180px;
+    width: 180px; 
 }
 
 .apply 
@@ -160,8 +194,9 @@
 
 .item_img
 {
-    height: 220px;
+    height: 170px;
     margin-bottom: 0px;
+    margin-right: 20px; 
 }
 .item_detail
 {
@@ -175,6 +210,48 @@
     font-size: 13px;
     color: rgb(117, 117, 117);
 }
+
+.itm_clr
+{
+    margin-left: 4px;
+    color: rgb(23, 22, 22);
+}
+
+.itm_size
+{
+    margin-left: 4px;
+}
+
+.itm_quant
+{
+    border: 1px rgb(171, 170, 170) solid;
+    border-radius: 5px;
+    color: gray;
+    margin-left: 4px;
+    margin-top: 10px;
+    height: 22px;
+    background-color: #ffffff;
+    
+}
+
+.itm_quant > option
+{
+   font: outline;
+}
+
+.vert_line
+{
+    border: 1px solid rgb(150, 148, 148);
+    height: 15px;
+
+}
+
+
+
+
+
+
+
 .item_detail4
 {
     display: flex;
@@ -204,15 +281,33 @@
     width: 20px; 
     height: 20px;
 }
-.item_amount
+
+.item_amount1
 {
    margin-top: 10px;
+   margin-left: 90px;
+   font-weight: 800;
+   color: rgb(34, 33, 33);
+}
+
+.item_amount2
+{
+   color: gray;
    margin-left: 40px;
+   text-decoration: line-through;
+   font-size: 15px;
+}
+
+.item_amount3
+{
+   color: red;
+   font-size: 12px;
 }
 
 .line
 {
     border: 1px rgb(138, 138, 138) solid;
+    text-decoration: none;
     border-bottom: 0;
     margin-top: 16px;
     margin-left: 13%;

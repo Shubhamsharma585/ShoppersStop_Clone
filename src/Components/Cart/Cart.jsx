@@ -24,22 +24,34 @@ function Cart()
         .then(res =>  setCart(res.data.data[0].cart))
 
     },[])
-      
+
+    console.log(cart)
+
+
+    const fav_itm = () => {
+        //adding to fav
+    }
+
+    const remove_itm = () => {
+        //remove from cart
+    }
+    
+    const itm_quantity = (q) => {
+         console.log(q)
+        //updating quantity of itm
+    }
+
 
 
     var total_payable = 0;
     var total_discount = 0;
-    
-    
     for(var i = 0; i<cart.length; i++)
     {
-        var price = 0;
         total_payable = total_payable + Number(cart[i].mrp - (cart[i].mrp * (cart[i].discount / 100)).toFixed(0));
         total_discount = total_discount + Number((cart[i].mrp * (cart[i].discount / 100)).toFixed(0));
-      
+ 
     }
     
-
 
     return !isloggedIn? (
         <Redirect to={"/"} />
@@ -87,19 +99,34 @@ function Cart()
                       <div className={styles.cart_item} >
                         <img className={styles.item_img} src={itm.img}/>
                         <div className={styles.item_detail}>
-                            <p>{itm.company}</p>
-                            <p>{itm.description}</p>
+                            <p style={{fontFamily:"PTSans-Regular" }}>{itm.company}</p>
+                            <p style={{fontFamily:"PTSans-Bold", marginTop:"-10px" }}>{itm.description}</p>
+
                             <div className={styles.item_detail3} >
                                 <p>Color:</p>
-                                <p>{itm.color}</p>
-                                <p>Size:</p>
-                                <p>{itm.color}</p>
-                                <p>Quantity:</p>
-                                <p>{itm.color}</p>
+                                <p className={styles.itm_clr}>{itm.color}</p>
+                                <p style={{marginLeft:"22px"}}>Size:</p>
+                                <p className={styles.itm_size}>{itm.size}</p>                  
+                                <p style={{marginLeft:"25px", marginTop:"11px"}}><span style={{fontSize:"15px"}}>|</span> Quantity:</p>
+                                <select name="Quantity" className={styles.itm_quant}>
+                                  <p>Quantity</p>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                  <option value="6">6</option>
+                                  <option value="7">7</option>
+                                  <option value="8">8</option>
+                                  <option value="9">9</option>
+                                </select>
                             </div>
+
                             <div className={styles.item_detail4}>
-                                <div>ADD TO WISHLIST</div>
-                                <div style={{marginLeft:"100px"}}>REMOVE</div>
+                                <div className={styles.heartsymbol}></div>
+                                <div className={styles.wish_dlt} onClick={() => fav_itm()}> ADD TO WISHLIST </div>
+                                <div className={styles.deletesymbol}></div>
+                                <div className={styles.wish_dlt} onClick={() => remove_itm()}> REMOVE</div>
                             </div>
                         </div>
                         <div className={styles.item_availability}>
@@ -109,7 +136,12 @@ function Cart()
                                 <div style={{display:"flex", flexDirection:"row", marginLeft:"-20px"}}><div className={styles.item_availabilitySign}/><span>Express Store Pick Up</span></div>
                             </ul>
                         </div>
-                        <div className={styles.item_amount}>{itm.mrp - (itm.mrp * (itm.discount / 100)).toFixed(0)}</div>
+
+                        <div>
+                             <div className={styles.item_amount1}>{`Rs ${itm.mrp - (itm.mrp * (itm.discount / 100)).toFixed(0)}`}</div>
+                             <div><span className={styles.item_amount2}>{`Rs ${itm.mrp}`}</span> <span className={styles.item_amount3}>{`(${itm.discount}% Off)`}</span></div>
+                        </div>
+                       
                       </div>
                         <div className={styles.line1}/>
                       </div>
