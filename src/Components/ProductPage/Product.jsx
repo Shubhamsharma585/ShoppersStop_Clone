@@ -10,7 +10,8 @@ export default function Product() {
   const history = useHistory();
   console.log(urlSearchParams.get("c"));
   var cat = urlSearchParams.get("c");
-  // const category = useParams().c;
+  var productName = urlSearchParams.get("name");
+  // const ProductCategory = useParams().c;
   const [category, setCategory] = useState("");
   const [data, setData] = useState([]);
 
@@ -36,7 +37,7 @@ export default function Product() {
       return axios
         .get("http://localhost:1200/product", {
           params: {
-            c: cat,
+            c: category,
             discount: offer,
           },
         })
@@ -46,7 +47,7 @@ export default function Product() {
       return axios
         .get("http://localhost:1200/product", {
           params: {
-            c: cat,
+            c: category,
           },
         })
         .then((res) => setData(res.data))
@@ -61,7 +62,7 @@ export default function Product() {
       return axios
         .get("http://localhost:1200/product", {
           params: {
-            c: cat,
+            c: category,
             mrp: price,
           },
         })
@@ -71,7 +72,7 @@ export default function Product() {
       return axios
         .get("http://localhost:1200/product", {
           params: {
-            c: cat,
+            c: category,
           },
         })
         .then((res) => setData(res.data))
@@ -89,6 +90,17 @@ export default function Product() {
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, [category]);
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:1200/product", {
+  //       params: {
+  //         c: cat,
+  //         name: productName,
+  //       },
+  //     })
+  //     .then((res) => setData(res.data))
+  //     .catch((err) => console.log(err));
+  // }, [cat || productName]);
   console.log(data, cat);
   return (
     <div style={{ display: "flex" }}>

@@ -1,6 +1,6 @@
 import React from "react";
 import "./NavBar.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import StoreOutlinedIcon from "@material-ui/icons/StoreOutlined";
 import PermContactCalendarOutlinedIcon from "@material-ui/icons/PermContactCalendarOutlined";
 import MenuOutlinedIcon from "@material-ui/icons/MenuOutlined";
@@ -16,8 +16,20 @@ import { loggingout } from "../../Redux/Registration/action";
 export default function NavBar() {
   const Dispatch = useDispatch();
   var login = useSelector((state) => state.regi.isloggedIn);
-
+  const history = useHistory();
   const [show, handleShow] = React.useState(false);
+  const [search, setSearch] = React.useState("");
+
+  const handleSearch = (e) => {
+    console.log(search);
+    if (search == "men" || "women" || "kids") {
+      history.push(`/product?c=${search}`);
+    } else {
+      history.push(`/product?name=${search}`);
+    }
+
+    setSearch("");
+  };
 
   const LogOut = () => {
     auth
@@ -97,6 +109,8 @@ export default function NavBar() {
               id="standard-basic"
               placeholder="search product & brand"
               style={{ width: "350px" }}
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
             />
           </div>
 
@@ -105,6 +119,7 @@ export default function NavBar() {
               fontSize="default"
               color="action"
               style={{ paddingTop: "20px", background: "white" }}
+              onClick={handleSearch}
             />
           </div>
           <div>

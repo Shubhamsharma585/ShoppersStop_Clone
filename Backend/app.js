@@ -4,7 +4,7 @@ const cors = require("cors");
 
 const app = express();
 app.use(cors({
-    origin:"*"
+    origin: "*"
 }))
 app.use(express.json())
 
@@ -14,14 +14,14 @@ const connect = () => {
         useNewUrlParser: true,
         useCreateIndex: true,
         useFindAndModify: false,
-        useUnifiedTopology: true 
+        useUnifiedTopology: true
     });
-} 
+}
 const productSchema = mongoose.Schema({
     size: [String],
     category: String,
     name: String,
-    img: String, 
+    img: String,
     company: String,
     description: String,
     color: String,
