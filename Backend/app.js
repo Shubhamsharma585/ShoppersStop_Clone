@@ -35,10 +35,10 @@ const usersSchema = mongoose.Schema({
     first_name: String,
     last_name: String,
     number: String,
-    password: Number,
+    password: String,
     wallet: Number,
     email: String,
-    email_verified: Boolean,
+    emailVerified: Boolean,
     image_url: String,
     gender: String,
     address: [String],
@@ -70,7 +70,7 @@ const usersSchema = mongoose.Schema({
     }],
     cart: [{
         size: String,
-        quantity: Number,
+        quantity: Number,  
         category: String,
         name: String,
         img: String,
@@ -105,7 +105,7 @@ app.get("/product", async (req, res) => {
     color ? obj.color = color : null;
     sort ? sortObj[sort] = order == "asc" ? 1 : -1 : {}
     const data = await Product.find(obj).sort(sortObj).lean().exec()
-    console.log(data)
+    //console.log(data)
     res.status(200).json({ data: data })
 })
 app.get("/product/:id",async(req,res)=>{

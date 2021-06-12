@@ -7,7 +7,7 @@ function ProductCard({
   price,
   discount,
   onHandleLink,
-  id,
+  id, 
 }) {
   return (
     <div

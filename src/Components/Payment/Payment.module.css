@@ -13,7 +13,7 @@
     border: black 0px solid;
     display: flex; 
     flex-direction: row;
-    margin-top: 100px;
+    margin-top: 100px; 
 }
 
 .left_cont
@@ -44,16 +44,32 @@
 
 .line1
 {  
-   border: 1px rgb(189, 188, 188) solid;
+   border: 1px rgb(230, 230, 230) solid;
    border-bottom: 0;
    margin-top: 16px;
 }
 
 .left_optionbar
 {
-   border: 0px rgb(50, 50, 50) solid;
+   border: 0px rgb(213, 213, 213) solid;
    border-radius: 5px;
-   background-color: #9d9d9d;
+   background-color: #c7c7c7;
+   margin-top: 0px;
+   margin-bottom: 20px;
+   padding-top: 20px;
+   padding-left: 20px;
+   height: 40px;
+   display: flex;
+   flex-direction: row;
+   justify-content:space-between;
+}
+
+.left_optionbar2
+{
+   border: 0px rgb(213, 213, 213) solid;
+   border-radius: 5px;
+   background-color: #dfdfdf;
+   color: rgb(162, 162, 162);
    margin-top: 0px;
    margin-bottom: 20px;
    padding-top: 20px;
@@ -75,23 +91,38 @@
     border: 0px solid black;
 }
 
+.signedinsymbol2
+{
+    background-image: url(../../database/image.webp);
+    background-position-x: -11px;
+    background-position-y: -1408px;
+    margin-right: -550px;
+    top: 4px;
+    width: 20px;
+    height: 20px;
+    border: 0px solid black;
+}
+
 .signin1
 {
     margin-left: -80px;
-    font-weight: 560;
+    font-weight: 545;
+    font-family: "PTSans-Regular";
 }
 
 .email
 {  
     margin-right: 230px;
     margin-left: -70px;
-    
+    font-family: "PTSans-Regular";
 }
 
 .delivery
 {
     margin-left: 45px;
     font-weight: 560;
+    font-weight: 545;
+    font-family: "PTSans-Regular";
 }
 
 .changebtn
@@ -104,9 +135,9 @@
 
 .delivery_cont
 {
-    border: solid 1px rgb(207, 205, 205);
+    border: solid 1px rgb(232, 232, 232);
     border-top: 0px;
-    height: 360px;
+    height: 680px;
     margin-top: -20px;
     margin-bottom: 20px;
 }
@@ -139,11 +170,14 @@
 
 .addressbarswitch1
 {
-    border: rgb(179, 179, 179)  1px solid;
+    border: rgb(220, 220, 220)  1px solid;
     border-radius: 4px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
-    font-weight: 700;
+    text-align: center;
+    font-weight: 550;
+    font-size: 14px;
+    color: rgb(45, 45, 45);
     width: 250px;
     margin-top: 20px;
     padding: 10px;
@@ -159,8 +193,10 @@
     border-radius: 4px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
-    color: rgb(63, 63, 63);
-    font-weight: 400;
+    text-align: center;
+    font-weight: 550;
+    font-size: 14px;
+    color: rgb(72, 72, 72);
     width: 300px;
     margin-top: 20px;
     margin-left: 2px;
@@ -173,7 +209,7 @@
 
 .addressbarswitch3
 {
-    border: rgb(179, 179, 179) 1px solid;
+    border: rgb(215, 215, 215) 1px solid;
     border-top: 0px;
     border-right: 0px;
     border-left: 0px;
@@ -183,26 +219,81 @@
     width: 500px;
 }
 
+.addressbarswitch_new
+{
+    position: relative;
+    top: 25px;
+    left: -342px;
+    background-color: #a953e0;
+    border-radius: 3px;
+    padding: 2px 2px 2px 10px;
+    color: white;
+    width: 48px;
+    height: 15px;
+    font-size: 12px;
+}
+
+.addressbarswitch_new1
+{
+    background-color: #a953e0;
+    position: absolute;
+    top: 5px;
+    left: -3px;
+    transform: rotate(45deg);
+    border: 1px #a953e0 solid;
+    padding: 1px 1px 1px 1px;
+    color: white;
+    width: 4px;
+    height: 4px;
+}
+
+
+
+
 .addressbartop
 {
     border: 0px rgb(91, 90, 90) solid;
-    background-color: #f3f3f3;
-    margin-top: 12px;
-    margin-bottom: -12px;
+    margin-top: -10px;
+    margin-bottom: 5px;
     margin-left: 20px;
-    margin-right: 20px;
+    margin-right: 20px; 
     padding-top: 20px;
     padding-left: 20px;
-    height: 80px;   
+    height: 410px;   
 }
 
 .addressbartop > p
 {
-  margin-top: -10px;
-  font-size: 14px;   
+    color: rgb(62, 62, 62);
 }
 
+.addressbartop > p > input
+{
+  margin-top: 0px;
+  font-size: 14px;
+  height: 30px;
+  border: 1px solid rgb(223, 223, 223);  
+  border-radius: 1px; 
+  padding-left: 10px;
+}
 
+.address_inp1
+{
+    width: 50px;
+    padding-left: 10px;
+    background-color: rgb(237, 237, 237);
+}
+.address_inp2
+{
+    width: 380px;
+    padding-left: 10px;
+}
+.address_inp3
+{
+    width: 181px;
+    padding-left: 10px;
+    background-color: rgb(230, 230, 230);
+}
 
 .addressbar
 {
@@ -210,7 +301,15 @@
     height: 70px;
     justify-content: space-around;
     margin-bottom: 20px;
-} 
+}
+
+.check_box
+{
+   height: 12px;
+   margin-left: -10px;
+   color: grey;
+   font-size: 13px;
+}
 
 .addnew
 {
@@ -258,7 +357,7 @@
 
 .payment_div
 {
-    border: 1px solid rgb(160, 160, 160);
+    border: 1px solid rgb(235, 235, 235);
     border-top: 0px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;

@@ -1,45 +1,61 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import styles from "./Cart.module.css"
 import banner from "../../database/covid.webp"
 import { useDispatch, useSelector } from "react-redux"
+import { Link, Redirect } from "react-router-dom"
+import axios from "axios"
 
 
 
 function Cart()
 {
 
+    const [ cart, setCart ] = useState([]);
    
 
     const Dispatch = useDispatch()
     var isloggedIn = useSelector(state => state.regi.isloggedIn)
     var object_id = useSelector(state => state.regi.object_id)
-      
+    var mobile = useSelector(state => state.regi.number)
+   
+
+    useEffect(() => {
+       axios.get(`http://localhost:1200/user/${mobile}`)
+        .then(res =>  setCart(res.data.data[0].cart))
+
+    },[])
+
+    console.log(cart)
 
 
-    const [cart, setCart] = useState([{
-    category: "women",
-    name: "saree",
-    img: "https://sslimages.shoppersstop.com/sys-master/images/h92/hcc/15897506152478/ISHIKAISH20083_RED.jpg_230Wx334H",
-    company: "ISHIN",
-    description: "Womens Poly Georgette Red Foil Printed Saree",
-    mrp: 9605,
-    discount: 14,
-    color: "Green"
-    },
+    const fav_itm = () => {
+        //adding to fav
+    }
+
+    const remove_itm = () => {
+        //remove from cart
+    }
+    
+    const itm_quantity = (q) => {
+         console.log(q)
+        //updating quantity of itm
+    }
+
+
+
+    var total_payable = 0;
+    var total_discount = 0;
+    for(var i = 0; i<cart.length; i++)
     {
-        "id": 25,
-        "category": "beauty",
-        "name": "eye",
-        "img": "https://sslimages.shoppersstop.com/sys-master/images/ha4/he7/16342091563038/MAC-SLAF01_NoColour.jpg_230Wx334H",
-        "company": "LAKME",
-        "description": "Absolute Illuminating Eye Shadow Palette Nude Beach - 7.5 g",
-        "mrp": 1376,
-        "discount": 35,
-        "color": "Turquoise"
-      }])
+        total_payable = total_payable + Number(cart[i].mrp - (cart[i].mrp * (cart[i].discount / 100)).toFixed(0));
+        total_discount = total_discount + Number((cart[i].mrp * (cart[i].discount / 100)).toFixed(0));
+ 
+    }
+    
 
-
-    return(
+    return !isloggedIn? (
+        <Redirect to={"/"} />
+    ):(
         <div>
             <div>
                 <img src={banner} className={styles.top}/>
@@ -49,8 +65,8 @@ function Cart()
            <div className={styles.left_cont}>
                 <div className={styles.left_top}>
                     <div className={styles.shopping}>SHOPPING BAG</div>
-                    <div className={styles.items}>(5 ITEMS)</div>
-                    <div className={styles.price}>RS 14,196.4</div>
+                    <div className={styles.items}>{`(${cart.length} ITEMS)`}</div>
+                    <div className={styles.price}>{`RS ${total_payable}`}</div>
                     <div className={styles.total}>TOTAL</div>
                 </div>
                 <div className={styles.line1}/>  
@@ -83,19 +99,34 @@ function Cart()
                       <div className={styles.cart_item} >
                         <img className={styles.item_img} src={itm.img}/>
                         <div className={styles.item_detail}>
-                            <p>{itm.company}</p>
-                            <p>{itm.description}</p>
+                            <p style={{fontFamily:"PTSans-Regular" }}>{itm.company}</p>
+                            <p style={{fontFamily:"PTSans-Bold", marginTop:"-10px" }}>{itm.description}</p>
+
                             <div className={styles.item_detail3} >
                                 <p>Color:</p>
-                                <p>{itm.color}</p>
-                                <p>Size:</p>
-                                <p>{itm.color}</p>
-                                <p>Quantity:</p>
-                                <p>{itm.color}</p>
+                                <p className={styles.itm_clr}>{itm.color}</p>
+                                <p style={{marginLeft:"22px"}}>Size:</p>
+                                <p className={styles.itm_size}>{itm.size}</p>                  
+                                <p style={{marginLeft:"25px", marginTop:"11px"}}><span style={{fontSize:"15px"}}>|</span> Quantity:</p>
+                                <select name="Quantity" className={styles.itm_quant}>
+                                  <p>Quantity</p>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                  <option value="6">6</option>
+                                  <option value="7">7</option>
+                                  <option value="8">8</option>
+                                  <option value="9">9</option>
+                                </select>
                             </div>
+
                             <div className={styles.item_detail4}>
-                                <div>ADD TO WISHLIST</div>
-                                <div style={{marginLeft:"100px"}}>REMOVE</div>
+                                <div className={styles.heartsymbol}></div>
+                                <div className={styles.wish_dlt} onClick={() => fav_itm()}> ADD TO WISHLIST </div>
+                                <div className={styles.deletesymbol}></div>
+                                <div className={styles.wish_dlt} onClick={() => remove_itm()}> REMOVE</div>
                             </div>
                         </div>
                         <div className={styles.item_availability}>
@@ -105,7 +136,12 @@ function Cart()
                                 <div style={{display:"flex", flexDirection:"row", marginLeft:"-20px"}}><div className={styles.item_availabilitySign}/><span>Express Store Pick Up</span></div>
                             </ul>
                         </div>
-                        <div className={styles.item_amount}>{itm.mrp}</div>
+
+                        <div>
+                             <div className={styles.item_amount1}>{`Rs ${itm.mrp - (itm.mrp * (itm.discount / 100)).toFixed(0)}`}</div>
+                             <div><span className={styles.item_amount2}>{`Rs ${itm.mrp}`}</span> <span className={styles.item_amount3}>{`(${itm.discount}% Off)`}</span></div>
+                        </div>
+                       
                       </div>
                         <div className={styles.line1}/>
                       </div>
@@ -133,7 +169,7 @@ function Cart()
 		   <div className={styles.label_txt}>
 			Sub total</div>
 		   <div className={styles.amount_txt}>
-			<span><strong>Rs</strong>14196</span>
+			<span><strong>Rs </strong>{total_payable + total_discount}</span>
 			</div>
 	     </div>
 	      <div>
@@ -154,7 +190,7 @@ function Cart()
 			Offer Discount
 		</div>
 		<div className={styles.amount_txt}>
-			799.6</div>
+			{total_discount}</div>
 	      </div>
 
 
@@ -175,14 +211,14 @@ function Cart()
         <div className={styles.label_txt}>
             Payable Amount</div>
         <div className={styles.amount_txt}>       
-            <strong><span class="rupee">Rs</span> 14,196.4</strong>
+            <strong><span class="rupee">Rs </span>{total_payable}</strong>
         </div>
          </div>
          <div>
         <div className={styles.label_txt}>
             You have saved</div>
         <div className={styles.amount_txt}>
-            <strong className={styles.saved}><span class="rupee">Rs</span> 799.6</strong>
+            <strong className={styles.saved}><span class="rupee">Rs </span>{total_discount}</strong>
         </div>
         </div>
      </ul>
@@ -190,7 +226,11 @@ function Cart()
 
 
               <div className={styles.rightCont_checkout}>
-                          CHECKOUT
+                  <Link to={"/payment"} style={{textDecoration:"none"}}>
+                    <span style={{color:"white"}}>
+                       CHECKOUT
+                    </span>
+                  </Link>                    
                </div>   
 
                <div className={styles.below_checkout}>
