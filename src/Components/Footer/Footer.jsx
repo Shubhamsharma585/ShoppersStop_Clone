@@ -7,18 +7,20 @@ const Footer = () => {
   return (
     <div>
       <div>
-        <div className="appLogos">
+        <div className="appLogos1">
           <div className="appStore">
             <p className="appStore">DOWNLOAD THE APP ON</p>
             <img
               className="appImg"
+              alt="logo"
               src="https://heritagefcu.com/wp-content/uploads/2017/04/swync-download-android-ios.png"
             ></img>
           </div>
           <div>
             <img
               className="productImg"
-              src="https://lh3.googleusercontent.com/proxy/ffAL0ipfc7UhQddBQR9LQ-PQqG6PPta0OxYDEnu_oEjlTvzdb6vZnsRyK4lpR1fgVylc3I-2w1FYONhPbdzc0TelE7TW43QUkGI6JLPIx3iHAgQTZQxkkcxvbVJYlN0IWhD_JcaqukuP_a19PDPxpG-pkyQ2Sat0ZK9RurO0R3f-brDh"
+              alt="product"
+              src="https://shapure.com/wp-content/uploads/2020/03/genuine.jpg"
             ></img>
             <p>
               Authentic <br /> Product
@@ -44,6 +46,34 @@ const Footer = () => {
             <p>
               Express <br /> Store Pickup
             </p>
+          </div>
+        </div>
+
+        <div className="appLogos1">
+          <div className="appStore">
+            <p>
+              QUESTIONS? <br />{" "}
+              <span style={{ color: "red" }}>
+                customercare@shoppersstop.com
+              </span>
+            </p>
+          </div>
+          <div className="paySecure">
+            <p>PAY SECURE BY</p>
+            <img
+              className="payIcon"
+              src="https://myjewelstory.com/wp-content/uploads/2019/08/v-1.png"
+              alt="pay icon"
+            />
+          </div>
+
+          <div className="paySecure">
+            <p>VERIFIED BY</p>
+            <img
+              className="payIcon"
+              src="https://www.irpcommerce.com/IRPSupport/ExtraContent/payment-logos.jpg"
+              alt="verify icon"
+            />
           </div>
         </div>
       </div>

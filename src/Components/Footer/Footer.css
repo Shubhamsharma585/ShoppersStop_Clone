@@ -8,6 +8,7 @@ a {
   color: rgb(194, 194, 194);
   /* line-height: 14px; */
   font-size: 10px;
+  margin-top: 20px;
 }
 
 .flex {
@@ -64,12 +65,18 @@ a {
   margin-left: 10%;
 }
 .productImg {
-  width: 70px;
+  width: 40px;
 }
 .deliveryIcon {
   margin-left: 70px;
 }
-.appLogos {
+.appLogos1 {
   display: flex;
   color: rgb(151, 156, 154);
+}
+.payIcon {
+  height: 60px;
+}
+.paySecure {
+  margin-left: 15%;
 }
