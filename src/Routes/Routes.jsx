@@ -3,21 +3,23 @@ import { Route, Switch } from "react-router-dom";
 import Login from "../Components/Fireauth/Login";
 import Reg from "../Components/Fireauth/Reg";
 import Profile from "../Components/Profile/Profile";
-import NavBar from "../Components/Navbar/NavBar";
 import NavbarList from "../Components/Navbar/NavbarList";
 import Cart from "../Components/Cart/Cart";
 import Home from "../Pages/Home";
 import OneProduct from "../Components/OneProduct/OneProduct";
 import Payment from "../Components/Payment/Payment";
 import Product from "../Components/ProductPage/Product";
+import CombinedNavBar from "../Components/CombinedNavBar/CombinedNavBar"
 
 function Routes() {
   return (
     <div>
-      <NavBar />
+  
+      <CombinedNavBar/>
       <NavbarList />
 
       <Switch>
+
         <Route path="/" exact>
           <Home />
         </Route>

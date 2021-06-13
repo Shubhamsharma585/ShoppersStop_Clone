@@ -4,6 +4,7 @@ import banner from "../../database/covid.webp"
 import { Button, Checkbox } from "@material-ui/core"
 import payment_banner from "../../database/payment_banner.webp"
 import { useDispatch, useSelector } from "react-redux"
+import { Redirect } from "react-router-dom"
 
  
 
@@ -131,7 +132,9 @@ function Payment()
 
  
 
-    return(
+    return !isloggedIn? (
+        <Redirect to={"/"} push/>
+    ):(
         <div>
             <div>
                 <img src={banner} className={styles.top}/>

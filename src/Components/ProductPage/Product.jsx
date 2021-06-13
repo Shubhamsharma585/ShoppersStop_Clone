@@ -308,11 +308,11 @@ export default function Product() {
               id={el._id}
               img={el.img}
               company={el.company}
-              description={el.description}
+              description={el.description} 
               price={el.mrp}
               discount={el.discount}
               onHandleLink={onHandleLink}
-            ></ProductCard>
+            ></ProductCard> 
             // </Link>
           ))}
       </div>
