@@ -10,6 +10,7 @@ import OneProduct from "../Components/OneProduct/OneProduct";
 import Payment from "../Components/Payment/Payment";
 import Product from "../Components/ProductPage/Product";
 import CombinedNavBar from "../Components/CombinedNavBar/CombinedNavBar"
+import Order from "../Components/Order/Order";
 
 function Routes() {
   return (
@@ -47,6 +48,9 @@ function Routes() {
         </Route>
         <Route path="/payment" exact>
           <Payment />
+        </Route>
+        <Route path="/order">
+         <Order/>
         </Route>
       </Switch>
     </div>
