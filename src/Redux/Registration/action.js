@@ -46,8 +46,8 @@ export const loggingout = (payload) => dispatch => {
 
 
 export const SignInlogin = (payload) => dispatch => {
-    console.log(payload.user.emailVerified)
-    console.log(payload.user.phoneNumber)
+    // console.log(payload.user.emailVerified)
+    // console.log(payload.user.phoneNumber)
     dispatch(loginRequest())
 
     Axios.get(`http://localhost:1200/user/${payload.user.phoneNumber}`, {

@@ -43,7 +43,6 @@ function Combinedhome()
     const [openregi, setOpenregi] = React.useState(false);
   
     const handleOpenlogin = () => {
-      console.log("login")
       setOpenlogin(true);
       setOpenregi(false);
     };
@@ -82,7 +81,7 @@ function Combinedhome()
 
         <Fade in={openlogin}>
           <div className={classes.paper}>
-             <Log handleCloselogin={handleCloselogin}/>   
+             <Log handleCloselogin={handleCloselogin} handleOpenregi={handleOpenregi}/>   
           </div>
         </Fade>
       </Modal>
@@ -106,7 +105,7 @@ function Combinedhome()
 
         <Fade in={openregi}>
           <div className={classes.paper2}>
-             <Reg handleCloseregi={handleCloseregi}/>   
+             <Reg handleCloseregi={handleCloseregi} handleOpenlogin={handleOpenlogin}/>   
           </div>
         </Fade>
       </Modal> 

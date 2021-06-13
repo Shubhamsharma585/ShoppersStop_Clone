@@ -19,7 +19,7 @@ import { registering } from "../../Redux/Registration/action"
 
 
 
-function Reg({handleCloseregi}) 
+function Reg({handleCloseregi, handleOpenlogin}) 
 {
 
     const dispatch = useDispatch();
@@ -96,11 +96,15 @@ function Reg({handleCloseregi})
         });
       // [END auth_simple_link]
     }
+
+
+    const Openlogin = () => {
+         handleCloseregi();
+         handleOpenlogin();
+    }
  
    
-      
-
-
+    
     return isloggedIn?(
       {handleCloseregi}
     ):(
@@ -184,8 +188,8 @@ function Reg({handleCloseregi})
                    <div className={styles.social_cont} onClick={googlesignup} ><div className={styles.google}></div></div>
                 </div>
 
-
-                <p><span className={styles.havean1}>Have an account?</span> <Link to={"/login"} style={{textDecoration:"none"}}><span className={styles.havean2}>Sign In</span></Link></p>
+                <p><span className={styles.havean1}>Have an account?</span> <span className={styles.havean2} onClick={() => Openlogin()}>Sign In</span></p>
+                {/* <p><span className={styles.havean1}>Have an account?</span> <Link to={"/login"} style={{textDecoration:"none"}}><span className={styles.havean2} onClick={() => Openlogin()}>Sign In</span></Link></p> */}
                 <p><span className={styles.rights1}>By signing up you agree to our</span> <span className={styles.rights2}>Terms of service</span> <span className={styles.rights1}>&</span> <span className={styles.rights2}>Privacy Policy</span></p> 
             </div>
 

@@ -25,7 +25,7 @@ function Cart()
 
     },[])
 
-    console.log(cart)
+    
 
 
     const fav_itm = () => {
