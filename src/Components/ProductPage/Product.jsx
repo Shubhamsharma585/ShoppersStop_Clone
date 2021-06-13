@@ -4,26 +4,37 @@ import { useHistory, useLocation, useParams } from "react-router";
 import "./Product.css";
 import ProductCard from "../ProductCard/ProductCard";
 import { Link } from "react-router-dom";
+import LoadingLogo from "../LoadingLogo/LoadingLogo";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getDatasByDept,
+  getDatasByOffer,
+  getDatasByPrice,
+} from "../../Redux/Filters/actions";
 
 export default function Product() {
   const urlSearchParams = new URLSearchParams(window.location.search);
+  const reduxCat = useSelector((state) => state.data.datas);
+  // const reduxCategory = reduxCat.data.category;
+  console.log(reduxCat);
+  const dispatch = useDispatch();
   const history = useHistory();
-  console.log(urlSearchParams.get("c"));
-  var cat = urlSearchParams.get("c");
   var productName = urlSearchParams.get("name");
   // const ProductCategory = useParams().c;
   const [category, setCategory] = useState("");
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  var cat = urlSearchParams.get("c");
 
   // console.log(category);
   const handleDept = (e) => {
     const { name, checked } = e.target;
-    if (checked) {
-      setCategory(name);
-    } else {
-    }
     setCategory(name);
-    // cat = name;
+    if (checked) {
+      dispatch(getDatasByDept(name));
+    } else {
+      dispatch(getDatasByDept(cat));
+    }
   };
 
   const onHandleLink = (id) => {
@@ -34,24 +45,9 @@ export default function Product() {
     const { name, checked } = e.target;
     let offer = +name;
     if (checked) {
-      return axios
-        .get("http://localhost:1200/product", {
-          params: {
-            c: category,
-            discount: offer,
-          },
-        })
-        .then((res) => setData(res.data))
-        .catch((err) => console.log(err));
+      dispatch(getDatasByOffer(category || cat, offer));
     } else {
-      return axios
-        .get("http://localhost:1200/product", {
-          params: {
-            c: category,
-          },
-        })
-        .then((res) => setData(res.data))
-        .catch((err) => console.log(err));
+      dispatch(getDatasByOffer(cat));
     }
   };
 
@@ -59,24 +55,9 @@ export default function Product() {
     const { name, checked } = e.target;
     let price = +name;
     if (checked) {
-      return axios
-        .get("http://localhost:1200/product", {
-          params: {
-            c: category,
-            mrp: price,
-          },
-        })
-        .then((res) => setData(res.data))
-        .catch((err) => console.log(err));
+      dispatch(getDatasByPrice(category || cat, price));
     } else {
-      return axios
-        .get("http://localhost:1200/product", {
-          params: {
-            c: category,
-          },
-        })
-        .then((res) => setData(res.data))
-        .catch((err) => console.log(err));
+      dispatch(getDatasByPrice(cat));
     }
   };
 
@@ -84,12 +65,15 @@ export default function Product() {
     axios
       .get("http://localhost:1200/product", {
         params: {
-          c: category || cat,
+          c: cat,
         },
       })
-      .then((res) => setData(res.data))
+      .then((res) => {
+        setData(res.data);
+        setLoading(false);
+      })
       .catch((err) => console.log(err));
-  }, [category]);
+  }, [cat]);
   // useEffect(() => {
   //   axios
   //     .get("http://localhost:1200/product", {
@@ -304,30 +288,37 @@ export default function Product() {
           <hr></hr>
         </div>
       </div>
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          width: "100%",
-          marginLeft: "2%",
-        }}
-      >
-        {data.data &&
-          data.data.map((el) => (
-            // <Link to={`product/${el._id}`}>
-            <ProductCard
-              key={el._id}
-              id={el._id}
-              img={el.img}
-              company={el.company}
-              description={el.description}
-              price={el.mrp}
-              discount={el.discount}
-              onHandleLink={onHandleLink}
-            ></ProductCard>
-            // </Link>
-          ))}
-      </div>
+      {loading ? (
+        <div style={{ width: "100%" }}>
+          {" "}
+          <LoadingLogo />
+        </div>
+      ) : (
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            width: "100%",
+            marginLeft: "2%",
+          }}
+        >
+          {reduxCat.data &&
+            reduxCat.data.map((el) => (
+              // <Link to={`product/${el._id}`}>
+              <ProductCard
+                key={el._id}
+                id={el._id}
+                img={el.img}
+                company={el.company}
+                description={el.description}
+                price={el.mrp}
+                discount={el.discount}
+                onHandleLink={onHandleLink}
+              ></ProductCard>
+              // </Link>
+            ))}
+        </div>
+      )}
     </div>
   );
 }

@@ -12,23 +12,30 @@ import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined"
 import { firebase, auth } from "../Fireauth/firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { loggingout } from "../../Redux/Registration/action";
+import { getDatas } from "../../Redux/Filters/actions";
 
 export default function NavBar({ handleOpenlogin, handleOpenregi }) {
   const Dispatch = useDispatch();
   var login = useSelector((state) => state.regi.isloggedIn);
   const history = useHistory();
   const [show, handleShow] = React.useState(false);
-  const [search, setSearch] = React.useState("");
+  const [search, setSearch] = React.useState(false);
+  const [category, setCategory] = React.useState("");
 
   const handleSearch = (e) => {
-    console.log(search);
-    if (search == "men" || "women" || "kids") {
-      history.push(`/product?c=${search}`);
-    } else {
-      history.push(`/product?name=${search}`);
-    }
+    // console.log(search);
+    // if (search == "men" || "women" || "kids") {
 
-    setSearch("");
+    //   history.push(`/product?c=${search}`);
+    // } else {
+    //   history.push(`/product?name=${search}`);
+    // }
+    Dispatch(getDatas(category));
+    // setCategory("");
+    setSearch(true);
+    if (search) {
+      history.push(`/product?c=${category}`);
+    }
   };
 
   const LogOut = () => {
@@ -109,8 +116,8 @@ export default function NavBar({ handleOpenlogin, handleOpenregi }) {
               id="standard-basic"
               placeholder="search product & brand"
               style={{ width: "350px" }}
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
             />
           </div>
 

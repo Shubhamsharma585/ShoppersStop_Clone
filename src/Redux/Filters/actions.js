@@ -20,6 +20,31 @@ export const getDataFailure = () => {
     }
 }
 
+export const getDatas = (category) => (dispatch) => {
+    dispatch(getDataRequest())
+
+    if (category == "men" || category == "women" || category == "kids") {
+        return axios.get('http://localhost:1200/product', {
+            params: {
+                c: category,
+            }
+        })
+            .then(res => dispatch(getDataSuccess(res.data)))
+            .catch(err => dispatch(getDataFailure()))
+    } else {
+        return axios.get('http://localhost:1200/product', {
+            params: {
+                name: category,
+            }
+        })
+            .then(res => dispatch(getDataSuccess(res.data)))
+            .catch(err => dispatch(getDataFailure()))
+    }
+
+}
+
+
+
 
 //filter by offer
 
@@ -33,21 +58,62 @@ export const getDatasByOffer = (data, offer) => (dispatch) => {
             params: {
                 c: data,
                 discount: offer,
-
             }
         })
             .then(res => dispatch(getDataSuccess(res.data)))
             .catch(err => dispatch(getDataFailure()))
     }
     else {
-        return axios.get('', {
+        return axios.get('http://localhost:1200/product', {
             params: {
                 c: data,
-
-
             }
         })
             .then(res => dispatch(getDataSuccess(res.data)))
             .catch(err => dispatch(getDataFailure()))
     }
+}
+
+
+export const getDatasByPrice = (data, price) => (dispatch) => {
+
+
+    dispatch(getDataRequest())
+
+    if (price !== '') {
+        return axios.get('http://localhost:1200/product', {
+            params: {
+                c: data,
+                mrp: price,
+            }
+        })
+            .then(res => dispatch(getDataSuccess(res.data)))
+            .catch(err => dispatch(getDataFailure()))
+    }
+    else {
+        return axios.get('http://localhost:1200/product', {
+            params: {
+                c: data,
+            }
+        })
+            .then(res => dispatch(getDataSuccess(res.data)))
+            .catch(err => dispatch(getDataFailure()))
+    }
+}
+
+export const getDatasByDept = (data) => (dispatch) => {
+
+
+    dispatch(getDataRequest())
+
+
+    return axios.get('http://localhost:1200/product', {
+        params: {
+            c: data,
+        }
+    })
+        .then(res => dispatch(getDataSuccess(res.data)))
+        .catch(err => dispatch(getDataFailure()))
+
+
 }
