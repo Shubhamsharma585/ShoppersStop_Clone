@@ -3,12 +3,12 @@ import React from "react";
 function ProductCard({
   img,
   company,
-  description,
+  description, 
   price,
   discount,
   onHandleLink,
-  id, 
-}) {
+  id,  
+}) { 
   return (
     <div
       onClick={() => onHandleLink(id)}
