@@ -10,26 +10,42 @@
     color: rgb(70, 70, 70);
 }
 
+ 
+.main
+{
+    border: black 0px solid;
+    border-radius: 5px;
+    width: 850px;
+    height:630px;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+}
 
 .logo
 {
     margin-top: 20px;
     margin-right: 10px;
 }
- 
+
+.right
+{
+    border: black 0px solid;
+    width: 50%;
+    background-image: url(../../database/signUpBg.webp);
+}
 
 .left
 {
     border: rgb(220, 220, 220) 1px solid;
-    box-shadow: 0px 0px 10px 2px rgb(203, 203, 203);
-    width: 40%;
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 10px;
+    border-right: 0px;
+    width: 50%;
     padding: 0;
     justify-content: center;
     text-align: center;
-    
 }
 
 .inp
@@ -38,25 +54,33 @@
    margin-bottom: 30px;
    border: black 0px solid;
    border-radius: 5px;
-   width: 65%;
+   width: 70%;
    padding-top: 20px;
-   min-height: 120px;
+   min-height: 200px;
    box-shadow: 0px 0px 5px 2px rgb(233, 232, 232);  
 }
 
-.wrongpass
+.gender
 {
-    color: red;
-    font-size: 15px;
-    padding: 0;
-    margin-top: -15px;
-    margin-bottom: 5px;
+    width: 200px;
+    float: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.genderIcon
+{
+   border: black 0px solid;
+   margin-top: 10px;
+   margin-right: 10px;
+   margin-left: -50px;
+   width: 20px;
+   height: 20px;
 }
 
 .btn
 {
     width: 70%;
-    font-weight: 800;
 }
 
 .line
@@ -95,7 +119,7 @@
     width: 78%;
     min-height: 50px;
     margin: auto;
-    margin-top: 0px;
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
 }
@@ -103,9 +127,7 @@
 .social_cont
 { 
     box-shadow: 0px 0px 10px 5px rgb(233, 232, 232);
-    cursor: pointer;
     margin: auto;
-    margin-top: 0px;
     height: 40px;
     width: 40%;
 }
@@ -113,18 +135,18 @@
 
 .fb
 {
-    background-image: url(../../database/image.webp);
-    background-position-x: -101px;
-    background-position-y: -1400px;
+    background-image: url(https://prodstatic.shoppersstop.com/_ui/responsive/common/assets/images/ssl-sprite.png?timeStamp=_ts@051305424142#ts_);
+    background-position-x: -262px;
+    background-position-y: -938px; 
     margin: auto;
-    height: 40px; 
+    height: 40px;
     width: 20%;
 }
 
 .google
 {
     background-image: url(../../database/image.webp);
-    background-position-x: -125px;
+    background-position-x: -133px;
     background-position-y: -1398px;
     margin: auto;
     height: 40px;
@@ -139,27 +161,15 @@
 {
   color: #ff5d3b;
   font-weight: 700;
-  cursor: pointer;
 }
 
-.forgot
+.rights1
 {
-    color: red;
-    font-size: 13px;
-    text-decoration: underline;
-    cursor: pointer;
+   color: gray;
+   font-size: 12px;
 }
-
-.offer
-{
-   border: 1px solid rgb(194, 194, 194);
-   border-radius: 5px;
-   margin: auto;
-   margin-bottom: 50px;
-   font-family: 'Pacifico', cursive;
-   height: 30px;
-   width: 70%;
-   padding-top: 5px;
-   padding-bottom: 5px;
-   cursor: pointer;
+.rights2
+{ 
+    color: #ff5d3b;
+    font-size: 12px;
 }

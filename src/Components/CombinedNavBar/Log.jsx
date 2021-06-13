@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {firebase, auth, google} from "../Fireauth/firebase"
-import styles from "./Login.module.css"
+import styles from "./Log.module.css"
 import { Button, TextField } from "@material-ui/core"
 import MailOutlineOutlinedIcon from '@material-ui/icons/MailOutlineOutlined';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { SignInlogin } from "../../Redux/Registration/action"
 import { makeStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 
 const useStyles = makeStyles((theme) => ({ 
@@ -21,10 +22,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
  
-const FireLogin = () => {
+const FireLogin = ({handleCloselogin}) => {
 
 
- 
   const dispatch = useDispatch();
   const classes = useStyles();
   const isloggedIn = useSelector(state => state.regi.isloggedIn)
@@ -54,6 +54,7 @@ const FireLogin = () => {
       //console.log(res.user.emailVerified)
       //console.log("logged In")
       dispatch(SignInlogin(res))
+      handleCloselogin()
    })
    .catch(function(error) {
    console.log(error.code); 
@@ -134,7 +135,9 @@ if (user) {
 
      
     return isloggedIn?( 
-      <Redirect to="/" push/>
+      <div>
+        {handleCloselogin}
+      </div>
     ):(
           <div className={styles.left}>
                 <h4 style={{marginLeft:"150px"}}>SIGN IN <span style={{marginLeft:"150px", fontSize:"25px", color:"gray", cursor:"pointer"}}>x</span></h4>  
