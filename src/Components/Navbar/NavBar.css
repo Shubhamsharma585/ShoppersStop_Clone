@@ -50,7 +50,8 @@
   width: 100px;
   background: white;
   visibility: hidden;
-  margin-top: 20px;
+  margin-top: 0px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
   /* margin-left: 100px; */
 }
 .signHover > li {

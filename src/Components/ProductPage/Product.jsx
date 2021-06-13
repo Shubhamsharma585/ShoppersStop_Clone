@@ -312,6 +312,7 @@ export default function Product() {
           marginLeft: "2%",
         }}
       >
+        {/* {data.data.length == 0 && <h2>No Such Data Available</h2>} */}
         {data.data &&
           data.data.map((el) => (
             // <Link to={`product/${el._id}`}>
