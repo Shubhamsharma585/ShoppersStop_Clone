@@ -105,12 +105,12 @@ export default function Product() {
   return (
     <div style={{ display: "flex" }}>
       <div style={{}}>
-        <div className="outerDiv">
+        <div className="outerDiv22">
           <p>DEPARTMENT</p>
-          <div className="check">
+          <div className="check22">
             <label>
               <input
-                className="box"
+                className="box22"
                 name="women"
                 onChange={handleDept}
                 type="checkbox"
@@ -120,7 +120,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name="men"
                 onChange={handleDept}
                 type="checkbox"
@@ -130,7 +130,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name="kids"
                 onChange={handleDept}
                 type="checkbox"
@@ -142,12 +142,12 @@ export default function Product() {
           <hr></hr>
         </div>
 
-        <div className="outerDiv">
+        <div className="outerDiv22">
           <p>OFFERS</p>
-          <div className="check">
+          <div className="check22">
             <label>
               <input
-                className="box"
+                className="box22"
                 name="10"
                 onChange={handleOffer}
                 type="checkbox"
@@ -157,7 +157,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name="20"
                 onChange={handleOffer}
                 type="checkbox"
@@ -167,7 +167,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name="30"
                 onChange={handleOffer}
                 type="checkbox"
@@ -177,7 +177,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name="40"
                 onChange={handleOffer}
                 type="checkbox"
@@ -187,7 +187,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name="50"
                 onChange={handleOffer}
                 type="checkbox"
@@ -197,7 +197,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name="60"
                 onChange={handleOffer}
                 type="checkbox"
@@ -208,42 +208,42 @@ export default function Product() {
           <hr></hr>
         </div>
 
-        <div className="outerDiv">
+        <div className="outerDiv22">
           <p>SIZE</p>
-          <div className="check">
+          <div className="check22">
             <label>
-              <input className="box" type="checkbox"></input>
+              <input className="box22" type="checkbox"></input>
               Small
             </label>
             <br />
             <label>
-              <input className="box" type="checkbox"></input>
+              <input className="box22" type="checkbox"></input>
               Medium
             </label>
             <br />
             <label>
-              <input className="box" type="checkbox"></input>
+              <input className="box22" type="checkbox"></input>
               Large
             </label>
             <br />
             <label>
-              <input className="box" type="checkbox"></input>
+              <input className="box22" type="checkbox"></input>
               X-Large
             </label>
             <br />
             <label>
-              <input className="box" type="checkbox"></input>
+              <input className="box22" type="checkbox"></input>
               XX-Large
             </label>
           </div>
           <hr></hr>
         </div>
-        <div className="outerDiv">
+        <div className="outerDiv22">
           <p>PRICE</p>
-          <div className="check">
+          <div className="check22">
             <label>
               <input
-                className="box"
+                className="box22"
                 name={500}
                 onChange={handlePrice}
                 type="checkbox"
@@ -253,7 +253,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name={1000}
                 onChange={handlePrice}
                 type="checkbox"
@@ -263,7 +263,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name={2000}
                 onChange={handlePrice}
                 type="checkbox"
@@ -273,7 +273,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name={3000}
                 onChange={handlePrice}
                 type="checkbox"
@@ -283,7 +283,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name={5000}
                 onChange={handlePrice}
                 type="checkbox"
@@ -293,7 +293,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name={10000}
                 onChange={handlePrice}
                 type="checkbox"
@@ -312,7 +312,6 @@ export default function Product() {
           marginLeft: "2%",
         }}
       >
-        {/* {data.data.length == 0 && <h2>No Such Data Available</h2>} */}
         {data.data &&
           data.data.map((el) => (
             // <Link to={`product/${el._id}`}>

@@ -72,7 +72,8 @@ a {
 }
 .appLogos1 {
   display: flex;
-  color: rgb(151, 156, 154);
+  margin-top: 20px;
+  color: rgb(108, 110, 110);
 }
 .payIcon {
   height: 60px;

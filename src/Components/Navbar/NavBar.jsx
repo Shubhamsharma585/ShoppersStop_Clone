@@ -13,7 +13,7 @@ import { firebase, auth } from "../Fireauth/firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { loggingout } from "../../Redux/Registration/action";
 
-export default function NavBar() {
+export default function NavBar({ handleOpenlogin, handleOpenregi }) {
   const Dispatch = useDispatch();
   var login = useSelector((state) => state.regi.isloggedIn);
   const history = useHistory();
@@ -159,28 +159,25 @@ export default function NavBar() {
             {!login && (
               <div className="signHover">
                 <li>
-                  <Link to={"/login"} style={{ textDecoration: "none" }}>
-                    {" "}
-                    <span
-                      style={{
-                        textDecoration: "none",
-                        color: "grey",
-                      }}
-                    >
-                      SIGN IN
-                    </span>
-                  </Link>
+                  <span
+                    style={{ textDecoration: "none", color: "grey" }}
+                    onClick={handleOpenlogin}
+                  >
+                    SIGN IN
+                  </span>
+                  {/* <Link to={"/login"} style={{textDecoration:"none"}}> <span style={{textDecoration:"none", color:"grey"}}>SIGN IN</span></Link> */}
                   <hr
                     style={{ marginLeft: "-20px", border: "solid 1px #e0dede" }}
                   />
                 </li>
                 <li>
-                  <Link to={"/registration"} style={{ textDecoration: "none" }}>
-                    {" "}
-                    <span style={{ textDecoration: "none", color: "grey" }}>
-                      SIGN UP
-                    </span>
-                  </Link>
+                  <span
+                    style={{ textDecoration: "none", color: "grey" }}
+                    onClick={handleOpenregi}
+                  >
+                    SIGN UP
+                  </span>
+                  {/* <Link to={"/registration"} style={{textDecoration:"none"}}> <span style={{textDecoration:"none", color:"grey"}}>SIGN UP</span></Link> */}
                 </li>
               </div>
             )}
