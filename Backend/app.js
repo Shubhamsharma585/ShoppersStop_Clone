@@ -27,7 +27,7 @@ const productSchema = mongoose.Schema({
     color: String,
     mrp: Number,
     discount: Number,
-}, {
+}, { 
     versionKey: false
 })
 const usersSchema = mongoose.Schema({
