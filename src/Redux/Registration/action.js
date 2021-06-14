@@ -4,12 +4,12 @@ import Axios from "axios"
 
 
 //local storage
-const login_success_localstorage = (data) => {
-    localStorage.setItem('userObj',JSON.stringify(data))
-}
-const logout_success_localstorage = () => {
-    localStorage.clear()
-}
+// const login_success_localstorage = (data) => {
+//     localStorage.setItem('userObj',JSON.stringify(data))
+// }
+// const logout_success_localstorage = () => {
+//     localStorage.clear()
+// }
 //var loadVal = JSON.Parse(localStorage.getItem('name'))
 //local storage
 
@@ -69,9 +69,9 @@ const registerrequest = (payload) => {
 }
 
 const registersuccess = (payload) => {
-       login_success_localstorage(payload)
+    //login_success_localstorage({...payload, isloggedIn: true, isloggedOut: false, isloading: false })
     return {
-        type: REGISTER_SUCCESS,
+        type: REGISTER_SUCCESS, 
         payload
     }
 }
@@ -84,7 +84,7 @@ const loginRequest = (payload) => {
 }
 
 const loginSuccessfull = (payload) => {
-        login_success_localstorage(payload)
+        // login_success_localstorage({...payload, isloggedIn: true, isloggedOut: false, isloading: false })
     return {
         type: LOGIN_SUCCESS,
         payload
@@ -93,7 +93,7 @@ const loginSuccessfull = (payload) => {
 
 
 const logout = (payload) => {
-       logout_success_localstorage()
+    //    logout_success_localstorage()
     return {
         type: LOGOUT_SUCCESS,
         payload

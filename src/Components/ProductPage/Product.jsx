@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 export default function Product() {
   const urlSearchParams = new URLSearchParams(window.location.search);
   const history = useHistory();
-  console.log(urlSearchParams.get("c"));
+  //console.log(urlSearchParams.get("c"));
   var cat = urlSearchParams.get("c");
   // const category = useParams().c;
   const [category, setCategory] = useState("");
@@ -89,7 +89,7 @@ export default function Product() {
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, [category]);
-  console.log(data, cat);
+  //console.log(data, cat);
   return (
     <div style={{ display: "flex" }}>
       <div style={{}}>
