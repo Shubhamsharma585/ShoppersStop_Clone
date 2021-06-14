@@ -1,8 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import { getDatasByDept } from "../../Redux/Filters/actions";
 import "./NavbarList.css";
 
 export default function NavbarList() {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const handleDept = (e) => {
+    dispatch(getDatasByDept(e));
+    history.push(`/product?c=${e}`);
+  };
   return (
     <div>
       <div className="list">
@@ -38,10 +46,9 @@ export default function NavbarList() {
         </li>
 
         <li className="drop_one">
-          <Link to={"/product?c=women"}>
-            {" "}
-            <span className="spanHover">WOMEN</span>
-          </Link>
+          <span className="spanHover" onClick={() => handleDept("women")}>
+            WOMEN
+          </span>
           <div className="menu_experiment">
             <div className="menu_one women">
               <ul>
@@ -81,9 +88,9 @@ export default function NavbarList() {
           </div>
         </li>
         <li className="drop_one ">
-          <Link to={"/product?c=kids"}>
-            <span className="spanHover">KIDS</span>
-          </Link>
+          <span className="spanHover" onClick={() => handleDept("kids")}>
+            KIDS
+          </span>
           <div className="menu_experiment">
             <div className="menu_one kids">
               <ul>
@@ -128,9 +135,9 @@ export default function NavbarList() {
           </div>
         </li>
         <li className="drop_one ">
-          <Link to={"/product?c=beauty"}>
-            <span className="spanHover">BEAUTY</span>
-          </Link>
+          <span className="spanHover" onClick={() => handleDept("beauty")}>
+            BEAUTY
+          </span>
           <div className="menu_experiment">
             <div className="menu_one  beauty">
               <ul>
@@ -173,9 +180,9 @@ export default function NavbarList() {
           </div>
         </li>
         <li className="drop_one ">
-          <Link to={"/product?c=men"}>
-            <span className="spanHover">MEN</span>
-          </Link>
+          <span className="spanHover" onClick={() => handleDept("men")}>
+            MEN
+          </span>
           <div className="menu_experiment">
             <div className="menu_one men">
               <ul>

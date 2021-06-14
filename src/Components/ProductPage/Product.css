@@ -1,18 +1,18 @@
-.outerDiv {
+.outerDiv22 {
   width: 250px;
   margin-left: 5%;
   /* margin-right: 2%; */
   font-size: 18px;
   color: rgb(104, 101, 101);
 }
-.box {
+.box22 {
   height: 16px;
   width: 15px;
   padding-top: 15px;
   margin-bottom: 12px;
   margin-right: 2rem;
 }
-.check {
+.check22 {
   max-height: 300px;
   overflow-y: scroll;
   overflow-x: hidden;

@@ -27,8 +27,8 @@ function Cart()
         .then(res =>  { 
             setCart(res.data.data[0].cart)
             setFavorite(res.data.data[0].favorite)
-        })
-      
+        }) 
+       
     },[quantity, cart])
 
     
