@@ -5,6 +5,7 @@ import { Button, Checkbox } from "@material-ui/core"
 import payment_banner from "../../database/payment_banner.webp"
 import { useDispatch, useSelector } from "react-redux"
 import { Redirect } from "react-router-dom"
+import DebitCard from "./DebitCard"
 
  
 
@@ -262,7 +263,7 @@ function Payment()
                       </div>
 
                       <div className={styles.paymentright}>
-                          
+                          <DebitCard/>
                       </div>
                     </div>
 
