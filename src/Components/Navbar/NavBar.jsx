@@ -1,6 +1,6 @@
 import React from "react";
 import "./NavBar.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import StoreOutlinedIcon from "@material-ui/icons/StoreOutlined";
 import PermContactCalendarOutlinedIcon from "@material-ui/icons/PermContactCalendarOutlined";
 import MenuOutlinedIcon from "@material-ui/icons/MenuOutlined";
@@ -12,15 +12,31 @@ import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined"
 import { firebase, auth } from "../Fireauth/firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { loggingout } from "../../Redux/Registration/action";
+import { getDatas } from "../../Redux/Filters/actions";
 
-
-
-
-export default function NavBar({handleOpenlogin ,handleOpenregi}) {
+export default function NavBar({ handleOpenlogin, handleOpenregi }) {
   const Dispatch = useDispatch();
   var login = useSelector((state) => state.regi.isloggedIn);
-
+  const history = useHistory();
   const [show, handleShow] = React.useState(false);
+  const [search, setSearch] = React.useState(false);
+  const [category, setCategory] = React.useState("");
+
+  const handleSearch = (e) => {
+    // console.log(search);
+    // if (search == "men" || "women" || "kids") {
+
+    //   history.push(`/product?c=${search}`);
+    // } else {
+    //   history.push(`/product?name=${search}`);
+    // }
+    Dispatch(getDatas(category));
+    // setCategory("");
+    setSearch(true);
+    if (search) {
+      history.push(`/product?c=${category}`);
+    }
+  };
 
   const LogOut = () => {
     auth
@@ -100,6 +116,8 @@ export default function NavBar({handleOpenlogin ,handleOpenregi}) {
               id="standard-basic"
               placeholder="search product & brand"
               style={{ width: "350px" }}
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
             />
           </div>
 
@@ -108,6 +126,7 @@ export default function NavBar({handleOpenlogin ,handleOpenregi}) {
               fontSize="default"
               color="action"
               style={{ paddingTop: "20px", background: "white" }}
+              onClick={handleSearch}
             />
           </div>
           <div>
@@ -123,16 +142,16 @@ export default function NavBar({handleOpenlogin ,handleOpenregi}) {
           </div>
           <div>
             <Link to={"/cart"}>
-            <LocalMallOutlinedIcon
-              fontSize="default"
-              color="action"
-              style={{
-                paddingTop: "17px",
-                marginLeft: "20px",
-                background: "white",
-              }}
-            />
-            </Link>    
+              <LocalMallOutlinedIcon
+                fontSize="default"
+                color="action"
+                style={{
+                  paddingTop: "17px",
+                  marginLeft: "20px",
+                  background: "white",
+                }}
+              />
+            </Link>
           </div>
           <div className="signIn">
             <AccountCircleOutlinedIcon
@@ -147,14 +166,24 @@ export default function NavBar({handleOpenlogin ,handleOpenregi}) {
             {!login && (
               <div className="signHover">
                 <li>
-                  <span style={{textDecoration:"none", color:"grey"}} onClick={handleOpenlogin}>SIGN IN</span>
+                  <span
+                    style={{ textDecoration: "none", color: "grey" }}
+                    onClick={handleOpenlogin}
+                  >
+                    SIGN IN
+                  </span>
                   {/* <Link to={"/login"} style={{textDecoration:"none"}}> <span style={{textDecoration:"none", color:"grey"}}>SIGN IN</span></Link> */}
                   <hr
                     style={{ marginLeft: "-20px", border: "solid 1px #e0dede" }}
                   />
                 </li>
                 <li>
-                <span style={{textDecoration:"none", color:"grey"}} onClick={handleOpenregi}>SIGN UP</span>
+                  <span
+                    style={{ textDecoration: "none", color: "grey" }}
+                    onClick={handleOpenregi}
+                  >
+                    SIGN UP
+                  </span>
                   {/* <Link to={"/registration"} style={{textDecoration:"none"}}> <span style={{textDecoration:"none", color:"grey"}}>SIGN UP</span></Link> */}
                 </li>
               </div>
@@ -174,9 +203,9 @@ export default function NavBar({handleOpenlogin ,handleOpenregi}) {
                   />
                 </li>
                 <li>
-                <Link to={"/profile"} style={{textDecoration:"none"}}>
-                  PROFILE
-                 </Link> 
+                  <Link to={"/profile"} style={{ textDecoration: "none" }}>
+                    PROFILE
+                  </Link>
                   <hr
                     style={{
                       marginLeft: "-20px",

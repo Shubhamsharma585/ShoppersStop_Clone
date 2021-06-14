@@ -4,25 +4,37 @@ import { useHistory, useLocation, useParams } from "react-router";
 import "./Product.css";
 import ProductCard from "../ProductCard/ProductCard";
 import { Link } from "react-router-dom";
+import LoadingLogo from "../LoadingLogo/LoadingLogo";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getDatasByDept,
+  getDatasByOffer,
+  getDatasByPrice,
+} from "../../Redux/Filters/actions";
 
 export default function Product() {
   const urlSearchParams = new URLSearchParams(window.location.search);
+  const reduxCat = useSelector((state) => state.data.datas);
+  // const reduxCategory = reduxCat.data.category;
+  console.log(reduxCat);
+  const dispatch = useDispatch();
   const history = useHistory();
-  //console.log(urlSearchParams.get("c"));
-  var cat = urlSearchParams.get("c");
-  // const category = useParams().c;
+  var productName = urlSearchParams.get("name");
+  // const ProductCategory = useParams().c;
   const [category, setCategory] = useState("");
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  var cat = urlSearchParams.get("c");
 
   // console.log(category);
   const handleDept = (e) => {
     const { name, checked } = e.target;
-    if (checked) {
-      setCategory(name);
-    } else {
-    }
     setCategory(name);
-    // cat = name;
+    if (checked) {
+      dispatch(getDatasByDept(name));
+    } else {
+      dispatch(getDatasByDept(cat));
+    }
   };
 
   const onHandleLink = (id) => {
@@ -33,24 +45,9 @@ export default function Product() {
     const { name, checked } = e.target;
     let offer = +name;
     if (checked) {
-      return axios
-        .get("http://localhost:1200/product", {
-          params: {
-            c: cat,
-            discount: offer,
-          },
-        })
-        .then((res) => setData(res.data))
-        .catch((err) => console.log(err));
+      dispatch(getDatasByOffer(category || cat, offer));
     } else {
-      return axios
-        .get("http://localhost:1200/product", {
-          params: {
-            c: cat,
-          },
-        })
-        .then((res) => setData(res.data))
-        .catch((err) => console.log(err));
+      dispatch(getDatasByOffer(cat));
     }
   };
 
@@ -58,24 +55,9 @@ export default function Product() {
     const { name, checked } = e.target;
     let price = +name;
     if (checked) {
-      return axios
-        .get("http://localhost:1200/product", {
-          params: {
-            c: cat,
-            mrp: price,
-          },
-        })
-        .then((res) => setData(res.data))
-        .catch((err) => console.log(err));
+      dispatch(getDatasByPrice(category || cat, price));
     } else {
-      return axios
-        .get("http://localhost:1200/product", {
-          params: {
-            c: cat,
-          },
-        })
-        .then((res) => setData(res.data))
-        .catch((err) => console.log(err));
+      dispatch(getDatasByPrice(cat));
     }
   };
 
@@ -83,22 +65,36 @@ export default function Product() {
     axios
       .get("http://localhost:1200/product", {
         params: {
-          c: category || cat,
+          c: cat,
         },
       })
-      .then((res) => setData(res.data))
+      .then((res) => {
+        setData(res.data);
+        setLoading(false);
+      })
       .catch((err) => console.log(err));
-  }, [category]);
-  //console.log(data, cat);
+  }, [cat]);
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:1200/product", {
+  //       params: {
+  //         c: cat,
+  //         name: productName,
+  //       },
+  //     })
+  //     .then((res) => setData(res.data))
+  //     .catch((err) => console.log(err));
+  // }, [cat || productName]);
+  console.log(data, cat);
   return (
     <div style={{ display: "flex" }}>
       <div style={{}}>
-        <div className="outerDiv">
+        <div className="outerDiv22">
           <p>DEPARTMENT</p>
-          <div className="check">
+          <div className="check22">
             <label>
               <input
-                className="box"
+                className="box22"
                 name="women"
                 onChange={handleDept}
                 type="checkbox"
@@ -108,7 +104,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name="men"
                 onChange={handleDept}
                 type="checkbox"
@@ -118,7 +114,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name="kids"
                 onChange={handleDept}
                 type="checkbox"
@@ -130,12 +126,12 @@ export default function Product() {
           <hr></hr>
         </div>
 
-        <div className="outerDiv">
+        <div className="outerDiv22">
           <p>OFFERS</p>
-          <div className="check">
+          <div className="check22">
             <label>
               <input
-                className="box"
+                className="box22"
                 name="10"
                 onChange={handleOffer}
                 type="checkbox"
@@ -145,7 +141,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name="20"
                 onChange={handleOffer}
                 type="checkbox"
@@ -155,7 +151,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name="30"
                 onChange={handleOffer}
                 type="checkbox"
@@ -165,7 +161,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name="40"
                 onChange={handleOffer}
                 type="checkbox"
@@ -175,7 +171,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name="50"
                 onChange={handleOffer}
                 type="checkbox"
@@ -185,7 +181,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name="60"
                 onChange={handleOffer}
                 type="checkbox"
@@ -196,42 +192,42 @@ export default function Product() {
           <hr></hr>
         </div>
 
-        <div className="outerDiv">
+        <div className="outerDiv22">
           <p>SIZE</p>
-          <div className="check">
+          <div className="check22">
             <label>
-              <input className="box" type="checkbox"></input>
+              <input className="box22" type="checkbox"></input>
               Small
             </label>
             <br />
             <label>
-              <input className="box" type="checkbox"></input>
+              <input className="box22" type="checkbox"></input>
               Medium
             </label>
             <br />
             <label>
-              <input className="box" type="checkbox"></input>
+              <input className="box22" type="checkbox"></input>
               Large
             </label>
             <br />
             <label>
-              <input className="box" type="checkbox"></input>
+              <input className="box22" type="checkbox"></input>
               X-Large
             </label>
             <br />
             <label>
-              <input className="box" type="checkbox"></input>
+              <input className="box22" type="checkbox"></input>
               XX-Large
             </label>
           </div>
           <hr></hr>
         </div>
-        <div className="outerDiv">
+        <div className="outerDiv22">
           <p>PRICE</p>
-          <div className="check">
+          <div className="check22">
             <label>
               <input
-                className="box"
+                className="box22"
                 name={500}
                 onChange={handlePrice}
                 type="checkbox"
@@ -241,7 +237,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name={1000}
                 onChange={handlePrice}
                 type="checkbox"
@@ -251,7 +247,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name={2000}
                 onChange={handlePrice}
                 type="checkbox"
@@ -261,7 +257,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name={3000}
                 onChange={handlePrice}
                 type="checkbox"
@@ -271,7 +267,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name={5000}
                 onChange={handlePrice}
                 type="checkbox"
@@ -281,7 +277,7 @@ export default function Product() {
             <br />
             <label>
               <input
-                className="box"
+                className="box22"
                 name={10000}
                 onChange={handlePrice}
                 type="checkbox"
@@ -292,30 +288,37 @@ export default function Product() {
           <hr></hr>
         </div>
       </div>
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          width: "100%",
-          marginLeft: "2%",
-        }}
-      >
-        {data.data &&
-          data.data.map((el) => (
-            // <Link to={`product/${el._id}`}>
-            <ProductCard
-              key={el._id}
-              id={el._id}
-              img={el.img}
-              company={el.company}
-              description={el.description} 
-              price={el.mrp}
-              discount={el.discount}
-              onHandleLink={onHandleLink}
-            ></ProductCard> 
-            // </Link>
-          ))}
-      </div>
+      {loading ? (
+        <div style={{ width: "100%" }}>
+          {" "}
+          <LoadingLogo />
+        </div>
+      ) : (
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            width: "100%",
+            marginLeft: "2%",
+          }}
+        >
+          {reduxCat.data &&
+            reduxCat.data.map((el) => (
+              // <Link to={`product/${el._id}`}>
+              <ProductCard
+                key={el._id}
+                id={el._id}
+                img={el.img}
+                company={el.company}
+                description={el.description}
+                price={el.mrp}
+                discount={el.discount}
+                onHandleLink={onHandleLink}
+              ></ProductCard>
+              // </Link>
+            ))}
+        </div>
+      )}
     </div>
   );
 }
