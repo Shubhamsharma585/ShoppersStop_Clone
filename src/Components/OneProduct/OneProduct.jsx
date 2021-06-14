@@ -16,6 +16,7 @@ function OneProduct() {
   const { id } = useParams();
   const [data, setData] = useState({});
   const [size, setSize] = useState("");
+  const [alert,setAlert]=useState("")  
 
   useEffect(() => {
     axios
@@ -24,17 +25,23 @@ function OneProduct() {
       .catch((err) => console.log(err));
   }, []);
   const handleAddToBag = () => {
-    const payload = {
-      ...data,
-      quantity: 1,
-      size,
-    };
-    axios
+    if(size==""){
+      setAlert("Please select a size")
+    }
+    else{
+
+      const payload = {
+        ...data,
+        quantity: 1,
+        size,
+      };
+      axios
       .patch("http://localhost:1200/user/" + user_obj.object_id, {
         cart: [...user_obj.cart, payload],
       })
-      .then((res) => console.log(res.data));
-  };
+      .then((res) => console.log(res.data),setAlert("Product added to bag!!"));
+    }
+    };
   var user_obj = useSelector((state) => state.regi);
   console.log(user_obj, user_obj.object_id, size);
   return (
@@ -89,7 +96,7 @@ function OneProduct() {
               ))}
           </div>
           <br />
-
+          <div style={{color:size!=""?"green":"red"}}>{alert}</div>
           <button
             onClick={handleAddToBag}
             style={{
