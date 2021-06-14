@@ -11,7 +11,7 @@ app.use(express.json())
 
 const connect = () => {
     return mongoose.connect("mongodb+srv://manisgdb:manish@cluster0.ufnzw.mongodb.net/shoppers?retryWrites=true&w=majority", {
-        useNewUrlParser: true,
+        useNewUrlParser: true, 
         useCreateIndex: true,
         useFindAndModify: false,
         useUnifiedTopology: true
