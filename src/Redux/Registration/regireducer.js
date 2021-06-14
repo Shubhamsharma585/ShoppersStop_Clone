@@ -79,7 +79,7 @@ function regireducer(state = initstate, {type, payload})
                 return {
                     ...state,
                     isloggedIn: true,
-                    isloggedOut: false,
+                    isloggedOut: false, 
                     isloading: false,
                     object_id: payload._id,
                     first_name: payload.first_name,
