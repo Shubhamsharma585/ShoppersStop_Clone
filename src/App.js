@@ -6,6 +6,7 @@ import NavBar from './Components/Navbar/NavBar';
 import Footer from './Components/Footer/Footer';
 import LoadingLogo from './Components/LoadingLogo/LoadingLogo';
 
+
 function App() {
   return (
     <div className="App">

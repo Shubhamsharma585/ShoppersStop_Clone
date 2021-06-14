@@ -3,7 +3,7 @@ import styles from "./Cart.module.css"
 import banner from "../../database/covid.webp"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, Redirect } from "react-router-dom"
-import axios from "axios"
+import Axios from "axios"
 
 
 
@@ -11,34 +11,69 @@ function Cart()
 {
 
     const [ cart, setCart ] = useState([]);
-   
+    const [ favorite, setFavorite ] = useState([]);
+    const [quantity, setQuantity ] = useState(1)
+  
 
     const Dispatch = useDispatch()
     var isloggedIn = useSelector(state => state.regi.isloggedIn)
     var object_id = useSelector(state => state.regi.object_id)
     var mobile = useSelector(state => state.regi.number)
-   
+
+    
 
     useEffect(() => {
-       axios.get(`http://localhost:1200/user/${mobile}`)
-        .then(res =>  setCart(res.data.data[0].cart))
+       Axios.get(`http://localhost:1200/user/${mobile}`)
+        .then(res =>  { 
+            setCart(res.data.data[0].cart)
+            setFavorite(res.data.data[0].favorite)
+        }) 
+       
+    },[quantity, cart])
 
-    },[])
-
-    console.log(cart)
+    
 
 
-    const fav_itm = () => {
-        //adding to fav
+    const fav_itm = (q) => {
+
+        var new_itm = cart.filter(itm => itm._id = q)
+        var Favorite = favorite;
+        Favorite.push(new_itm[0])
+
+        Axios.patch(`http://localhost:1200/user/${object_id}`,{
+            favorite: Favorite
+        })
+        .then(res => {
+        })
     }
 
-    const remove_itm = () => {
-        //remove from cart
+
+    
+    const remove_itm = (q) => {
+        var new_cart = cart.filter((itm) => itm._id != q)
+        
+        setCart(new_cart);
+        Axios.patch(`http://localhost:1200/user/${object_id}`,{
+             cart: new_cart
+        })
+        .then(res => {
+            setCart(res.data.data[0].cart)
+        })
     }
     
-    const itm_quantity = (q) => {
-         console.log(q)
-        //updating quantity of itm
+
+
+
+    const itm_quantity = (qua, id) => {
+         
+        const new_cart = cart.map((itm) => itm._id === id? {...itm, quantity: qua}: itm)
+         Axios.patch(`http://localhost:1200/user/${object_id}`,{
+             cart: new_cart
+        })
+        .then(res => {
+            //console.log(res.data)
+        })
+        setQuantity(qua)
     }
 
 
@@ -47,8 +82,8 @@ function Cart()
     var total_discount = 0;
     for(var i = 0; i<cart.length; i++)
     {
-        total_payable = total_payable + Number(cart[i].mrp - (cart[i].mrp * (cart[i].discount / 100)).toFixed(0));
-        total_discount = total_discount + Number((cart[i].mrp * (cart[i].discount / 100)).toFixed(0));
+        total_payable = total_payable + (cart[i].quantity * Number(cart[i].mrp - (cart[i].mrp * (cart[i].discount / 100)).toFixed(0)));
+        total_discount = total_discount + (cart[i].quantity * Number((cart[i].mrp * (cart[i].discount / 100)).toFixed(0)));
  
     }
     
@@ -108,8 +143,9 @@ function Cart()
                                 <p style={{marginLeft:"22px"}}>Size:</p>
                                 <p className={styles.itm_size}>{itm.size}</p>                  
                                 <p style={{marginLeft:"25px", marginTop:"11px"}}><span style={{fontSize:"15px"}}>|</span> Quantity:</p>
-                                <select name="Quantity" className={styles.itm_quant}>
+                                <select name="Quantity" className={styles.itm_quant} onChange={(e) => itm_quantity(e.target.value, itm._id)} >
                                   <p>Quantity</p>
+                                  <option value={itm.quantity}>{itm.quantity}</option>
                                   <option value="1">1</option>
                                   <option value="2">2</option>
                                   <option value="3">3</option>
@@ -124,9 +160,9 @@ function Cart()
 
                             <div className={styles.item_detail4}>
                                 <div className={styles.heartsymbol}></div>
-                                <div className={styles.wish_dlt} onClick={() => fav_itm()}> ADD TO WISHLIST </div>
+                                <div className={styles.wish_dlt} onClick={() => fav_itm(itm._id)}> ADD TO WISHLIST </div>
                                 <div className={styles.deletesymbol}></div>
-                                <div className={styles.wish_dlt} onClick={() => remove_itm()}> REMOVE</div>
+                                <div className={styles.wish_dlt} onClick={() => remove_itm(itm._id)}> REMOVE</div>
                             </div>
                         </div>
                         <div className={styles.item_availability}>
@@ -138,8 +174,8 @@ function Cart()
                         </div>
 
                         <div>
-                             <div className={styles.item_amount1}>{`Rs ${itm.mrp - (itm.mrp * (itm.discount / 100)).toFixed(0)}`}</div>
-                             <div><span className={styles.item_amount2}>{`Rs ${itm.mrp}`}</span> <span className={styles.item_amount3}>{`(${itm.discount}% Off)`}</span></div>
+                             <div className={styles.item_amount1}>{`Rs ${itm.quantity * (itm.mrp - (itm.mrp * (itm.discount / 100)).toFixed(0))}`}</div>
+                             <div><span className={styles.item_amount2}>{`Rs ${itm.quantity * itm.mrp}`}</span> <span className={styles.item_amount3}>{`(${itm.discount}% Off)`}</span></div>
                         </div>
                        
                       </div>
@@ -211,14 +247,14 @@ function Cart()
         <div className={styles.label_txt}>
             Payable Amount</div>
         <div className={styles.amount_txt}>       
-            <strong><span class="rupee">Rs </span>{total_payable}</strong>
+            <strong><span>Rs </span>{total_payable}</strong>
         </div>
          </div>
          <div>
         <div className={styles.label_txt}>
             You have saved</div>
         <div className={styles.amount_txt}>
-            <strong className={styles.saved}><span class="rupee">Rs </span>{total_discount}</strong>
+            <strong className={styles.saved}><span>Rs </span>{total_discount}</strong>
         </div>
         </div>
      </ul>
