@@ -3,23 +3,25 @@ import React from "react";
 function ProductCard({
   img,
   company,
-  description, 
+  description,
   price,
   discount,
   onHandleLink,
-  id,  
-}) { 
+  id,
+}) {
   return (
     <div
       onClick={() => onHandleLink(id)}
       style={{
         width: "21%",
-        height: "68vh",
+        height: "66vh",
         color: "#686565",
         textAlign: "center",
         border: "2px solid #e6e1e1",
         margin: "1.4%",
         paddingBottom: "10px",
+        // boxShadow:
+        //   "0 7px 7px 0 rgba(158, 152, 152, 0.5), 0 2px 5px 0 rgba(192, 189, 189, 0.19)",
       }}
     >
       <img width="100%" src={img} alt="item" />

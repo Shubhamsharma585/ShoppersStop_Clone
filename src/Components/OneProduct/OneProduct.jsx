@@ -4,8 +4,6 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import Card from "../Card/Card";
 
-
-
 const black = {
   color: "black",
   marginLeft: "5px",
@@ -15,8 +13,12 @@ const black = {
 function OneProduct() {
   const { id } = useParams();
   const [data, setData] = useState({});
-  const [size, setSize] = useState("");
+
+  const [size, setSize] = useState("XL");
+
+ 
   const [alert,setAlert]=useState("")  
+
 
   useEffect(() => {
     axios
@@ -25,6 +27,15 @@ function OneProduct() {
       .catch((err) => console.log(err));
   }, []);
   const handleAddToBag = () => {
+
+    const payload = {
+      ...data,
+      quantity: 1,
+      size,
+    };
+    console.log(user_obj.cart);
+    axios
+
     if(size==""){
       setAlert("Please select a size")
     }
@@ -36,6 +47,7 @@ function OneProduct() {
         size,
       };
       axios
+
       .patch("http://localhost:1200/user/" + user_obj.object_id, {
         cart: [...user_obj.cart, payload],
       })
