@@ -191,19 +191,23 @@ export default function NavBar({ handleOpenlogin, handleOpenregi }) {
             {login && (
               <div className="signHover">
                 <li>
+                <Link to={"/profile"} style={{ textDecoration: "none", color:"grey" }}>
                   MY ACCOUNT
+                </Link>
                   <hr
                     style={{ marginLeft: "-20px", border: "solid 1px #e0dede" }}
                   />
                 </li>
                 <li>
+                <Link to={"/profile"} style={{ textDecoration: "none", color:"grey" }}>
                   ORDERS{" "}
+                </Link>
                   <hr
                     style={{ marginLeft: "-20px", border: "solid 1px #e0dede" }}
                   />
                 </li>
                 <li>
-                  <Link to={"/profile"} style={{ textDecoration: "none" }}>
+                  <Link to={"/profile"} style={{ textDecoration: "none", color:"grey" }}>
                     PROFILE
                   </Link>
                   <hr

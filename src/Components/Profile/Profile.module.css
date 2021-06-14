@@ -16,7 +16,7 @@
     width: 300px;
     min-height: 200px; 
     margin: 30px;
-    max-height: 710px;
+    max-height: 710px; 
 }
 
 .topleft
@@ -48,6 +48,7 @@
 .topleft_detail
 {
     border: black 0px solid;
+    margin-top: 20px;
     text-align: left;
     color: white;
     font-size: 12px;
@@ -127,7 +128,7 @@
 
 
 .bottomleft_link
-{
+{ 
     text-decoration: none;
     color: black;
     cursor: pointer;
@@ -144,9 +145,8 @@
     background-color: white;
     text-align: left;
     padding-left: 30px;
-    width: 65%;
-    min-height: 200px;  
-    max-height: 400px;
+    width: 60%;
+    min-height: 100px;  
     margin: 30px;
     display: flex;
     flex-direction: column;
@@ -212,4 +212,47 @@
     color: white;
 }
 
+
+.showtransaction
+{
+    border: black 0px solid;
+    min-height: 100px;
+    margin-right: 50px;
+    margin-top: 12px;
+}
+
+.orderstag
+{
+    font-weight: 600;
+    margin-top: 0px;
+}
+
+.orders_main
+{
+    border: rgb(228, 228, 228) 1px solid;
+    border-radius: 3px;
+    min-height: 100px;
+    background-color: white;
+}
+.orders_header
+{
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+    justify-content: space-around;
+}
+
+.orders_list
+{
+    margin-top: 20px;
+    border: black 0px solid;
+    min-height: 50px;
+    background-color: rgb(249, 249, 249);
+}
+
+.showaddress
+{
+    border: black 1px solid;
+    min-height: 100px;
+}
 

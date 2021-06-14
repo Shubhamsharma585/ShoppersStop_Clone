@@ -3,7 +3,7 @@ import React from 'react'
 function DebitCard() {
     return (
         <div>
-            <div style={{fontWeight:"bold",fontSize:"15px"}}>Pay via credit card</div>
+            <div style={{fontWeight:"bold",fontSize:"15px"}}>Pay via Dedit card</div>
             <hr />
             <div style={{fontWeight:"bold",fontSize:"15px"}}>Enter card details</div>
             <input placeholder="Card Number" style={{width:"97%",height:"25px",margin:"10px 0px",border:"1px solid lightgray"}} type="text" name="" id="" />

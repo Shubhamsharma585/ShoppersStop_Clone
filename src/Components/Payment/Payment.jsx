@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styles from "./Payment.module.css"
 import banner from "../../database/covid.webp"
 import { Button, Checkbox } from "@material-ui/core"
@@ -6,6 +6,7 @@ import payment_banner from "../../database/payment_banner.webp"
 import { useDispatch, useSelector } from "react-redux"
 import { Redirect } from "react-router-dom"
 import DebitCard from "./DebitCard"
+import Axios from "axios"
 
  
 
@@ -14,10 +15,29 @@ function Payment()
 
     const Dispatch = useDispatch()
     var isloggedIn = useSelector(state => state.regi.isloggedIn)
-    var object_id = useSelector(state => state.regi.object_id)
-    var fn = useSelector(state => state.first_name)
-    console.log(object_id, fn, isloggedIn)
+    var mobile = useSelector(state => state.regi.number)
+    //console.log(object_id, fn, isloggedIn)
    
+    const [ cart, setCart ] = useState([]);
+    useEffect(() => {
+        Axios.get(`http://localhost:1200/user/${mobile}`) 
+         .then(res =>  { 
+             console.log(res.data.data[0].cart)
+             setCart(res.data.data[0].cart)
+         }) 
+        
+     },[])
+
+   
+    var total_payable = 0;
+    var total_discount = 0;
+     for(var i = 0; i<cart.length; i++)
+     {
+         total_payable = total_payable + (cart[i].quantity * Number(cart[i].mrp - (cart[i].mrp * (cart[i].discount / 100)).toFixed(0)));
+         total_discount = total_discount + (cart[i].quantity * Number((cart[i].mrp * (cart[i].discount / 100)).toFixed(0)));
+  
+     }
+
   
      const [delivery, setDelivery] = useState(true)
      const [payment, setPayment] = useState(false)
@@ -30,6 +50,7 @@ function Payment()
      const [astate, setAstate] = useState("");
      const [aline1, setAline1] = useState("");
      const [aline2, setAline2] = useState("");
+
 
      const [checked, setChecked] = React.useState(true);
         const handleChange = (event) => {
@@ -203,12 +224,12 @@ function Payment()
               {payment? (
                   <div className={styles.left_optionbar}>
                      <div className={styles.delivery}>3.MAKE PAYMENT</div>
-                     <div style={{marginRight:"30px"}}>Payable Amount: Rs<span>13705.65</span></div>
+                     <div style={{marginRight:"30px"}}>Payable Amount: Rs <span>{total_payable}</span></div>
                  </div>
               ):(
                 <div className={styles.left_optionbar2}>
                 <div className={styles.delivery}>3.MAKE PAYMENT</div>
-                <div style={{marginRight:"30px"}}>Payable Amount: Rs<span>13705.65</span></div>
+                <div style={{marginRight:"30px"}}>Payable Amount: Rs<span>{total_payable}</span></div>
                 </div>
               )}   
 
@@ -257,10 +278,10 @@ function Payment()
                               <div>
                                   <p className={styles.heading1}>OTHER WALLETS</p>
                                   <p className={styles.heading2}>Use Your Preffered Wallet</p>
-                              </div>
+                              </div> 
                         </div>
 
-                      </div>
+                      </div> 
 
                       <div className={styles.paymentright}>
                           <DebitCard/>
@@ -271,10 +292,7 @@ function Payment()
                  }
            
                      
-             
-
-
-       
+            
        </div>
 
 
@@ -300,7 +318,7 @@ function Payment()
 		   <div className={styles.label_txt}>
 			Sub total</div>
 		   <div className={styles.amount_txt}>
-			<span><strong>Rs</strong>14196</span>
+			<span><strong>Rs </strong>{total_payable + total_discount}</span>
 			</div>
 	     </div>
 	      <div>
@@ -321,7 +339,7 @@ function Payment()
 			Offer Discount
 		</div>
 		<div className={styles.amount_txt}>
-			799.6</div>
+        {total_discount}</div>
 	      </div>
 
 
@@ -342,14 +360,14 @@ function Payment()
         <div className={styles.label_txt}>
             Payable Amount</div>
         <div className={styles.amount_txt}>       
-            <strong><span class="rupee">Rs</span> 14,196.4</strong>
+            <strong><span class="rupee">Rs</span> {total_payable}</strong>
         </div>
          </div>
          <div>
         <div className={styles.label_txt}>
             You have saved</div>
         <div className={styles.amount_txt}>
-            <strong className={styles.saved}><span class="rupee">Rs</span> 799.6</strong>
+            <strong className={styles.saved}><span class="rupee">Rs </span> {total_discount}</strong>
         </div>
         </div>
      </ul>
