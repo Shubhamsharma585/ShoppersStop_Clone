@@ -16,7 +16,7 @@
   width: 95%;
   background: rgb(250, 250, 250);
   display: flex;
-
+  z-index: 4;
   padding-top: 20px;
   transition: 0.5s;
   box-shadow: 2px 0px 40px rgb(223, 217, 217) inset,
@@ -27,11 +27,12 @@
 }
 .drop_one:hover > .menu_experiment {
   display: block;
-  z-index: 7;
+  /* z-index: 4; */
   margin-top: 15px;
+  background: white;
 }
 .menu_one > ul li:hover {
-  border-bottom: 3px solid #2f82ab; 
+  border-bottom: 3px solid #2f82ab;
   transition: 0.5s;
   cursor: pointer;
 }
@@ -39,6 +40,9 @@
   list-style: none;
   margin-top: 20px;
   color: #615e5e;
+}
+.spanHover {
+  color: rgb(85, 81, 81);
 }
 .spanHover:hover {
   color: red;

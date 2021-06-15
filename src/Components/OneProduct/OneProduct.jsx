@@ -1,10 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { shallowEqual } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch ,useSelector } from "react-redux";
 import { useParams } from "react-router";
 import Card from "../Card/Card";
-
+import { ADDTOBAG } from "../../Redux/Registration/action" 
 
 
 const black = {
@@ -16,14 +15,15 @@ const black = {
 function OneProduct() {
   const { id } = useParams();
   const [data, setData] = useState({});
-  const [size, setSize] = useState("");
-  const [alert,setAlert]=useState("") 
+  const [size, setSize] = useState("XL");
+  const [alert,setAlert]=useState("");
+  
+  const dispatch = useDispatch();
+  var user_obj = useSelector(state => state.regi)
+  var object_id = useSelector(state => state.regi.object_id)
+  
+  
 
-  const user_obj = useSelector((state) => state.regi);
-  // useEffect(()=>{
-  //   axios.get("http://localhost:1200/user/"+number)
-  //   .then()
-  // },[])
 
   useEffect(() => {
     axios
@@ -31,25 +31,24 @@ function OneProduct() {
       .then((res) => setData(res.data.data))
       .catch((err) => console.log(err));
   }, []);
-  console.log(user_obj.cart)
+
+
+
+
+
   const handleAddToBag = () => {
-    if(size==""){
-      setAlert("Please select a size")
-    }
-    else{
-      const payload = {
-        ...data,
-        quantity: 1,
-        size,
-      };
-      axios
-      .patch("http://localhost:1200/user/" + user_obj.object_id,{
-        ...user_obj,
-        cart: [...user_obj.cart, payload]
-      })
-      .then((res) => console.log(res.data.data),setAlert("Product added to bag!!"));
-    }
+    const payload = {
+      ...data,
+      quantity: 1,
+      size,
     };
+
+     dispatch(ADDTOBAG(payload,user_obj))
+
+    };
+
+
+ 
   return (
     <div>
       <Card image="https://sslimages.shoppersstop.com/sys-master/root/he0/h6c/16769226899486/Covid-Strip-WEB.jpg" />

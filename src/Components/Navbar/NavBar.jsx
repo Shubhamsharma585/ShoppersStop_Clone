@@ -111,7 +111,7 @@ export default function NavBar({ handleOpenlogin, handleOpenregi }) {
             marginLeft: "40px",
           }}
         >
-          <div className="textfield">
+          <form className="textfield">
             <TextField
               id="standard-basic"
               placeholder="search product & brand"
@@ -119,26 +119,33 @@ export default function NavBar({ handleOpenlogin, handleOpenregi }) {
               value={category}
               onChange={(e) => setCategory(e.target.value)}
             />
-          </div>
+          </form>
 
           <div>
             <SearchOutlinedIcon
               fontSize="default"
               color="action"
-              style={{ paddingTop: "20px", background: "white" }}
+              style={{
+                paddingTop: "20px",
+                background: "white",
+                cursor: "pointer",
+              }}
               onClick={handleSearch}
             />
           </div>
           <div>
-            <FavoriteBorderOutlinedIcon
-              fontSize="default"
-              color="action"
-              style={{
-                paddingTop: "17px",
-                marginLeft: "20px",
-                background: "white",
-              }}
-            />
+            <Link to={"/favorite"}>
+              <FavoriteBorderOutlinedIcon
+                fontSize="default"
+                color="action"
+                style={{
+                  paddingTop: "17px",
+                  marginLeft: "20px",
+                  background: "white",
+                  cursor: "pointer",
+                }}
+              />
+            </Link>
           </div>
           <div>
             <Link to={"/cart"}>
@@ -191,19 +198,23 @@ export default function NavBar({ handleOpenlogin, handleOpenregi }) {
             {login && (
               <div className="signHover">
                 <li>
+                <Link to={"/profile"} style={{ textDecoration: "none", color:"grey" }}>
                   MY ACCOUNT
+                </Link>
                   <hr
                     style={{ marginLeft: "-20px", border: "solid 1px #e0dede" }}
                   />
                 </li>
                 <li>
+                <Link to={"/profile"} style={{ textDecoration: "none", color:"grey" }}>
                   ORDERS{" "}
+                </Link>
                   <hr
                     style={{ marginLeft: "-20px", border: "solid 1px #e0dede" }}
                   />
                 </li>
                 <li>
-                  <Link to={"/profile"} style={{ textDecoration: "none" }}>
+                  <Link to={"/profile"} style={{ textDecoration: "none", color:"grey" }}>
                     PROFILE
                   </Link>
                   <hr
