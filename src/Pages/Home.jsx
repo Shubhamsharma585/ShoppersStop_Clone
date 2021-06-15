@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Card from '../Components/Card/Card'
 import Carousel from "../Components/Carousel/Carousel"
 import { useSelector } from "react-redux"
+import NavArrow from '../Components/NavArrow/NavArrow'
 
 
 const carousel1=[
@@ -55,11 +56,11 @@ function Home() {
     var isloggedIn = useSelector(state => state.regi.isloggedIn)
     var object_id = useSelector(state => state.regi.object_id)
     var fn = useSelector(state => state.regi.first_name)
-    console.log(object_id, fn, isloggedIn)
-
+   
 
     return (
         <div>
+            <NavArrow showBelow={200}/>
             <Card image="https://sslimages.shoppersstop.com/sys-master/root/he0/h6c/16769226899486/Covid-Strip-WEB.jpg"/>
 
             <Carousel images={carousel1}/>

@@ -1,17 +1,9 @@
 
-import { REGISTER_REQUEST, REGISTER_SUCCESS, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_SUCCESS } from "./actiontype"
+import { REGISTER_REQUEST, REGISTER_SUCCESS, LOGIN_REQUEST, 
+    LOGIN_SUCCESS, LOGOUT_SUCCESS, ADDTO_BAG, PAID, UPDATE_QUANTITY } from "./actiontype"
 import Axios from "axios"
 
 
-//local storage
-const login_success_localstorage = (data) => {
-    localStorage.setItem('userObj',JSON.stringify(data))
-}
-const logout_success_localstorage = () => {
-    localStorage.clear()
-}
-//var loadVal = JSON.Parse(localStorage.getItem('name'))
-//local storage
 
 
 
@@ -25,7 +17,7 @@ export const registering = (payload) => dispatch => {
     Axios.post("http://localhost:1200/user", {
         ...payload,
         emailVerified: false,
-        address: [],
+        address: [], 
         favorite: [],
         orders: [],
         cart: [],
@@ -46,8 +38,8 @@ export const loggingout = (payload) => dispatch => {
 
 
 export const SignInlogin = (payload) => dispatch => {
-    console.log(payload.user.emailVerified)
-    console.log(payload.user.phoneNumber)
+    // console.log(payload.user.emailVerified)
+    // console.log(payload.user.phoneNumber)
     dispatch(loginRequest())
 
     Axios.get(`http://localhost:1200/user/${payload.user.phoneNumber}`, {
@@ -69,9 +61,9 @@ const registerrequest = (payload) => {
 }
 
 const registersuccess = (payload) => {
-       login_success_localstorage(payload)
+    //login_success_localstorage({...payload, isloggedIn: true, isloggedOut: false, isloading: false })
     return {
-        type: REGISTER_SUCCESS,
+        type: REGISTER_SUCCESS, 
         payload
     }
 }
@@ -84,7 +76,7 @@ const loginRequest = (payload) => {
 }
 
 const loginSuccessfull = (payload) => {
-        login_success_localstorage(payload)
+        // login_success_localstorage({...payload, isloggedIn: true, isloggedOut: false, isloading: false })
     return {
         type: LOGIN_SUCCESS,
         payload
@@ -93,9 +85,72 @@ const loginSuccessfull = (payload) => {
 
 
 const logout = (payload) => {
-       logout_success_localstorage()
+    //    logout_success_localstorage()
     return {
         type: LOGOUT_SUCCESS,
         payload
     }
 }
+
+
+
+
+export const ADDTOBAG = (payload, user_obj) => dispatch => {
+  
+    Axios.patch(`http://localhost:1200/user/${user_obj.object_id}`, {
+         cart: [...user_obj.cart, payload]
+    })
+        .then((res) => {
+            dispatch(updating_bag(res.data.data))
+        })
+}
+
+const updating_bag = (payload) => {
+
+    return {
+        type: ADDTO_BAG,
+        payload
+    }
+}
+
+
+
+
+
+export const Update_cart = (payload) => dispatch => {
+  
+     console.log(payload)
+     dispatch(updateQuantity(payload))
+       
+}
+
+const updateQuantity = (payload) => {
+
+    return {
+        type: UPDATE_QUANTITY,
+        payload
+    }
+}
+
+
+
+
+
+export const PAYMENT_DONE = (payload) => dispatch => {     
+        console.log(payload)
+        dispatch(payment1(payload))
+    
+}
+
+
+const payment1 = (payload) => {
+
+    return {
+        type: PAID,
+        payload
+    }
+}
+
+
+
+

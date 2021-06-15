@@ -6,14 +6,12 @@ import NavBar from './Components/Navbar/NavBar';
 import Footer from './Components/Footer/Footer';
 import LoadingLogo from './Components/LoadingLogo/LoadingLogo';
 
-function App() {
+
+function App() { 
   return (
     <div className="App">
       <Routes />
-      {/* <Footer /> */}
-      {/* <LoadingLogo /> */}
-      {/* <Product /> */}
-      {/* <NavBar /> */}
+
     </div>
   );
 }

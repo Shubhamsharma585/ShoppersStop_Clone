@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
  
-const FireLogin = ({handleCloselogin}) => {
+const FireLogin = ({handleCloselogin, handleOpenregi}) => {
 
 
   const dispatch = useDispatch();
@@ -128,12 +128,12 @@ if (user) {
 
 
 
+   const openSignup = () => {
+         handleCloselogin(); 
+         handleOpenregi();
+   }
 
 
-    ////////
-    
-
-     
     return isloggedIn?( 
       <div>
         {handleCloselogin}
@@ -201,8 +201,8 @@ if (user) {
                    <div className={styles.social_cont} onClick={handleLogin}><div className={styles.google}></div></div>
                 </div>
 
-
-                <p><span className={styles.havean1}>Create a new account?</span> <Link to={"/registration"} style={{textDecoration:"none"}}><span className={styles.havean2}>Sign Up</span></Link></p>
+                <p><span className={styles.havean1}>Create a new account?</span> <span className={styles.havean2} onClick={() => openSignup()}>Sign Up</span></p>
+                {/* <p><span className={styles.havean1}>Create a new account?</span> <Link to={"/registration"} style={{textDecoration:"none"}}><span className={styles.havean2}>Sign Up</span></Link></p> */}
                 
             <div className={styles.offer}>
                  Sign up & get 10% off
