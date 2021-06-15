@@ -11,6 +11,7 @@ import Payment from "../Components/Payment/Payment";
 import Product from "../Components/ProductPage/Product";
 import CombinedNavBar from "../Components/CombinedNavBar/CombinedNavBar";
 import Order from "../Components/Order/Order";
+import Favorite from "../Components/Favorite/Favorite";
 
 function Routes() {
   return (
@@ -39,7 +40,7 @@ function Routes() {
           <Cart />
         </Route>
         <Route path="/favorite" exact>
-          <div>hii</div>
+          <Favorite />
         </Route>
         <Route path="/product" exact>
           <Product />
