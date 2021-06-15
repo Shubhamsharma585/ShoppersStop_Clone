@@ -11,3 +11,6 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
 
 //logout
 export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS"
+
+//adding to bag
+export const ADDTO_BAG = "ADDTO_BAG"

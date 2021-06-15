@@ -37,30 +37,30 @@ function Cart()
 
     const fav_itm = (q) => {
 
-        // var new_itm = cart.filter(itm => itm._id = q)
-        // var Favorite = favorite;
-        // Favorite.push(new_itm[0])
+        var new_itm = cart.filter(itm => itm._id = q)
+        var Favorite = favorite;
+        Favorite.push(new_itm[0])
 
-        // Axios.patch(`http://localhost:1200/user/${object_id}`,{
-        //     favorite: Favorite
-        // })
-        // .then(res => {
-        // }) 
+        Axios.patch(`http://localhost:1200/user/${object_id}`,{
+            favorite: Favorite
+        })
+        .then(res => {
+        }) 
     }
 
 
     
     const remove_itm = (q) => {
-        // var new_cart = cart.filter((itm) => itm._id != q)
+        var new_cart = cart.filter((itm) => itm._id != q)
         
-        // setCart(new_cart);
-        // Axios.patch(`http://localhost:1200/user/${object_id}`,{
-        //      cart: new_cart
-        // })
-        // .then(res => {
-        //     console.log(res.data)
-        //     setCart(new_cart)
-        // })
+        setCart(new_cart);
+        Axios.patch(`http://localhost:1200/user/${object_id}`,{
+             cart: new_cart
+        })
+        .then(res => {
+            console.log(res.data)
+            setCart(new_cart)
+        })
     }
     
 
@@ -68,14 +68,14 @@ function Cart()
 
     const itm_quantity = (qua, id) => {
          
-        // const new_cart = cart.map((itm) => itm._id === id? {...itm, quantity: qua}: itm)
-        //  Axios.patch(`http://localhost:1200/user/${object_id}`,{
-        //      cart: new_cart
-        // })
-        // .then(res => {
-        //       console.log(res.data)
-        // })
-        // setQuantity(qua)
+        const new_cart = cart.map((itm) => itm._id === id? {...itm, quantity: qua}: itm)
+         Axios.patch(`http://localhost:1200/user/${object_id}`,{
+             cart: new_cart
+        })
+        .then(res => {
+              console.log(res.data)
+        })
+        setQuantity(qua)
     }
 
 

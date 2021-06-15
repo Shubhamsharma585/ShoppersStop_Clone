@@ -98,6 +98,7 @@
   position: absolute;
   z-index: 1;
   margin-left: 21%;
+  color: #615d5d;
 }
 .reduxDataLength > h2 {
   font-weight: 500;

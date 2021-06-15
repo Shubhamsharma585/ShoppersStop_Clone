@@ -9,18 +9,16 @@ import Home from "../Pages/Home";
 import OneProduct from "../Components/OneProduct/OneProduct";
 import Payment from "../Components/Payment/Payment";
 import Product from "../Components/ProductPage/Product";
-import CombinedNavBar from "../Components/CombinedNavBar/CombinedNavBar"
+import CombinedNavBar from "../Components/CombinedNavBar/CombinedNavBar";
 import Order from "../Components/Order/Order";
 
 function Routes() {
   return (
     <div>
-  
-      <CombinedNavBar/>
+      <CombinedNavBar />
       <NavbarList />
 
       <Switch>
-
         <Route path="/" exact>
           <Home />
         </Route>
@@ -40,6 +38,9 @@ function Routes() {
         <Route path="/cart" exact>
           <Cart />
         </Route>
+        <Route path="/favorite" exact>
+          <div>hii</div>
+        </Route>
         <Route path="/product" exact>
           <Product />
         </Route>
@@ -50,7 +51,7 @@ function Routes() {
           <Payment />
         </Route>
         <Route path="/order">
-         <Order/>
+          <Order />
         </Route>
 
       </Switch>

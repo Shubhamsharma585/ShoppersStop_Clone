@@ -1,5 +1,5 @@
 
-import { REGISTER_REQUEST, REGISTER_SUCCESS, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_SUCCESS } from "./actiontype"
+import { REGISTER_REQUEST, REGISTER_SUCCESS, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_SUCCESS, ADDTO_BAG } from "./actiontype"
 
 
 
@@ -22,7 +22,7 @@ const initstate = {
     address: [],
     favorite: [],
     orders: [],
-    cart: [],
+    cart: [], 
     wallet: 0
     
 }
@@ -107,6 +107,13 @@ function regireducer(state = initstate, {type, payload})
                     isloggedIn: false
                 }
             }
+        case ADDTO_BAG:
+            {
+                return {
+                    ...state,
+                    cart: payload.cart,
+                }
+            }    
 
         default:
             return { 

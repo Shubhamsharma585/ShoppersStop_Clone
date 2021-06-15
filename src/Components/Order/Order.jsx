@@ -5,8 +5,8 @@ function Order() {
   var user_obj = useSelector((state) => state.regi);
   console.log(user_obj.orders[0]);
 
-  
 
+   
 
   return ( 
       <div>
