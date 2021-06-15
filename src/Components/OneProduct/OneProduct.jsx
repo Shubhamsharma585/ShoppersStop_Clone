@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { shallowEqual } from "react-redux";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import Card from "../Card/Card";
@@ -16,7 +17,13 @@ function OneProduct() {
   const { id } = useParams();
   const [data, setData] = useState({});
   const [size, setSize] = useState("");
-  const [alert,setAlert]=useState("")  
+  const [alert,setAlert]=useState("") 
+
+  const user_obj = useSelector((state) => state.regi);
+  // useEffect(()=>{
+  //   axios.get("http://localhost:1200/user/"+number)
+  //   .then()
+  // },[])
 
   useEffect(() => {
     axios
@@ -24,26 +31,25 @@ function OneProduct() {
       .then((res) => setData(res.data.data))
       .catch((err) => console.log(err));
   }, []);
+  console.log(user_obj.cart)
   const handleAddToBag = () => {
     if(size==""){
       setAlert("Please select a size")
     }
     else{
-
       const payload = {
         ...data,
         quantity: 1,
         size,
       };
       axios
-      .patch("http://localhost:1200/user/" + user_obj.object_id, {
-        cart: [...user_obj.cart, payload],
+      .patch("http://localhost:1200/user/" + user_obj.object_id,{
+        ...user_obj,
+        cart: [...user_obj.cart, payload]
       })
-      .then((res) => console.log(res.data),setAlert("Product added to bag!!"));
+      .then((res) => console.log(res.data.data),setAlert("Product added to bag!!"));
     }
     };
-  var user_obj = useSelector((state) => state.regi);
-  console.log(user_obj, user_obj.object_id, size);
   return (
     <div>
       <Card image="https://sslimages.shoppersstop.com/sys-master/root/he0/h6c/16769226899486/Covid-Strip-WEB.jpg" />
