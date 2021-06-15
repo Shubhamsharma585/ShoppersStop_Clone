@@ -24,6 +24,7 @@ function OneProduct() {
   
   
 
+
   useEffect(() => {
     axios
       .get("http://localhost:1200/product/" + id)
