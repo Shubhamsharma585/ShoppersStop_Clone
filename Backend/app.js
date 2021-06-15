@@ -70,7 +70,7 @@ const usersSchema = mongoose.Schema({
     }],
     cart: [{
         size: String,
-        quantity: Number,  
+        quantity: Number,
         category: String,
         name: String,
         img: String,
@@ -108,10 +108,10 @@ app.get("/product", async (req, res) => {
     //console.log(data)
     res.status(200).json({ data: data })
 })
-app.get("/product/:id",async(req,res)=>{
-    let id=req.params.id;
-    const data=await Product.findById(id)
-    res.json({data})
+app.get("/product/:id", async (req, res) => {
+    let id = req.params.id;
+    const data = await Product.findById(id)
+    res.json({ data })
 })
 app.post("/product", async (req, res) => {
     const user = await Product.create(...req.body)
