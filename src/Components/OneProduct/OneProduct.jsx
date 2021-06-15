@@ -47,7 +47,7 @@ function OneProduct() {
     };
 
 
-
+ 
   return (
     <div>
       <Card image="https://sslimages.shoppersstop.com/sys-master/root/he0/h6c/16769226899486/Covid-Strip-WEB.jpg" />

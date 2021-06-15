@@ -8,7 +8,7 @@ app.use(cors({
 }))
 app.use(express.json()) 
 
-
+  
 const connect = () => {
     return mongoose.connect("mongodb+srv://manisgdb:manish@cluster0.ufnzw.mongodb.net/shoppers?retryWrites=true&w=majority", {
         useNewUrlParser: true,

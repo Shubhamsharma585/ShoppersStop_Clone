@@ -1,5 +1,6 @@
 
-import { REGISTER_REQUEST, REGISTER_SUCCESS, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_SUCCESS, ADDTO_BAG } from "./actiontype"
+import { REGISTER_REQUEST, REGISTER_SUCCESS, LOGIN_REQUEST, 
+    LOGIN_SUCCESS, LOGOUT_SUCCESS, ADDTO_BAG, PAID, UPDATE_QUANTITY } from "./actiontype"
 
 
 
@@ -13,7 +14,7 @@ const initstate = {
     iserror: false,
     first_name: "",
     last_name: "", 
-    number: "",
+    number: "", 
     email: "",
     email_verified: false,
     image_url: "",
@@ -22,7 +23,7 @@ const initstate = {
     address: [],
     favorite: [],
     orders: [],
-    cart: [], 
+    cart: [],  
     wallet: 0
     
 }
@@ -113,7 +114,25 @@ function regireducer(state = initstate, {type, payload})
                     ...state,
                     cart: payload.cart,
                 }
+            }   
+            
+        case PAID:
+            {
+                return {
+                    ...state,
+                    cart: [],
+                    orders: payload.orders,
+                }
+            } 
+            
+        case  UPDATE_QUANTITY:
+            {
+                return {
+                    ...state,
+                    cart: [...payload],
+                }
             }    
+
 
         default:
             return { 

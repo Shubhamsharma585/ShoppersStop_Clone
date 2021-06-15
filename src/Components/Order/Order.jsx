@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 function Order() {
   var user_obj = useSelector((state) => state.regi);
-  console.log(user_obj.orders[0]);
+//console.log(user_obj.orders);
 
 
    

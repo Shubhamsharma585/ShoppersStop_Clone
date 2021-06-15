@@ -1,6 +1,6 @@
 import React from 'react'
 
-function DebitCard() {
+function DebitCard({send_order}) {
     return (
         <div>
             <div style={{fontWeight:"bold",fontSize:"15px"}}>Pay via Dedit card</div>
@@ -49,6 +49,7 @@ function DebitCard() {
               borderRadius: "4px",
               cursor: "pointer",
             }}
+            onClick={send_order}
           >
            Pay Now
           </button>

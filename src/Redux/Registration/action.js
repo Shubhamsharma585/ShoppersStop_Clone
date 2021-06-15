@@ -1,5 +1,6 @@
 
-import { REGISTER_REQUEST, REGISTER_SUCCESS, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_SUCCESS, ADDTO_BAG } from "./actiontype"
+import { REGISTER_REQUEST, REGISTER_SUCCESS, LOGIN_REQUEST, 
+    LOGIN_SUCCESS, LOGOUT_SUCCESS, ADDTO_BAG, PAID, UPDATE_QUANTITY } from "./actiontype"
 import Axios from "axios"
 
 
@@ -104,7 +105,6 @@ export const ADDTOBAG = (payload, user_obj) => dispatch => {
         })
 }
 
-
 const updating_bag = (payload) => {
 
     return {
@@ -112,3 +112,45 @@ const updating_bag = (payload) => {
         payload
     }
 }
+
+
+
+
+
+export const Update_cart = (payload) => dispatch => {
+  
+     console.log(payload)
+     dispatch(updateQuantity(payload))
+       
+}
+
+const updateQuantity = (payload) => {
+
+    return {
+        type: UPDATE_QUANTITY,
+        payload
+    }
+}
+
+
+
+
+
+export const PAYMENT_DONE = (payload) => dispatch => {     
+        console.log(payload)
+        dispatch(payment1(payload))
+    
+}
+
+
+const payment1 = (payload) => {
+
+    return {
+        type: PAID,
+        payload
+    }
+}
+
+
+
+

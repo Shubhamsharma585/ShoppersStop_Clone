@@ -7,26 +7,46 @@ import { useDispatch, useSelector } from "react-redux"
 import { Redirect } from "react-router-dom"
 import DebitCard from "./DebitCard"
 import Axios from "axios"
+import { PAYMENT_DONE } from "../../Redux/Registration/action"
 
  
-
+ 
 function Payment() 
 {
 
-    const Dispatch = useDispatch()
+    const dispatch = useDispatch()
     var isloggedIn = useSelector(state => state.regi.isloggedIn)
     var mobile = useSelector(state => state.regi.number)
+    var object_id = useSelector(state => state.regi.object_id)
+    var orders = useSelector(state => state.regi.orders)
     //console.log(object_id, fn, isloggedIn)
    
     const [ cart, setCart ] = useState([]);
     useEffect(() => {
         Axios.get(`http://localhost:1200/user/${mobile}`) 
          .then(res =>  { 
-             console.log(res.data.data[0].cart)
+            //console.log(res.data.data[0].cart)
              setCart(res.data.data[0].cart)
          }) 
-        
+         
      },[])
+
+
+
+    const send_order = () => {
+       
+         Axios.patch(`http://localhost:1200/user/${object_id}`,{
+             orders: [...orders,...cart],
+             cart: []
+        })
+        .then(res => {
+            console.log(res.data.data) 
+            dispatch( PAYMENT_DONE(res.data.data))         
+        }) 
+    }
+
+
+
 
    
     var total_payable = 0;
@@ -284,7 +304,7 @@ function Payment()
                       </div> 
 
                       <div className={styles.paymentright}>
-                          <DebitCard/>
+                          <DebitCard send_order={send_order} />
                       </div>
                     </div>
 

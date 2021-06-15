@@ -3,6 +3,7 @@ import styles from "./Cart.module.css"
 import banner from "../../database/covid.webp"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, Redirect } from "react-router-dom"
+import { Update_cart } from "../../Redux/Registration/action"
 import Axios from "axios"
 
 
@@ -12,29 +13,29 @@ function Cart()
 
     const [ cart, setCart ] = useState([]);
     const [ favorite, setFavorite ] = useState([]);
-    const [quantity, setQuantity ] = useState(1)
+    const [ quantity, setQuantity ] = useState(1)
   
 
     const Dispatch = useDispatch()
     var isloggedIn = useSelector(state => state.regi.isloggedIn)
     var object_id = useSelector(state => state.regi.object_id)
     var mobile = useSelector(state => state.regi.number)
-
-    
+   
+     
 
     useEffect(() => {
        Axios.get(`http://localhost:1200/user/${mobile}`) 
         .then(res =>  { 
-            console.log(res.data.data[0].cart)
+           //console.log(res.data.data[0].cart)
             setCart(res.data.data[0].cart)
             setFavorite(res.data.data[0].favorite)
         }) 
        
-    },[])
+    },[quantity])
 
     
 
-
+ 
     const fav_itm = (q) => {
 
         var new_itm = cart.filter(itm => itm._id = q)
@@ -58,8 +59,9 @@ function Cart()
              cart: new_cart
         })
         .then(res => {
-            console.log(res.data)
+            console.log(new_cart)
             setCart(new_cart)
+            Dispatch(Update_cart(new_cart))
         })
     }
     
@@ -73,11 +75,14 @@ function Cart()
              cart: new_cart
         })
         .then(res => {
-              console.log(res.data)
+         //  console.log(res.data.data)
+         //  console.log(new_cart)
+              setCart(new_cart)
+              setQuantity(qua)
+              Dispatch(Update_cart(new_cart))
         })
-        setQuantity(qua)
     }
-
+ 
 
 
     var total_payable = 0;
