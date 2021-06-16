@@ -49,12 +49,7 @@ function Profile()
     }
 
     const Dispatch = useDispatch()
-    // var isloggedIn = useSelector(state => state.regi.isloggedIn)
-
-    var isloggedIn = true
-
-
-
+    var isloggedIn = useSelector(state => state.regi.isloggedIn)
     var fname = useSelector(state => state.regi.first_name)
     var lname = useSelector(state => state.regi.last_name)
     var gender = useSelector(state => state.regi.gender)
@@ -66,9 +61,9 @@ function Profile()
     var usr_obj = useSelector(state => state.regi)
 
 
-    var [showpersonel, setShowpersonel] = useState(false)
+    var [showpersonel, setShowpersonel] = useState(true)
     var [showtransaction, setShowtransaction] = useState(false)
-    var [showaddress, setShowaddress] = useState(true)
+    var [showaddress, setShowaddress] = useState(false)
     var [orderbox, setOrderbox] = useState({
         order: "light",
         pickup: "dark",
