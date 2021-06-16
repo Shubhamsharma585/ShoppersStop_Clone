@@ -311,7 +311,14 @@ export default function Product() {
             {reduxCat.data[0] && reduxCat.data[0].name}
           </h3>
           ({reduxCat.data.length} Items)
-          {reduxCat.data.length == 0 && <h3>No Such Data Available</h3>}
+          {reduxCat.data.length == 0 && (
+            <div style={{ marginLeft: "12%" }}>
+              <div>
+                <img src="https://i.imgur.com/hU5kLm7.gif" alt="no data" />
+              </div>
+              <h3>No Such Data Available Please Try Different Combination!</h3>
+            </div>
+          )}
         </div>
       )}
       {loading ? (
