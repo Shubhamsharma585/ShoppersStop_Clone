@@ -1,46 +1,45 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-function Order() {
+function Favorite() {
   var user_obj = useSelector((state) => state.regi);
-//console.log(user_obj.orders);
 
+  console.log(user_obj);
 
-   
-
-  return ( 
-      <div>
-      {(user_obj.orders.length != 0)? (
-        user_obj.orders.map((item) => (
-          <div>
-
+  return !user_obj.isloggedIn ? (
+    <div>
+      <h3 style={{ marginLeft: "45%", marginTop: "2%" }}>
+        Please Login First!
+      </h3>
+    </div>
+  ) : (
+    <div>
+      {user_obj.favorite &&
+        user_obj.favorite.map((item) => (
           <div
             style={{
-              background: "#ffffff",
-              boxShadow: "rgba(0, 0, 0, 0.35) 0px 0px 15px 1px",
+              background: "#caccca",
+              boxShadow: "rgba(99, 97, 97, 0.35) 0px 5px 15px",
               display: "flex",
               borderRadius: "10px",
               padding: "1% 3%",
-              width: "90%",
+              width: "80%",
               margin: "auto",
-              marginTop: "20px",
-              marginBottom: "5px",
-              paddingRight: "50px"
             }}
           >
-            <div style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}>
+            <div style={{ boxShadow: "rgba(78, 77, 77, 0.35) 0px 5px 15px" }}>
               <img width="90px" src={item.img} alt="img" />
             </div>
             <div
               style={{
-                marginLeft: "3%", 
-                fontSize: "15px",
+                marginLeft: "3%",
+                fontSize: "22px",
                 color: "#504f4f",
                 fontWeight: "bold",
               }}
             >
               <div>
-                <div style={{ color: "black", fontSize: "15px" }}>
+                <div style={{ color: "black", fontSize: "25px" }}>
                   {item.company}, {item.name}
                 </div>
                 <hr />
@@ -50,9 +49,9 @@ function Order() {
                 Quantity : {item.quantity}
               </div>
             </div>
-            <div style={{ fontSize: "1.1rem", margin: "auto", marginTop:"0px", float:"right" }}>
-            <div >
-              Order status <br />
+            <div style={{ fontSize: "1.5rem", margin: "auto" }}>
+              <div>
+                Order status <br />
               </div>
               <hr />
               <button
@@ -61,29 +60,17 @@ function Order() {
                   padding: "10px",
                   border: "0px",
                   borderRadius: "5px",
-                  fontSize: "0.8rem",
+                  fontSize: "1.5rem",
                   color: "white",
                 }}
               >
                 CONFIRMED
               </button>
-              </div>
-
+            </div>
           </div>
-                 
-          <div>
-            <hr/>
-          </div>       
-          </div>      
-        ))): (
-          <p style={{margin:"auto", marginLeft:"270px", paddingTop:"10px", fontWeight:"600"}}>There is no Item in Orders! Please Order</p>
-        )
-        
-      
-      } 
-     
+        ))}
     </div>
   );
 }
 
-export default Order;
+export default Favorite;

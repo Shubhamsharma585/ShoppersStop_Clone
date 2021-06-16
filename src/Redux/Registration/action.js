@@ -2,7 +2,7 @@
 import { REGISTER_REQUEST, REGISTER_SUCCESS, LOGIN_REQUEST, 
     LOGIN_SUCCESS, LOGOUT_SUCCESS, ADDTO_BAG, PAID, UPDATE_QUANTITY } from "./actiontype"
 import Axios from "axios"
-
+ 
 
 
 

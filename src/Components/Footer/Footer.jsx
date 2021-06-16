@@ -6,7 +6,8 @@ import CropRotateIcon from "@material-ui/icons/CropRotate";
 const Footer = () => {
   return (
     <div>
-      <div>
+      <div style={{marginTop:"100px"}}> 
+       <hr style={{border:"1px solid #BDC3C7"}} ></hr> 
         <div className="appLogos1">
           <div className="appStore">
             <p className="appStore">DOWNLOAD THE APP ON</p>
@@ -194,7 +195,7 @@ const Footer = () => {
           </div>
         </div>
         <hr style={{ color: "white" }} />
-        <a>© 2008 - 2019 SHOPPERS STOP LTD. ALL RIGHTS RESERVED.</a>
+        <a style={{marginLeft:"30px"}}>© 2008 - 2019 SHOPPERS STOP LTD. ALL RIGHTS RESERVED.</a>
         <div style={{ paddingBottom: "30px" }}></div>
       </div>
     </div>

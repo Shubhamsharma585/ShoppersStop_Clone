@@ -42,12 +42,11 @@ function DebitCard({send_order}) {
               fontWeight: "bold",
               color: "white",
               marginLeft:"68%",
-              background:
-                "linear-gradient(to right, #ff0066 44%, #ff3300 30%)",
               border: "0px solid",
               padding: "2% 8%",
               borderRadius: "4px",
               cursor: "pointer",
+              backgroundImage: "linear-gradient(to right, rgb(255, 93, 59) 0px, rgb(255, 44, 101) 100%)"
             }}
             onClick={send_order}
           >
