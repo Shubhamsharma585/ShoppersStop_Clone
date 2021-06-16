@@ -306,8 +306,8 @@ export default function Product() {
       {reduxCat.data && (
         <div className="reduxDataLength">
           <h3>
-            {reduxCat.data[0] && reduxCat.data[0].category}
-            {reduxCat.data[0] && ` > `}
+            {/* {reduxCat.data[0] && reduxCat.data[0].category}
+            {reduxCat.data[0] && ` > `} */}
             {reduxCat.data[0] && reduxCat.data[0].name}
           </h3>
           ({reduxCat.data.length} Items)
