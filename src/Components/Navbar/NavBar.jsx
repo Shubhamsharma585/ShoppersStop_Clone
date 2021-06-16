@@ -70,7 +70,7 @@ export default function NavBar({ handleOpenlogin, handleOpenregi }) {
         <div className="store">
           <div style={{ display: "flex" }}>
             {" "}
-            <StoreOutlinedIcon color="action" style={{ paddingTop: "20px" }} />
+            <StoreOutlinedIcon color="action" style={{ paddingTop: "15px" }} />
             <p style={{ width: "120px", color: "#615e5e" }}>
               &nbsp;&nbsp; All Stores
             </p>
@@ -78,7 +78,7 @@ export default function NavBar({ handleOpenlogin, handleOpenregi }) {
           <div style={{ display: "flex" }}>
             <PermContactCalendarOutlinedIcon
               color="action"
-              style={{ paddingTop: "20px" }}
+              style={{ paddingTop: "15px" }}
             />
 
             <p style={{ width: "120px", color: "#615e5e" }}>
@@ -114,9 +114,10 @@ export default function NavBar({ handleOpenlogin, handleOpenregi }) {
           <form className="textfield">
             <TextField
               id="standard-basic"
-              placeholder="search product & brand"
+              placeholder="search products & brands"
               style={{ width: "350px" }}
               value={category}
+              color="#4BB1D9 "
               onChange={(e) => setCategory(e.target.value)}
             />
           </form>
@@ -198,23 +199,32 @@ export default function NavBar({ handleOpenlogin, handleOpenregi }) {
             {login && (
               <div className="signHover">
                 <li>
-                <Link to={"/profile"} style={{ textDecoration: "none", color:"grey" }}>
-                  MY ACCOUNT
-                </Link>
+                  <Link
+                    to={"/profile"}
+                    style={{ textDecoration: "none", color: "grey" }}
+                  >
+                    MY ACCOUNT
+                  </Link>
                   <hr
                     style={{ marginLeft: "-20px", border: "solid 1px #e0dede" }}
                   />
                 </li>
                 <li>
-                <Link to={"/profile"} style={{ textDecoration: "none", color:"grey" }}>
-                  ORDERS{" "}
-                </Link>
+                  <Link
+                    to={"/profile"}
+                    style={{ textDecoration: "none", color: "grey" }}
+                  >
+                    ORDERS{" "}
+                  </Link>
                   <hr
                     style={{ marginLeft: "-20px", border: "solid 1px #e0dede" }}
                   />
                 </li>
                 <li>
-                  <Link to={"/profile"} style={{ textDecoration: "none", color:"grey" }}>
+                  <Link
+                    to={"/profile"}
+                    style={{ textDecoration: "none", color: "grey" }}
+                  >
                     PROFILE
                   </Link>
                   <hr

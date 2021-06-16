@@ -3,16 +3,23 @@ import { useSelector } from "react-redux";
 
 function Favorite() {
   var user_obj = useSelector((state) => state.regi);
-  console.log(user_obj.favorite[0]);
 
-  return (
+  console.log(user_obj);
+
+  return !user_obj.isloggedIn ? (
+    <div>
+      <h3 style={{ marginLeft: "45%", marginTop: "2%" }}>
+        Please Login First!
+      </h3>
+    </div>
+  ) : (
     <div>
       {user_obj.favorite &&
         user_obj.favorite.map((item) => (
           <div
             style={{
-              background: "#e6ffe1",
-              boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+              background: "#caccca",
+              boxShadow: "rgba(99, 97, 97, 0.35) 0px 5px 15px",
               display: "flex",
               borderRadius: "10px",
               padding: "1% 3%",
@@ -20,7 +27,7 @@ function Favorite() {
               margin: "auto",
             }}
           >
-            <div style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}>
+            <div style={{ boxShadow: "rgba(78, 77, 77, 0.35) 0px 5px 15px" }}>
               <img width="90px" src={item.img} alt="img" />
             </div>
             <div
