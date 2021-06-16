@@ -8,18 +8,53 @@ import { Redirect } from "react-router-dom"
 import DebitCard from "./DebitCard"
 import Axios from "axios"
 import { PAYMENT_DONE } from "../../Redux/Registration/action"
+import { makeStyles } from '@material-ui/core/styles';
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
+import successImage from "../../database/success.png"
 
+
+const useStyles = makeStyles((theme) => ({
+    modal: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    paper: {
+      backgroundColor: theme.palette.background.paper,
+      border: '0px solid #000',
+      boxShadow: theme.shadows[5],
+      padding: theme.spacing(2, 4, 3),
+    },
+  }));
+  
  
  
 function Payment() 
 {
 
+    const classes = useStyles();
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = () => {
+        setOpen(true);
+      };
+    
+      const handleClose = () => {
+        setOpen(false);
+      };
+
+
     const dispatch = useDispatch()
     var isloggedIn = useSelector(state => state.regi.isloggedIn)
     var mobile = useSelector(state => state.regi.number)
+    var email = useSelector(state => state.regi.email)
     var object_id = useSelector(state => state.regi.object_id)
     var orders = useSelector(state => state.regi.orders)
-    //console.log(object_id, fn, isloggedIn)
+
+   const [ success, setSuccess] = useState(false)
+
    
     const [ cart, setCart ] = useState([]);
     useEffect(() => {
@@ -41,6 +76,7 @@ function Payment()
         })
         .then(res => {
             console.log(res.data.data) 
+            handleOpen();
             dispatch( PAYMENT_DONE(res.data.data))         
         }) 
     }
@@ -91,6 +127,7 @@ function Payment()
      const pay = () => {
          setDelivery(false)
          setPayment(true)
+         setSuccess(true)
      }
      
      const change_address = () => {
@@ -107,7 +144,7 @@ function Payment()
             marginBottom: "-17px",
             height: "70px",
             paddingLeft: "10px",
-            borderLeft: "4px red solid"
+            borderLeft: "1px green solid"
          },
 
          "inactive": {
@@ -188,7 +225,7 @@ function Payment()
              <div className={styles.left_optionbar}>
                   <div className={styles.signedinsymbol}/>
                   <div className={styles.signin1}>1.SIGN IN</div>
-                  <div className={styles.email}>shubhamsharma585@gmail.com</div>
+                  <div className={styles.email}>{email}</div>
                   <div className={styles.changebtn}> <Button  variant="contained" style={{backgroundColor: 'white', color: 'red', height: '30px'}}>CHANGE</Button> </div>
              </div>
              <div className={styles.left_optionbar}>
@@ -391,6 +428,28 @@ function Payment()
         </div>
         </div>
      </ul>
+       <div>
+       <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        className={classes.modal}
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open}>
+          <div className={classes.paper}>
+            <img src={successImage} alt="" />  
+            <h2 id="transition-modal-title" style={{textAlign:"center"}}>Payment Successful!</h2>
+            {/* <p id="transition-modal-description"></p> */}
+          </div>
+        </Fade>
+      </Modal>
+       </div>
     </div>    
             <div className={styles.line}/>       
            </div>

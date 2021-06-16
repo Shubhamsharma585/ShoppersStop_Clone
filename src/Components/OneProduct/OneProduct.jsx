@@ -16,7 +16,9 @@ function OneProduct() {
   const { id } = useParams();
   const [data, setData] = useState({});
   const [size, setSize] = useState("XL");
-  const [alert,setAlert]=useState("");
+  const [alert,setAlert]= useState("");
+  const [ color, setColor ] = useState(false)
+
   
   const dispatch = useDispatch();
   var user_obj = useSelector(state => state.regi)
@@ -44,6 +46,7 @@ function OneProduct() {
     };
 
      dispatch(ADDTOBAG(payload,user_obj))
+     setAlert("Product added to the Bag!")
 
     };
 
@@ -89,18 +92,18 @@ function OneProduct() {
             {data.size &&
               data.size.map((item) => (
                 <button
-                  onClick={() => setSize(item)}
+                  onClick={() => setSize(item), () => setColor(true)}
                   style={{
                     padding: "1% 3%",
                     margin: "10px 10px 0px 0px",
-                    fontWeight: "bold",
+                    fontWeight: "bold"
                   }}
                 >
                   {item}
                 </button>
               ))}
           </div>
-          <br />
+         {color && <p>Size Selected!</p>}
           <div style={{color:size!=""?"green":"red"}}>{alert}</div>
           <button
             onClick={handleAddToBag}
@@ -114,6 +117,7 @@ function OneProduct() {
               padding: "2% 8%",
               borderRadius: "6px",
               cursor: "pointer",
+              marginTop:"20px"
             }}
           >
             ADD TO BAG
