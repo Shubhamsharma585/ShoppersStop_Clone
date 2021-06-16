@@ -90,7 +90,7 @@ export default function NavBar({ handleOpenlogin, handleOpenregi }) {
             style={{ display: "flex" }}
             className={`nav ${show && "nav_black"}`}
           >
-            <MenuOutlinedIcon color="action" style={{ paddingTop: "20px" }} />
+            <MenuOutlinedIcon color="action" style={{ paddingTop: "15px" }} />
             <p style={{ width: "120px", color: "#615e5e" }}>
               &nbsp;&nbsp;Category
             </p>
