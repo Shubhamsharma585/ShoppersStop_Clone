@@ -141,7 +141,7 @@ function Reg({handleCloseregi, handleOpenlogin})
                     <MailOutlineOutlinedIcon className={styles.logo}/>
                     <TextField
                     style ={{width: '80%'}}  
-                    inputProps={{ autoFocus: false }}
+                    inputProps={{ autoFocus: false }}                  
                     label="Email"
                     value={Remail}
                     onChange={(e) => setRemail(e.target.value)}

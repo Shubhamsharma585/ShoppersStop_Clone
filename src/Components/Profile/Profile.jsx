@@ -214,7 +214,7 @@ function Profile()
                         <div className={styles.rightCont_right}>
                            <p>{fname}</p>
                            <p>{lname}</p>
-                           <p>{email} <span className={styles.verify} onClick={() => verificationEmail()}> {isverified? ("verified"): ("verify?")}</span></p>
+                           <p>{email} <span className={styles.verify} onClick={() => verificationEmail()}> {isverified? <span style={{color:"green"}}>{"verified!"}</span>: <span style={{color:"red"}}>{"verify?"}</span>}</span></p>
                            <p>{mobile}</p>
                            <p>{gender}</p>
                         </div>
