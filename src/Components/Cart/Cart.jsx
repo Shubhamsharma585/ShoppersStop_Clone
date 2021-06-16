@@ -19,17 +19,21 @@ function Cart()
     const Dispatch = useDispatch()
     var isloggedIn = useSelector(state => state.regi.isloggedIn)
     var object_id = useSelector(state => state.regi.object_id)
+    var usr_obj = useSelector(state => state.regi)
     var mobile = useSelector(state => state.regi.number)
    
-     
-
+   
     useEffect(() => {
        Axios.get(`http://localhost:1200/user/${mobile}`) 
         .then(res =>  { 
-           //console.log(res.data.data[0].cart)
-            setCart(res.data.data[0].cart)
-            setFavorite(res.data.data[0].favorite)
-        }) 
+            console.log(res.data.data)
+            console.log(res.data.data[0])
+            if(res.data.data[0])
+            {
+                setCart(res.data.data[0].cart)
+                setFavorite(res.data.data[0].favorite)
+            }
+        })  
        
     },[quantity])
 
@@ -46,6 +50,7 @@ function Cart()
             favorite: Favorite
         })
         .then(res => {
+            Dispatch(Update_cart(cart))
         }) 
     }
 
@@ -54,7 +59,6 @@ function Cart()
     const remove_itm = (q) => {
         var new_cart = cart.filter((itm) => itm._id != q)
         
-        setCart(new_cart); 
         Axios.patch(`http://localhost:1200/user/${object_id}`,{
              cart: new_cart
         })
