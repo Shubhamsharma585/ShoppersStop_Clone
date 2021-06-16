@@ -232,7 +232,7 @@
     border: rgb(228, 228, 228) 1px solid;
     border-radius: 3px;
     min-height: 100px;
-    background-color: white;
+    background-color: white; 
 }
 .orders_header
 {
@@ -252,7 +252,24 @@
 
 .showaddress
 {
-    border: black 1px solid;
+    border: black 0px solid;
     min-height: 100px;
+    width: 800px; 
+    margin-right: 150px;
+    margin-top: 20px;
 }
 
+.showaddress_indi
+{
+    border: black 0px solid;
+    box-shadow: rgb(154, 154, 154) 1px 1px 5px 2px;
+    margin-bottom: 20px;
+    padding: 5px 5px 10px 20px;
+    background-color: rgb(255, 190, 209);
+}
+.showaddress_indi > p
+{
+    font-size: 14px;
+    font-weight: 700;
+    color: rgb(68, 67, 67);
+}

@@ -1,6 +1,6 @@
 
 import { REGISTER_REQUEST, REGISTER_SUCCESS, LOGIN_REQUEST, 
-    LOGIN_SUCCESS, LOGOUT_SUCCESS, ADDTO_BAG, PAID, UPDATE_QUANTITY } from "./actiontype"
+    LOGIN_SUCCESS, LOGOUT_SUCCESS, ADDTO_BAG, PAID, UPDATE_QUANTITY, UPDATE_ADDRESS } from "./actiontype"
 
 
  
@@ -132,7 +132,14 @@ function regireducer(state = initstate, {type, payload})
                     ...state,
                     cart: [...payload],
                 }
-            }    
+            } 
+        case  UPDATE_ADDRESS: 
+        {
+            return {
+                ...state,
+                address: payload.address,
+            }
+        }         
 
 
         default:

@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { Redirect } from "react-router-dom"
 import DebitCard from "./DebitCard"
 import Axios from "axios"
-import { PAYMENT_DONE } from "../../Redux/Registration/action"
+import { PAYMENT_DONE, ADD_ADDRESS } from "../../Redux/Registration/action"
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -47,6 +47,7 @@ function Payment()
 
 
     const dispatch = useDispatch()
+    var user_obj = useSelector(state => state.regi)
     var isloggedIn = useSelector(state => state.regi.isloggedIn)
     var mobile = useSelector(state => state.regi.number)
     var email = useSelector(state => state.regi.email)
@@ -128,6 +129,16 @@ function Payment()
          setDelivery(false)
          setPayment(true)
          setSuccess(true)
+         dispatch(ADD_ADDRESS({
+          afn: afn, 
+          aln:  aln,
+         amobile: amobile, 
+          apin: apin, 
+         acity: acity, 
+         astate: astate, 
+          aline1:  aline1, 
+          aline2: aline2 
+         }, user_obj))
      }
      
      const change_address = () => {
@@ -268,7 +279,7 @@ function Payment()
                  <div className={styles.line1}/>
                     <div className={styles.addressbar}>
                     {/* <div className={styles.addnew}>ADD NEW</div> */}
-                    <div className={styles.addnew}>SAVED ADDRESSES(2)</div> 
+                    <div className={styles.addnew}>SAVED ADDRESSES(2)</div>  
                  </div>
             
                     <div className={styles.line1}/>

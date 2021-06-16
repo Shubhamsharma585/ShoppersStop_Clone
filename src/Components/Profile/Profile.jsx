@@ -49,7 +49,12 @@ function Profile()
     }
 
     const Dispatch = useDispatch()
-    var isloggedIn = useSelector(state => state.regi.isloggedIn)
+    // var isloggedIn = useSelector(state => state.regi.isloggedIn)
+
+    var isloggedIn = true
+
+
+
     var fname = useSelector(state => state.regi.first_name)
     var lname = useSelector(state => state.regi.last_name)
     var gender = useSelector(state => state.regi.gender)
@@ -61,9 +66,9 @@ function Profile()
     var usr_obj = useSelector(state => state.regi)
 
 
-    var [showpersonel, setShowpersonel] = useState(true)
+    var [showpersonel, setShowpersonel] = useState(false)
     var [showtransaction, setShowtransaction] = useState(false)
-    var [showaddress, setShowaddress] = useState(false)
+    var [showaddress, setShowaddress] = useState(true)
     var [orderbox, setOrderbox] = useState({
         order: "light",
         pickup: "dark",
@@ -80,7 +85,7 @@ function Profile()
             console.log(error)
         });
       }
- 
+  
 
       const verificationEmail = () => {
 
@@ -248,7 +253,17 @@ function Profile()
 
 
                    {showaddress && <div className={styles.showaddress}>
-                    
+                    {address.map((itm) => {return (
+                    <div className={styles.showaddress_indi}>
+                        <p>Name: {itm.afn+" "+itm.aln}</p>
+                        <p>Mobile: {itm.amobile}</p>
+                        <p>Address: {itm.aline1}</p>
+                        <p>{itm.aline2}, Pincode: {itm.apin}</p>
+                        <p>City: {itm.acity}  </p>
+                        <p>State: {itm.astate}</p>
+  
+                    </div>)    
+                    })}
                         
 
                    </div>}
