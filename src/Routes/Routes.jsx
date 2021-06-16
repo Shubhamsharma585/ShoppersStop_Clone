@@ -12,6 +12,7 @@ import Product from "../Components/ProductPage/Product";
 import CombinedNavBar from "../Components/CombinedNavBar/CombinedNavBar";
 import Order from "../Components/Order/Order";
 import Favorite from "../Components/Favorite/Favorite";
+import Footer from "../Components/Footer/Footer"
 
 function Routes() {
   return (
@@ -22,6 +23,7 @@ function Routes() {
       <Switch>
         <Route path="/" exact>
           <Home />
+          <Footer/>
         </Route>
 
         <Route path="/registration" exact>
@@ -56,6 +58,7 @@ function Routes() {
         </Route>
 
       </Switch>
+
     </div>
   );
 }

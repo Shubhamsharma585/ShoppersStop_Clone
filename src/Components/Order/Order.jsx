@@ -33,7 +33,7 @@ function Order() {
             </div>
             <div
               style={{
-                marginLeft: "3%",
+                marginLeft: "3%", 
                 fontSize: "15px",
                 color: "#504f4f",
                 fontWeight: "bold",
@@ -50,7 +50,7 @@ function Order() {
                 Quantity : {item.quantity}
               </div>
             </div>
-            <div style={{ fontSize: "1.1rem", margin: "auto", marginTop:"0px" }}>
+            <div style={{ fontSize: "1.1rem", margin: "auto", marginTop:"0px", float:"right" }}>
             <div >
               Order status <br />
               </div>

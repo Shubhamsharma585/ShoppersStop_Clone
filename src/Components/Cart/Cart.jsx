@@ -54,7 +54,7 @@ function Cart()
     const remove_itm = (q) => {
         var new_cart = cart.filter((itm) => itm._id != q)
         
-        setCart(new_cart);
+        setCart(new_cart); 
         Axios.patch(`http://localhost:1200/user/${object_id}`,{
              cart: new_cart
         })
