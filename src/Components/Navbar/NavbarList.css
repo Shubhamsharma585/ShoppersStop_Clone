@@ -2,8 +2,10 @@
   margin-top: 10px;
   display: flex;
   justify-content: space-evenly;
-  font-size: 18px;
+  font-size: 15px;
   cursor: pointer;
+  padding-bottom: 10px;
+  height: 40px;
 }
 
 .drop_one {
@@ -30,6 +32,9 @@
   /* z-index: 4; */
   margin-top: 15px;
   background: white;
+}
+.drop_one:visited > .menu_experiment {
+  display: none;
 }
 .menu_one > ul li:hover {
   border-bottom: 3px solid #2f82ab;

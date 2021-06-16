@@ -19,7 +19,7 @@ export const getDataFailure = () => {
         type: GET_DATA_FAILURE
     }
 }
-
+// categories all data
 export const getDatas = (category) => (dispatch) => {
     dispatch(getDataRequest())
 
@@ -74,7 +74,7 @@ export const getDatasByOffer = (data, offer) => (dispatch) => {
     }
 }
 
-
+// filter by price MRP
 export const getDatasByPrice = (data, price) => (dispatch) => {
 
 
@@ -101,6 +101,7 @@ export const getDatasByPrice = (data, price) => (dispatch) => {
     }
 }
 
+//filter by department wise
 export const getDatasByDept = (data) => (dispatch) => {
 
 
