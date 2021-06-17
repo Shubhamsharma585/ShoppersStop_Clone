@@ -58,6 +58,7 @@ function Profile()
     var isverified = useSelector(state => state.regi.email_verified)
     var address = useSelector(state => state.regi.address)
     var wallet = useSelector(state => state.regi.wallet)
+    var usr_obj = useSelector(state => state.regi)
 
 
     var [showpersonel, setShowpersonel] = useState(true)
@@ -69,7 +70,7 @@ function Profile()
         return: "dark"
     }) 
     
-
+    
 
     const PassReset = () => {
 
@@ -79,7 +80,7 @@ function Profile()
             console.log(error)
         });
       }
-
+ 
 
       const verificationEmail = () => {
 

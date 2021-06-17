@@ -14,8 +14,8 @@
 }
 .check22 {
   max-height: 300px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  /* overflow-y: scroll;
+  overflow-x: hidden; */
 }
 .sideFilter {
   display: flex;
@@ -49,11 +49,12 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 17px;
-  width: 17px;
+  height: 16px;
+  width: 16px;
   /* padding: -2px; */
   border: 1px solid rgb(146, 144, 144);
   background-color: #eee;
+  /* outline: 10px solid rgb(146, 144, 144); */
 }
 
 /* On mouse-over, add a grey background color */
@@ -63,8 +64,13 @@
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  background-color: #615d5d;
-  /* border: 1px solid rgb(255, 255, 255); */
+  background-color: #747272;
+  height: 12px;
+  width: 12px;
+  top: 1px;
+  left: 1px;
+  border: 2px solid rgb(255, 252, 252);
+  outline: 1px solid #837f7f;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */

@@ -4,8 +4,8 @@ import { REGISTER_REQUEST, REGISTER_SUCCESS, LOGIN_REQUEST,
 import Axios from "axios"
  
 
-
-
+ 
+ 
 
 
 
@@ -24,8 +24,8 @@ export const registering = (payload) => dispatch => {
         wallet: 0
     })
         .then((res) => {
-            console.log(res.data)
-            dispatch(registersuccess(res.data))
+            console.log(res.data.data)
+            dispatch(registersuccess(res.data.data))
         })
 }
 
@@ -35,11 +35,11 @@ export const loggingout = (payload) => dispatch => {
     //console.log(payload)
     dispatch(logout())
 }
-
+ 
 
 export const SignInlogin = (payload) => dispatch => {
     // console.log(payload.user.emailVerified)
-    // console.log(payload.user.phoneNumber)
+    //console.log(payload.user.phoneNumber)
     dispatch(loginRequest())
 
     Axios.get(`http://localhost:1200/user/${payload.user.phoneNumber}`, {
@@ -57,11 +57,11 @@ const registerrequest = (payload) => {
     return {
         type: REGISTER_REQUEST,
         payload
-    }
+    } 
 }
 
 const registersuccess = (payload) => {
-    //login_success_localstorage({...payload, isloggedIn: true, isloggedOut: false, isloading: false })
+     console.log(payload)
     return {
         type: REGISTER_SUCCESS, 
         payload

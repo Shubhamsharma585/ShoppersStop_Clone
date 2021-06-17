@@ -3,8 +3,8 @@ import { REGISTER_REQUEST, REGISTER_SUCCESS, LOGIN_REQUEST,
     LOGIN_SUCCESS, LOGOUT_SUCCESS, ADDTO_BAG, PAID, UPDATE_QUANTITY } from "./actiontype"
 
 
-
-
+ 
+ 
 
 const initstate = {
     object_id: "",
@@ -53,7 +53,7 @@ function regireducer(state = initstate, {type, payload})
                 object_id: payload._id,
                 first_name: payload.first_name,
                 last_name: payload.last_name,
-                number: payload.phone,
+                number: payload.number,
                 email: payload.email,
                 email_verified: false,
                 image_url: "",
@@ -113,6 +113,7 @@ function regireducer(state = initstate, {type, payload})
                 return {
                     ...state,
                     cart: payload.cart,
+                    number: payload.number
                 }
             }   
             
@@ -125,7 +126,7 @@ function regireducer(state = initstate, {type, payload})
                 }
             } 
             
-        case  UPDATE_QUANTITY:
+        case  UPDATE_QUANTITY: 
             {
                 return {
                     ...state,

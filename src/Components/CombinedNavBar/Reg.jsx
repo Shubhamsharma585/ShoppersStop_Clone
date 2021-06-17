@@ -55,8 +55,20 @@ function Reg({handleCloseregi, handleOpenlogin})
         var email = Remail;
         var password = Rpass;
         let number = "+91"+Rphone;
-        let first_name = name.split(" ")[0];
-        let last_name = name.split(" ")[1];
+        let fullname = name.split(" ")
+        let first_name = "";
+        let last_name = "";
+  
+        if(fullname.length == 1)
+        {
+            first_name = name;
+            last_name = "";
+        }
+        else
+        {
+            first_name = name.split(" ")[0];
+            last_name = name.split(" ")[1];
+        }
 
         
         console.log(email, password, number, first_name, last_name)
@@ -69,7 +81,6 @@ function Reg({handleCloseregi, handleOpenlogin})
             e.confirm(code)
             .then((result) => {
                 console.log(result.user,'user');
-                console.log("line 2");
                 document.querySelector('label').textContent = result.user.phoneNumber + 
                 'Number verified!';
                 dispatch(registering({first_name, last_name, email, password, number, gender }))
