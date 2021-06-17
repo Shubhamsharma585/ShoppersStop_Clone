@@ -104,7 +104,7 @@
 }
 
 .delivery {
-  margin-left: 100px;
+  margin-left: 50px;
   font-weight: 560;
   font-weight: 545;
   font-family: "PTSans-Regular";
@@ -343,7 +343,7 @@
 
 .paymentleft {
   border: 1px solid rgb(219, 218, 218);
-  background-color: rgb(237, 236, 236);
+  background-color: rgb(237, 236, 236); 
   height: 350px;
   width: 33%;
 }

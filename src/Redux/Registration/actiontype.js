@@ -18,3 +18,6 @@ export const ADDTO_BAG = "ADDTO_BAG"
 //payment successful
 export const PAID = "PAID"
 export const UPDATE_QUANTITY = "UPDATE_QUANTITY"
+
+//address
+export const UPDATE_ADDRESS = "UPDATE_ADDRESS"

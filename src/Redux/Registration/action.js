@@ -1,6 +1,6 @@
 
 import { REGISTER_REQUEST, REGISTER_SUCCESS, LOGIN_REQUEST, 
-    LOGIN_SUCCESS, LOGOUT_SUCCESS, ADDTO_BAG, PAID, UPDATE_QUANTITY } from "./actiontype"
+    LOGIN_SUCCESS, LOGOUT_SUCCESS, ADDTO_BAG, PAID, UPDATE_QUANTITY, UPDATE_ADDRESS } from "./actiontype"
 import Axios from "axios"
  
 
@@ -130,6 +130,27 @@ const updateQuantity = (payload) => {
         type: UPDATE_QUANTITY,
         payload
     }
+}
+
+
+
+export const ADD_ADDRESS = (payload,user_obj) => dispatch => {     
+       console.log(payload, user_obj)
+    Axios.patch(`http://localhost:1200/user/${user_obj.object_id}`, {
+        address: [...user_obj.address, payload]
+   })
+       .then((res) => {
+            dispatch(address(res.data.data))
+       })
+
+}
+
+
+const address = (payload) => {
+return {
+    type: UPDATE_ADDRESS,
+    payload
+}
 }
 
 

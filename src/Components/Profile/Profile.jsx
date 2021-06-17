@@ -46,7 +46,7 @@ function Profile()
             fontWeight: 600,
             color:"rgb(55, 55, 55)"
         }
-    }
+    } 
 
     const Dispatch = useDispatch()
     var isloggedIn = useSelector(state => state.regi.isloggedIn)
@@ -77,7 +77,7 @@ function Profile()
             console.log(error)
         });
       }
- 
+  
 
       const verificationEmail = () => {
 
@@ -211,7 +211,7 @@ function Profile()
                         <div className={styles.rightCont_right}>
                            <p>{fname}</p>
                            <p>{lname}</p>
-                           <p>{email} <span className={styles.verify} onClick={() => verificationEmail()}> {isverified? ("verified"): ("verify?")}</span></p>
+                           <p>{email} <span className={styles.verify} onClick={() => verificationEmail()}> {isverified? <span style={{color:"green"}}>{"verified!"}</span>: <span style={{color:"red"}}>{"verify?"}</span>}</span></p>
                            <p>{mobile}</p>
                            <p>{gender}</p>
                         </div>
@@ -245,7 +245,17 @@ function Profile()
 
 
                    {showaddress && <div className={styles.showaddress}>
-                    
+                    {address.map((itm) => {return (
+                    <div className={styles.showaddress_indi}>
+                        <p>Name: {itm.afn+" "+itm.aln}</p>
+                        <p>Mobile: {itm.amobile}</p>
+                        <p>Address: {itm.aline1}</p>
+                        <p>{itm.aline2}, Pincode: {itm.apin}</p>
+                        <p>City: {itm.acity}  </p>
+                        <p>State: {itm.astate}</p>
+  
+                    </div>)    
+                    })}
                         
 
                    </div>}
