@@ -46,7 +46,7 @@ function Profile()
             fontWeight: 600,
             color:"rgb(55, 55, 55)"
         }
-    }
+    } 
 
     const Dispatch = useDispatch()
     var isloggedIn = useSelector(state => state.regi.isloggedIn)
