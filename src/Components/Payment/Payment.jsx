@@ -60,7 +60,6 @@ function Payment()
     useEffect(() => {
         Axios.get(`http://localhost:1200/user/${mobile}`) 
          .then(res =>  { 
-            //console.log(res.data.data[0].cart)
              setCart(res.data.data[0].cart)
          }) 
          
@@ -155,7 +154,7 @@ function Payment()
 
 
      const activePayment = (i) => {
-        if(i == 1)
+        if(i === 1)
         {
            setThe({
             theme1: "active",
@@ -165,7 +164,7 @@ function Payment()
             theme5: "inactive"
          })
         }
-        else if(i == 2)
+        else if(i === 2)
         {
             setThe({
                 theme1: "inactive",
@@ -175,7 +174,7 @@ function Payment()
                 theme5: "inactive"
              })
         }
-        else if(i == 3)
+        else if(i === 3)
         {
             setThe({
                 theme1: "inactive",
@@ -185,7 +184,7 @@ function Payment()
                 theme5: "inactive"
              })
         }
-        else if(i == 4)
+        else if(i === 4)
         {
             setThe({
                 theme1: "inactive",
@@ -195,7 +194,7 @@ function Payment()
                 theme5: "inactive"
              })
         }
-        else if(i == 5)
+        else if(i === 5)
         {
             setThe({
                 theme1: "inactive",

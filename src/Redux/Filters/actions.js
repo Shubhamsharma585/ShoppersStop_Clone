@@ -23,7 +23,7 @@ export const getDataFailure = () => {
 export const getDatas = (category) => (dispatch) => {
     dispatch(getDataRequest())
 
-    if (category == "men" || category == "women" || category == "kids") {
+    if (category === "men" || category === "women"|| category==="beauty" || category === "kids") {
         return axios.get('http://localhost:1200/product', {
             params: {
                 c: category,

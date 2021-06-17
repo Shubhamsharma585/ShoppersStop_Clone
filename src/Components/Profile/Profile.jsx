@@ -2,8 +2,8 @@
 import React, { useState } from "react"
 import { Avatar } from '@material-ui/core';
 import styles from "./Profile.module.css"
-import { Link, Redirect } from "react-router-dom";
-import {firebase, auth } from "../Fireauth/firebase"
+import {  Redirect } from "react-router-dom";
+import { auth } from "../Fireauth/firebase"
 import { useSelector, useDispatch } from "react-redux"
 import { loggingout } from "../../Redux/Registration/action"
 import Order from "../Order/Order"
@@ -56,9 +56,6 @@ function Profile()
     var email = useSelector(state => state.regi.email)
     var mobile = useSelector(state => state.regi.number)
     var isverified = useSelector(state => state.regi.email_verified)
-    var address = useSelector(state => state.regi.address)
-    var wallet = useSelector(state => state.regi.wallet)
-    var usr_obj = useSelector(state => state.regi)
 
 
     var [showpersonel, setShowpersonel] = useState(true)
