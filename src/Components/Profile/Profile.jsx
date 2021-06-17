@@ -2,8 +2,8 @@
 import React, { useState } from "react"
 import { Avatar } from '@material-ui/core';
 import styles from "./Profile.module.css"
-import { Link, Redirect } from "react-router-dom";
-import {firebase, auth } from "../Fireauth/firebase"
+import {  Redirect } from "react-router-dom";
+import { auth } from "../Fireauth/firebase"
 import { useSelector, useDispatch } from "react-redux"
 import { loggingout } from "../../Redux/Registration/action"
 import Order from "../Order/Order"
@@ -46,7 +46,7 @@ function Profile()
             fontWeight: 600,
             color:"rgb(55, 55, 55)"
         }
-    }
+    } 
 
     const Dispatch = useDispatch()
     var isloggedIn = useSelector(state => state.regi.isloggedIn)
@@ -56,9 +56,6 @@ function Profile()
     var email = useSelector(state => state.regi.email)
     var mobile = useSelector(state => state.regi.number)
     var isverified = useSelector(state => state.regi.email_verified)
-    var address = useSelector(state => state.regi.address)
-    var wallet = useSelector(state => state.regi.wallet)
-    var usr_obj = useSelector(state => state.regi)
 
 
     var [showpersonel, setShowpersonel] = useState(true)
@@ -80,7 +77,7 @@ function Profile()
             console.log(error)
         });
       }
- 
+  
 
       const verificationEmail = () => {
 
@@ -214,7 +211,7 @@ function Profile()
                         <div className={styles.rightCont_right}>
                            <p>{fname}</p>
                            <p>{lname}</p>
-                           <p>{email} <span className={styles.verify} onClick={() => verificationEmail()}> {isverified? ("verified"): ("verify?")}</span></p>
+                           <p>{email} <span className={styles.verify} onClick={() => verificationEmail()}> {isverified? <span style={{color:"green"}}>{"verified!"}</span>: <span style={{color:"red"}}>{"verify?"}</span>}</span></p>
                            <p>{mobile}</p>
                            <p>{gender}</p>
                         </div>
@@ -248,7 +245,17 @@ function Profile()
 
 
                    {showaddress && <div className={styles.showaddress}>
-                    
+                    {address.map((itm) => {return (
+                    <div className={styles.showaddress_indi}>
+                        <p>Name: {itm.afn+" "+itm.aln}</p>
+                        <p>Mobile: {itm.amobile}</p>
+                        <p>Address: {itm.aline1}</p>
+                        <p>{itm.aline2}, Pincode: {itm.apin}</p>
+                        <p>City: {itm.acity}  </p>
+                        <p>State: {itm.astate}</p>
+  
+                    </div>)    
+                    })}
                         
 
                    </div>}

@@ -1,8 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Card from '../Components/Card/Card'
 import Carousel from "../Components/Carousel/Carousel"
-import { useSelector } from "react-redux"
 import NavArrow from '../Components/NavArrow/NavArrow'
 
 
@@ -52,10 +50,6 @@ const carousel6=[
 
 function Home() {
 
-
-    var isloggedIn = useSelector(state => state.regi.isloggedIn)
-    var object_id = useSelector(state => state.regi.object_id)
-    var fn = useSelector(state => state.regi.first_name)
    
 
     return (

@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { Redirect } from "react-router-dom"
 import DebitCard from "./DebitCard"
 import Axios from "axios"
-import { PAYMENT_DONE } from "../../Redux/Registration/action"
+import { PAYMENT_DONE, ADD_ADDRESS } from "../../Redux/Registration/action"
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -47,6 +47,7 @@ function Payment()
 
 
     const dispatch = useDispatch()
+    var user_obj = useSelector(state => state.regi)
     var isloggedIn = useSelector(state => state.regi.isloggedIn)
     var mobile = useSelector(state => state.regi.number)
     var email = useSelector(state => state.regi.email)
@@ -60,7 +61,6 @@ function Payment()
     useEffect(() => {
         Axios.get(`http://localhost:1200/user/${mobile}`) 
          .then(res =>  { 
-            //console.log(res.data.data[0].cart)
              setCart(res.data.data[0].cart)
          }) 
          
@@ -83,16 +83,53 @@ function Payment()
 
 
 
+  
 
-   
     var total_payable = 0;
     var total_discount = 0;
+
      for(var i = 0; i<cart.length; i++)
      {
-         total_payable = total_payable + (cart[i].quantity * Number(cart[i].mrp - (cart[i].mrp * (cart[i].discount / 100)).toFixed(0)));
-         total_discount = total_discount + (cart[i].quantity * Number((cart[i].mrp * (cart[i].discount / 100)).toFixed(0)));
-  
+         total_payable = total_payable + (cart[i].quantity * Number(cart[i].mrp) -  (cart[i].quantity * Number((cart[i].mrp * (cart[i].discount / 100)).toFixed(0))));
+         total_discount = total_discount + (cart[i].quantity * Number((cart[i].mrp * (cart[i].discount / 100)).toFixed(0)));         
      }
+     
+
+   ///for coupon
+   const [cou, setCou] = useState("");
+   const [dis, setDis] = useState(0);
+   const [invalid, setInvalid] = useState("");
+
+    const coupon = () => {
+   
+      if(cou == "HAPPY50")
+      {
+        setDis(50);
+        setInvalid("true")
+      }
+      else if(cou == "HAPPY100")
+      {
+        setDis(100);
+        setInvalid("true")
+      }
+      else if(cou == "HAPPY200")
+      {
+        setDis(200);
+        setInvalid("true")
+      }
+      else if(cou == "HAPPY500")
+      {
+        setDis(500);
+        setInvalid("true")
+      }
+      else
+      {
+        setInvalid("false")
+      }
+    }
+
+   ///
+
 
   
      const [delivery, setDelivery] = useState(true)
@@ -128,6 +165,16 @@ function Payment()
          setDelivery(false)
          setPayment(true)
          setSuccess(true)
+         dispatch(ADD_ADDRESS({
+          afn: afn, 
+          aln:  aln,
+         amobile: amobile, 
+          apin: apin, 
+         acity: acity,  
+         astate: astate, 
+          aline1:  aline1, 
+          aline2: aline2 
+         }, user_obj))
      }
      
      const change_address = () => {
@@ -155,7 +202,7 @@ function Payment()
 
 
      const activePayment = (i) => {
-        if(i == 1)
+        if(i === 1)
         {
            setThe({
             theme1: "active",
@@ -165,7 +212,7 @@ function Payment()
             theme5: "inactive"
          })
         }
-        else if(i == 2)
+        else if(i === 2)
         {
             setThe({
                 theme1: "inactive",
@@ -175,7 +222,7 @@ function Payment()
                 theme5: "inactive"
              })
         }
-        else if(i == 3)
+        else if(i === 3)
         {
             setThe({
                 theme1: "inactive",
@@ -185,7 +232,7 @@ function Payment()
                 theme5: "inactive"
              })
         }
-        else if(i == 4)
+        else if(i === 4)
         {
             setThe({
                 theme1: "inactive",
@@ -195,7 +242,7 @@ function Payment()
                 theme5: "inactive"
              })
         }
-        else if(i == 5)
+        else if(i === 5)
         {
             setThe({
                 theme1: "inactive",
@@ -268,7 +315,7 @@ function Payment()
                  <div className={styles.line1}/>
                     <div className={styles.addressbar}>
                     {/* <div className={styles.addnew}>ADD NEW</div> */}
-                    <div className={styles.addnew}>SAVED ADDRESSES(2)</div> 
+                    <div className={styles.addnew}>SAVED ADDRESSES(2)</div>  
                  </div>
             
                     <div className={styles.line1}/>
@@ -347,27 +394,17 @@ function Payment()
 
                  </div>
                  }
-           
-                     
-            
+                       
        </div>
-
-
-
-
-
-
-
-
-
-
 
            <div className={styles.right_cont}>
                <h4>ORDER SUMMARY</h4>
               <div className={styles.promo}>
-                  <input className={styles.inp} placeholder="Enter promo/coupon code" type="text"/>
-                  <div className={styles.apply}>APPLY</div>
+                  <input className={styles.inp} placeholder="Enter promo/coupon code" type="text" value={cou} onChange={(e) => setCou(e.target.value)} />
+                  <div className={styles.apply} onClick={coupon} >APPLY</div>
               </div>
+              {(invalid == "false") && <p style={{color:"maroon", margin:"5px 10px -10px -40px"}}>coupon code is invalid!</p>}
+             {(invalid == "true") && <p style={{color:"green", margin:"5px 10px -10px -10px"}}>coupon applied Successfully!</p>}
               <div className={styles.line}/>
 
               <ul className={styles.uList}>
@@ -403,7 +440,7 @@ function Payment()
          <div>
            <div className={styles.label_txt}>
 			Coupon Discount</div> 
-            <div className={styles.amount_txt}>NA</div>
+            <div className={styles.amount_txt}>{dis}</div>
          </div>
         </ul>
                     
@@ -417,14 +454,14 @@ function Payment()
         <div className={styles.label_txt}>
             Payable Amount</div>
         <div className={styles.amount_txt}>       
-            <strong><span class="rupee">Rs</span> {total_payable}</strong>
+            <strong><span class="rupee">Rs </span>{total_payable - dis}</strong>
         </div>
          </div>
          <div>
         <div className={styles.label_txt}>
             You have saved</div>
         <div className={styles.amount_txt}>
-            <strong className={styles.saved}><span class="rupee">Rs </span> {total_discount}</strong>
+            <strong className={styles.saved}><span class="rupee">Rs </span> {total_discount + dis}</strong>
         </div>
         </div>
      </ul>

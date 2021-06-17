@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function Carousel({ images }) {
+function Carousel({ images,onclick }) {
   const [index, setIndex] = useState(0);
   useEffect(() => {
     setInterval(() => {
@@ -24,14 +24,15 @@ function Carousel({ images }) {
   };
 
   return (
-    <div style={carousel_div}>
+    <div onClick={onclick} style={carousel_div}>
       <img width="100%" src={images[index]} />
       <span style={indicator_box}>
         {images.map((item, i) => (
           <span
+          key={i}
             onClick={() => setIndex(i)}
             style={{
-              background: `${index == i ? "#ff4a4a" : "white"}`,
+              background: `${index === i ? "#ff4a4a" : "white"}`,
               width: "20px",
               height: "20px",
               margin: "10px",
