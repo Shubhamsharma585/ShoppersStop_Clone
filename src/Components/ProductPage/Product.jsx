@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useHistory, useLocation, useParams } from "react-router";
+import { useHistory } from "react-router";
 import "./Product.css";
 import ProductCard from "../ProductCard/ProductCard";
-import { Link } from "react-router-dom";
 import LoadingLogo from "../LoadingLogo/LoadingLogo";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -15,12 +14,9 @@ import {
 export default function Product() {
   const urlSearchParams = new URLSearchParams(window.location.search);
   const reduxCat = useSelector((state) => state.data.datas);
-  // const reduxCategory = reduxCat.data.category;
   console.log(reduxCat);
   const dispatch = useDispatch();
   const history = useHistory();
-  var productName = urlSearchParams.get("name");
-  // const ProductCategory = useParams().c;
   const [category, setCategory] = useState("");
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -306,12 +302,10 @@ export default function Product() {
       {reduxCat.data && (
         <div className="reduxDataLength">
           <h3>
-            {/* {reduxCat.data[0] && reduxCat.data[0].category}
-            {reduxCat.data[0] && ` > `} */}
             {reduxCat.data[0] && reduxCat.data[0].name}
           </h3>
           ({reduxCat.data.length} Items)
-          {reduxCat.data.length == 0 && (
+          {reduxCat.data.length === 0 && (
             <div style={{ marginLeft: "12%" }}>
               <div>
                 <img src="https://i.imgur.com/hU5kLm7.gif" alt="no data" />

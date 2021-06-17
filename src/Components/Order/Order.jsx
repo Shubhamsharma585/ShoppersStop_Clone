@@ -10,7 +10,7 @@ function Order() {
 
   return ( 
       <div>
-      {(user_obj.orders.length != 0)? (
+      {(user_obj.orders.length !== 0)? (
         user_obj.orders.map((item) => (
           <div>
 

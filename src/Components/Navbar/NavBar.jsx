@@ -9,7 +9,7 @@ import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutlined";
 import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
-import { firebase, auth } from "../Fireauth/firebase";
+import {  auth } from "../Fireauth/firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { loggingout } from "../../Redux/Registration/action";
 import { getDatas } from "../../Redux/Filters/actions";
@@ -175,7 +175,7 @@ export default function NavBar({ handleOpenlogin, handleOpenregi }) {
               <div className="signHover">
                 <li>
                   <span
-                    style={{ textDecoration: "none", color: "grey" }}
+                    style={{ textDecoration: "none",fontSize:"14px", color: "grey" }}
                     onClick={handleOpenlogin}
                   >
                     SIGN IN
@@ -187,7 +187,7 @@ export default function NavBar({ handleOpenlogin, handleOpenregi }) {
                 </li>
                 <li>
                   <span
-                    style={{ textDecoration: "none", color: "grey" }}
+                    style={{ textDecoration: "none",fontSize:"14px", color: "grey" }}
                     onClick={handleOpenregi}
                   >
                     SIGN UP
@@ -201,29 +201,29 @@ export default function NavBar({ handleOpenlogin, handleOpenregi }) {
                 <li>
                   <Link
                     to={"/profile"}
-                    style={{ textDecoration: "none", color: "grey" }}
+                    style={{ textDecoration: "none",fontSize:"12px", color: "grey" }}
                   >
                     MY ACCOUNT
                   </Link>
                   <hr
-                    style={{ marginLeft: "-20px", border: "solid 1px #e0dede" }}
+                    style={{ marginLeft: "-20px",fontSize:"12px", border: "solid 1px #e0dede" }}
                   />
                 </li>
                 <li>
                   <Link
                     to={"/profile"}
-                    style={{ textDecoration: "none", color: "grey" }}
+                    style={{ textDecoration: "none",fontSize:"12px", color: "grey" }}
                   >
                     ORDERS{" "}
                   </Link>
                   <hr
-                    style={{ marginLeft: "-20px", border: "solid 1px #e0dede" }}
+                    style={{ marginLeft: "-20px",fontSize:"12px", border: "solid 1px #e0dede" }}
                   />
                 </li>
                 <li>
                   <Link
                     to={"/profile"}
-                    style={{ textDecoration: "none", color: "grey" }}
+                    style={{ textDecoration: "none",fontSize:"12px", color: "grey" }}
                   >
                     PROFILE
                   </Link>
@@ -234,7 +234,7 @@ export default function NavBar({ handleOpenlogin, handleOpenregi }) {
                     }}
                   />
                 </li>
-                <li onClick={LogOut}>SIGN OUT</li>
+                <li style={{fontSize:"12px",}} onClick={LogOut}>SIGN OUT</li>
               </div>
             )}
           </div>

@@ -70,6 +70,7 @@
 
 .signHover > li > Link {
   text-decoration: none;
+  border-radius: 5px;
 }
 
 .signIn:hover > div {
