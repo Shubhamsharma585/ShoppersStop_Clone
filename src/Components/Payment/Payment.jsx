@@ -86,47 +86,50 @@ function Payment()
 
   
 
-    var sub_total = 0;
+    var total_payable = 0;
     var total_discount = 0;
-    const [ coupon_discount, setCoupon_discount] = useState(0)
-    const [ saved, setSaved] = useState(total_discount + coupon_discount)
-    const [ total_payable , setTotal_payable ] = useState(sub_total - total_discount - coupon_discount)
-    const [ invalid, setInvalid ] = useState(false)
 
      for(var i = 0; i<cart.length; i++)
      {
-         sub_total = sub_total + (cart[i].quantity * Number(cart[i].mrp));
+         total_payable = total_payable + (cart[i].quantity * Number(cart[i].mrp) -  (cart[i].quantity * Number((cart[i].mrp * (cart[i].discount / 100)).toFixed(0))));
          total_discount = total_discount + (cart[i].quantity * Number((cart[i].mrp * (cart[i].discount / 100)).toFixed(0)));         
      }
      
-     const [inpcoupon, setInpcoupon] = useState("")
 
-     const apply_coupon = () => {
-      var coupons = {
-        HAPPY10: 10, 
-        HAPPY20: 20,
-        HAPPY30: 30,
-        FLAT30: 30,
-      }
+   ///for coupon
+   const [cou, setCou] = useState("");
+   const [dis, setDis] = useState(0);
+   const [invalid, setInvalid] = useState("");
 
-         for(let key in coupons)
-         {
-            if(key == inpcoupon)
-            {
-                setCoupon_discount(Number(sub_total *( coupons[key]/100)));
-                setSaved(total_discount + coupon_discount);
-                setTotal_payable(sub_total - total_discount - coupon_discount);
-                setInvalid(false);
-            }
-            else
-            {
-                setInvalid(true);
-            }
-         }
+    const coupon = () => {
    
-        // total_payable = total_payable*((100 - coupon_discount)/100)
-         
-     }
+      if(cou == "HAPPY50")
+      {
+        setDis(50);
+        setInvalid("true")
+      }
+      else if(cou == "HAPPY100")
+      {
+        setDis(100);
+        setInvalid("true")
+      }
+      else if(cou == "HAPPY200")
+      {
+        setDis(200);
+        setInvalid("true")
+      }
+      else if(cou == "HAPPY500")
+      {
+        setDis(500);
+        setInvalid("true")
+      }
+      else
+      {
+        setInvalid("false")
+      }
+    }
+
+   ///
 
 
   
@@ -398,10 +401,11 @@ function Payment()
            <div className={styles.right_cont}>
                <h4>ORDER SUMMARY</h4>
               <div className={styles.promo}>
-                  <input className={styles.inp} placeholder="Enter promo/coupon code" type="text" value={inpcoupon} onChange={(e) => setInpcoupon(e.target.value) }/>
-                  <div className={styles.apply} onClick={() => apply_coupon()}>APPLY</div>
+                  <input className={styles.inp} placeholder="Enter promo/coupon code" type="text" value={cou} onChange={(e) => setCou(e.target.value)} />
+                  <div className={styles.apply} onClick={coupon} >APPLY</div>
               </div>
-              {invalid && <p style={{color:"maroon", margin:"5px 10px -10px -40px"}}>coupon code is invalid!</p>}
+              {(invalid == "false") && <p style={{color:"maroon", margin:"5px 10px -10px -40px"}}>coupon code is invalid!</p>}
+             {(invalid == "true") && <p style={{color:"green", margin:"5px 10px -10px -10px"}}>coupon applied Successfully!</p>}
               <div className={styles.line}/>
 
               <ul className={styles.uList}>
@@ -409,7 +413,7 @@ function Payment()
 		   <div className={styles.label_txt}>
 			Sub total</div>
 		   <div className={styles.amount_txt}>
-			<span><strong>Rs </strong>{sub_total}</span>
+			<span><strong>Rs </strong>{total_payable + total_discount}</span>
 			</div>
 	     </div>
 	      <div>
@@ -437,7 +441,7 @@ function Payment()
          <div>
            <div className={styles.label_txt}>
 			Coupon Discount</div> 
-            <div className={styles.amount_txt}>{coupon_discount}</div>
+            <div className={styles.amount_txt}>{dis}</div>
          </div>
         </ul>
                     
@@ -451,14 +455,14 @@ function Payment()
         <div className={styles.label_txt}>
             Payable Amount</div>
         <div className={styles.amount_txt}>       
-            <strong><span class="rupee">Rs </span>{total_payable}</strong>
+            <strong><span class="rupee">Rs </span>{total_payable - dis}</strong>
         </div>
          </div>
          <div>
         <div className={styles.label_txt}>
             You have saved</div>
         <div className={styles.amount_txt}>
-            <strong className={styles.saved}><span class="rupee">Rs </span> {saved}</strong>
+            <strong className={styles.saved}><span class="rupee">Rs </span> {total_discount + dis}</strong>
         </div>
         </div>
      </ul>
