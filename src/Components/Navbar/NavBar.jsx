@@ -17,6 +17,8 @@ import { getDatas } from "../../Redux/Filters/actions";
 export default function NavBar({ handleOpenlogin, handleOpenregi }) {
   const Dispatch = useDispatch();
   var login = useSelector((state) => state.regi.isloggedIn);
+  var regiCart = useSelector((state) => state.regi.cart);
+  console.log(regiCart);
   const history = useHistory();
   const [show, handleShow] = React.useState(false);
   const [search, setSearch] = React.useState(false);
@@ -160,6 +162,11 @@ export default function NavBar({ handleOpenlogin, handleOpenregi }) {
                 }}
               />
             </Link>
+            {regiCart && regiCart.length > 0 && (
+              <div className="cardLength">
+                {regiCart && regiCart.length > 0 && regiCart.length}
+              </div>
+            )}
           </div>
           <div className="signIn">
             <AccountCircleOutlinedIcon

@@ -51,7 +51,7 @@
   width: 100px;
   background: white;
   visibility: hidden;
-  margin-top: 0px;
+  margin-top: 5px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
   /* margin-left: 100px; */
 }
@@ -76,7 +76,20 @@
   /* display: block; */
   visibility: visible;
 }
-
+.cardLength {
+  position: absolute;
+  margin-top: -1rem;
+  background: orangered;
+  height: 12px;
+  width: 10px;
+  padding: 4px;
+  padding-left: 6px;
+  border-radius: 16px;
+  margin-left: 2rem;
+  /* padding-bottom: 5px; */
+  color: white;
+  font-size: 12px;
+}
 @media only screen and (max-width: 1380px) {
   .logo {
     margin-left: 17%;
