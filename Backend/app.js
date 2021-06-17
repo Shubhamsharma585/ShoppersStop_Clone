@@ -17,6 +17,7 @@ const connect = () => {
         useUnifiedTopology: true
     });
 }
+
 const productSchema = mongoose.Schema({
     size: [String],
     category: String,
