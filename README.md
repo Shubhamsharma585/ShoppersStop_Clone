@@ -57,27 +57,24 @@ You can also take the glimpse of our Project,just follow the below steps:
 
 2. Registration Page
 
-   ![Shoppersstop]
-   <img src="/public/snapshots/registration.gif" alt="coding gif"/>
+  ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/blob/main/public/snapshots/home.jpeg)
  
 
 3. Products List Page
 
-   ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/blob/main/public/Snapshots/productslist.gif)
-
+   ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/blob/main/public/snapshots/home.jpeg)
+   
 4. Productdescription Page
 
-   ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/blob/main/public/Snapshots/productdescription.gif)
+  ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/blob/main/public/snapshots/home.jpeg)
 
 5. Cart Page
 
-   ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/blob/main/public/Snapshots/cart.gif)
+  ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/blob/main/public/snapshots/home.jpeg)
 
 6. Payment Page
-   ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/blob/main/public/payment.gif)
+   ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/blob/main/public/snapshots/home.jpeg)
 
-7. Dashboard
-   ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/blob/main/public/dashboard.gif)
 
 
 <br>
