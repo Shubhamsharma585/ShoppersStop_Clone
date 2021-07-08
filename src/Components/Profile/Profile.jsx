@@ -53,6 +53,7 @@ function Profile()
     var fname = useSelector(state => state.regi.first_name)
     var lname = useSelector(state => state.regi.last_name)
     var gender = useSelector(state => state.regi.gender)
+    var address = useSelector(state => state.regi.address)
     var email = useSelector(state => state.regi.email)
     var mobile = useSelector(state => state.regi.number)
     var isverified = useSelector(state => state.regi.email_verified)
@@ -241,7 +242,7 @@ function Profile()
 
                    </div>}
 
-
+ 
 
 
                    {showaddress && <div className={styles.showaddress}>
