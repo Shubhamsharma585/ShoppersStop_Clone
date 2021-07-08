@@ -57,7 +57,9 @@ You can also take the glimpse of our Project,just follow the below steps:
 
 2. Registration Page
 
-   ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/blob/main/public/Snapshots/registration.gif)
+   ![Shoppersstop]
+   <img src="/public/snapshots/registration.gif" alt="coding gif"/>
+ 
 
 3. Products List Page
 
