@@ -55,26 +55,6 @@ You can also take the glimpse of our Project,just follow the below steps:
 
    ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/blob/main/public/snapshots/home.jpeg)
 
-2. Registration Page
-
-  ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/blob/main/public/snapshots/home.jpeg)
- 
-
-3. Products List Page
-
-   ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/blob/main/public/snapshots/home.jpeg)
-   
-4. Productdescription Page
-
-  ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/blob/main/public/snapshots/home.jpeg)
-
-5. Cart Page
-
-  ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/blob/main/public/snapshots/home.jpeg)
-
-6. Payment Page
-   ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/blob/main/public/snapshots/home.jpeg)
-
 
 
 <br>
