@@ -53,7 +53,7 @@ You can also take the glimpse of our Project,just follow the below steps:
 
 1. Shoppersstop Page
 
-   ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/tree/main/public/snapshots/navigation.gif)
+   ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/tree/main/public/snapshots/home.jpeg)
 
 2. Registration Page
 
