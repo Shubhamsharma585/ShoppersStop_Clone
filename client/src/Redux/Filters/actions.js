@@ -43,9 +43,6 @@ export const getDatas = (category) => (dispatch) => {
 
 }
 
-
-
-
 //filter by offer
 
 export const getDatasByOffer = (data, offer) => (dispatch) => {
