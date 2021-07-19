@@ -1,0 +1,38 @@
+
+
+ @keyframes spin-rotate {
+    to { transform: rotate(.5turn); }
+  }
+  
+  @keyframes spin-color {
+    20% { background: url("../../database/shoes.png"); }
+    75% { background: url("../../database/icon1.png" ); }
+  }
+  
+  @keyframes bg-pie {
+    50% { background-position: 0px; }
+  }
+  
+  .pie {
+    color: purple; 
+    height: 100px;
+    width: 100px;
+    background-image: url("../../database/logo.webp");
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+    border: 0px solid #001f3f;
+    border-radius: 50%;
+    overflow: hidden;
+    animation: bg-pie 10s step-end infinite;
+  }
+  
+  .pie:before {
+    background-color: inherit;
+    border-radius: 0 100% 100% 0 / 50%;
+    content: '';
+    display: block;
+    margin-left: 50%;
+    height: 100%;
+    transform-origin: left;
+    animation: spin-rotate 1s linear infinite, spin-color 3s step-end infinite;
+  }
