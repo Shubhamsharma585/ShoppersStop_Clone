@@ -1,0 +1,111 @@
+.outerDiv22 {
+  width: 250px;
+  margin-left: 5%;
+  /* margin-right: 2%; */
+  font-size: 18px;
+  color: rgb(104, 101, 101);
+}
+.box22 {
+  height: 16px;
+  width: 15px;
+  padding-top: 15px;
+  margin-bottom: 12px;
+  margin-right: 2rem;
+}
+.check22 {
+  max-height: 300px;
+  /* overflow-y: scroll;
+  overflow-x: hidden; */
+}
+.sideFilter {
+  display: flex;
+  margin-left: 70px;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  /* padding: -2px; */
+  border: 1px solid rgb(146, 144, 144);
+  background-color: #eee;
+  /* outline: 10px solid rgb(146, 144, 144); */
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #747272;
+  height: 12px;
+  width: 12px;
+  top: 1px;
+  left: 1px;
+  border: 2px solid rgb(255, 252, 252);
+  outline: 1px solid #837f7f;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  /* display: none; */
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 0px;
+  top: -5px;
+  width: 0px;
+  height: 0px;
+  /* padding: 2px; */
+  /* border: 2px solid black; */
+  /* border-width: 0 3px 3px 0; */
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.reduxDataLength {
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  z-index: 1;
+  margin-left: 21%;
+  color: #615d5d;
+}
+.reduxDataLength > h2 {
+  font-weight: 500;
+}

@@ -1,0 +1,176 @@
+
+*
+{
+    font-family: sans-serif;
+    font-weight: 520;
+}
+
+.create
+{
+    color: rgb(70, 70, 70);
+}
+
+ 
+.main
+{
+    border: black 0px solid;
+    border-radius: 5px;
+    width: 850px;
+    height:630px;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+}
+
+.logo
+{
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.right
+{
+    border: black 0px solid;
+    width: 50%;
+    background-image: url(../../database/signUpBg.webp);
+}
+
+.left
+{
+    border: rgb(220, 220, 220) 1px solid;
+    border-right: 0px;
+    width: 50%;
+    padding: 0;
+    justify-content: center;
+    text-align: center;
+}
+
+.inp
+{
+   margin: auto;
+   margin-bottom: 30px;
+   border: black 0px solid;
+   border-radius: 5px;
+   width: 70%;
+   padding-top: 20px;
+   min-height: 200px;
+   box-shadow: 0px 0px 5px 2px rgb(233, 232, 232);  
+}
+
+.gender
+{
+    width: 200px;
+    float: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.genderIcon
+{
+   border: black 0px solid;
+   margin-top: 10px;
+   margin-right: 10px;
+   margin-left: -50px;
+   width: 20px;
+   height: 20px;
+}
+
+.btn
+{
+    width: 70%;
+}
+
+.line
+{
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    border: black 0px solid;
+    height: 50px;
+    width: 330px;
+}
+
+.line1
+{
+    border: rgb(175, 175, 175) 1px solid;
+    border-bottom: 0px;
+    width: 45%;
+    height: 0px;
+    margin-top: 12px;
+}
+
+.box
+{
+    border: rgb(163, 163, 163) 1px solid;
+    border-radius: 12px;
+    font-size: 10px;
+    margin-top: 5px;
+    height: 15px;
+    width: 150px;
+}
+
+.social
+{
+    border: black 0px solid;
+    width: 78%;
+    min-height: 50px;
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.social_cont
+{ 
+    box-shadow: 0px 0px 10px 5px rgb(233, 232, 232);
+    margin: auto;
+    height: 40px;
+    width: 40%;
+}
+
+
+.fb
+{
+    background-image: url(https://prodstatic.shoppersstop.com/_ui/responsive/common/assets/images/ssl-sprite.png?timeStamp=_ts@051305424142#ts_);
+    background-position-x: -262px;
+    background-position-y: -938px; 
+    margin: auto;
+    height: 40px;
+    width: 20%;
+}
+
+.google
+{
+    background-image: url(../../database/image.webp);
+    background-position-x: -133px;
+    background-position-y: -1398px;
+    margin: auto;
+    height: 40px;
+    width: 30%;
+}
+
+.havean1
+{
+    font-size: 15px;
+}
+.havean2
+{
+  color: #ff5d3b;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.rights1
+{
+   color: gray;
+   font-size: 12px;
+}
+.rights2
+{ 
+    color: #ff5d3b;
+    font-size: 12px;
+}
