@@ -470,6 +470,7 @@
   border: solid 1px gray;
   height: 25px;
   width: 180px;
+  outline: none;
 }
 
 .cart_item {

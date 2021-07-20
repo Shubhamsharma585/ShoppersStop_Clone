@@ -157,7 +157,7 @@ function Reg() {
               name="position"
               defaultValue="top"
             >
-              <img className={styles.genderIcon} src={genderI} />
+              {/* <img className={styles.genderIcon} src={genderI} /> */}
               <FormControlLabel
                 value="female"
                 onClick={() => setGender("female")}

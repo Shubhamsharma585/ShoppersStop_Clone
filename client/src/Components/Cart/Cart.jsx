@@ -132,12 +132,11 @@ function Cart() {
                   <div className={styles.cart_item}>
                     <img className={styles.item_img} src={itm.img} />
                     <div className={styles.item_detail}>
-                      <p style={{ fontFamily: "PTSans-Regular" }}>
-                        {itm.company}
-                      </p>
+                      <p style={{ fontSize: "13px" }}>{itm.company}</p>
                       <p
                         style={{
-                          fontFamily: "PTSans-Bold",
+                          // fontFamily: "PTSans-Bold",
+                          fontSize: "14px",
                           marginTop: "-10px",
                         }}
                       >
