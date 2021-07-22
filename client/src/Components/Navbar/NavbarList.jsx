@@ -15,7 +15,9 @@ export default function NavbarList() {
     <div>
       <div className="list">
         <li className="drop_one">
-          <span className="spanHover">BARGAINS</span>
+          <div className="bottomBorder">
+            <span className="spanHover">BARGAINS</span>
+          </div>
           <div className="menu_experiment">
             <div className="menu_one bargain">
               <ul>
@@ -36,19 +38,27 @@ export default function NavbarList() {
                 <li>Women's footwear - upto 60% off</li>
               </ul>
               <ul>
-                <img src="https://sslimages.shoppersstop.com/sys-master/root/ha9/h27/15070684053534/Puma_menu_Banner-2020.jpg" alt="" />
+                <img
+                  src="https://sslimages.shoppersstop.com/sys-master/root/ha9/h27/15070684053534/Puma_menu_Banner-2020.jpg"
+                  alt=""
+                />
               </ul>
               <ul>
-                <img src="https://sslimages.shoppersstop.com/sys-master/root/he3/h37/16262418661406/Arcelia-Menu-Banner.jpg" alt="" />
+                <img
+                  src="https://sslimages.shoppersstop.com/sys-master/root/he3/h37/16262418661406/Arcelia-Menu-Banner.jpg"
+                  alt=""
+                />
               </ul>
             </div>
           </div>
         </li>
 
         <li className="drop_one">
-          <span className="spanHover" onClick={() => handleDept("women")}>
-            WOMEN
-          </span>
+          <div className="bottomBorder">
+            <span className="spanHover" onClick={() => handleDept("women")}>
+              WOMEN
+            </span>
+          </div>
           <div className="menu_experiment">
             <div className="menu_one women">
               <ul>
@@ -82,15 +92,21 @@ export default function NavbarList() {
                 <li>Mask & PPE kits</li>
               </ul>
               <ul>
-                <img src="https://sslimages.shoppersstop.com/sys-master/root/h2a/h7a/14873598296094/Stop-ethnicwear_menu_Banner-2020.jpg" alt="" />
+                <img
+                  src="https://sslimages.shoppersstop.com/sys-master/root/h2a/h7a/14873598296094/Stop-ethnicwear_menu_Banner-2020.jpg"
+                  alt=""
+                />
               </ul>
             </div>
           </div>
         </li>
         <li className="drop_one ">
-          <span className="spanHover" onClick={() => handleDept("kids")}>
-            KIDS
-          </span>
+          {" "}
+          <div className="bottomBorder">
+            <span className="spanHover" onClick={() => handleDept("kids")}>
+              KIDS
+            </span>
+          </div>
           <div className="menu_experiment">
             <div className="menu_one kids">
               <ul>
@@ -126,18 +142,27 @@ export default function NavbarList() {
                 <li>Mask</li>
               </ul>
               <ul>
-                <img src="https://sslimages.shoppersstop.com/sys-master/root/hde/hb8/14520526143518/Menu_mothercare-20200225.jpg" alt=""/>
+                <img
+                  src="https://sslimages.shoppersstop.com/sys-master/root/hde/hb8/14520526143518/Menu_mothercare-20200225.jpg"
+                  alt=""
+                />
               </ul>
               <ul>
-                <img src="https://sslimages.shoppersstop.com/sys-master/root/h0f/h8e/14803313623070/Menu_kidsmask_20190527.jpg" alt="" />
+                <img
+                  src="https://sslimages.shoppersstop.com/sys-master/root/h0f/h8e/14803313623070/Menu_kidsmask_20190527.jpg"
+                  alt=""
+                />
               </ul>
             </div>
           </div>
         </li>
         <li className="drop_one ">
-          <span className="spanHover" onClick={() => handleDept("beauty")}>
-            BEAUTY
-          </span>
+          {" "}
+          <div className="bottomBorder">
+            <span className="spanHover" onClick={() => handleDept("beauty")}>
+              BEAUTY
+            </span>
+          </div>
           <div className="menu_experiment">
             <div className="menu_one  beauty">
               <ul>
@@ -174,15 +199,20 @@ export default function NavbarList() {
                 <li> Liquid Lipstick</li>
               </ul>
               <ul>
-                <img src="https://sslimages.shoppersstop.com/sys-master/root/he1/h3a/16262418726942/Arcelia-Menu-Banner.jpg" alt=""/>
+                <img
+                  src="https://sslimages.shoppersstop.com/sys-master/root/he1/h3a/16262418726942/Arcelia-Menu-Banner.jpg"
+                  alt=""
+                />
               </ul>
             </div>
           </div>
         </li>
         <li className="drop_one ">
-          <span className="spanHover" onClick={() => handleDept("men")}>
-            MEN
-          </span>
+          <div className="bottomBorder">
+            <span className="spanHover" onClick={() => handleDept("men")}>
+              MEN
+            </span>
+          </div>
           <div className="menu_experiment">
             <div className="menu_one men">
               <ul>
@@ -215,14 +245,20 @@ export default function NavbarList() {
                 <li>NightWear</li>
               </ul>
               <ul>
-                <img src="https://sslimages.shoppersstop.com/sys-master/root/hf5/h2b/14316881903646/Allen-solly_menu_Banner-2020.jpg" alt=""/>
+                <img
+                  src="https://sslimages.shoppersstop.com/sys-master/root/hf5/h2b/14316881903646/Allen-solly_menu_Banner-2020.jpg"
+                  alt=""
+                />
               </ul>
             </div>
           </div>
         </li>
 
         <li className="drop_one ">
-          <span className="spanHover">HOMESHOP</span>
+          {" "}
+          <div className="bottomBorder">
+            <span className="spanHover">HOMESHOP</span>
+          </div>
           <div className="menu_experiment">
             <div className="menu_one home">
               <ul>
@@ -257,13 +293,19 @@ export default function NavbarList() {
                 <li>Dinner Sets</li>
               </ul>
               <ul>
-                <img src="https://sslimages.shoppersstop.com/sys-master/root/h27/h7e/14292469973022/Appliances_menu_Banner.jpg.jpg" alt=""/>
+                <img
+                  src="https://sslimages.shoppersstop.com/sys-master/root/h27/h7e/14292469973022/Appliances_menu_Banner.jpg.jpg"
+                  alt=""
+                />
               </ul>
             </div>
           </div>
         </li>
         <li className="drop_one ">
-          <span className="spanHover">CROSSWORD</span>
+          {" "}
+          <div className="bottomBorder">
+            <span className="spanHover">CROSSWORD</span>
+          </div>
           <div className="menu_experiment">
             <div className="menu_one  cross">
               <ul>
@@ -303,13 +345,19 @@ export default function NavbarList() {
                 <li>Marathi</li>
               </ul>
               <ul>
-                <img src="https://sslimages.shoppersstop.com/sys-master/root/h22/h8d/11647078301726/menu-banner-crossword_twinkle.jpg" alt=""/>
+                <img
+                  src="https://sslimages.shoppersstop.com/sys-master/root/h22/h8d/11647078301726/menu-banner-crossword_twinkle.jpg"
+                  alt=""
+                />
               </ul>
             </div>
           </div>
         </li>
         <li className="drop_one ">
-          <span className="spanHover">BRAND</span>
+          {" "}
+          <div className="bottomBorder">
+            <span className="spanHover">BRAND</span>
+          </div>
           <div className="menu_experiment">
             <div className="menu_one  brand">
               <ul>
@@ -333,13 +381,19 @@ export default function NavbarList() {
                 <li>Harries</li>
               </ul>
               <ul>
-                <img src="https://sslimages.shoppersstop.com/sys-master/root/hf6/h2a/16262417874974/Arcelia-Menu-Banner.jpg" alt="" />
+                <img
+                  src="https://sslimages.shoppersstop.com/sys-master/root/hf6/h2a/16262417874974/Arcelia-Menu-Banner.jpg"
+                  alt=""
+                />
               </ul>
             </div>
           </div>
         </li>
         <li className="drop_one ">
-          <span className="spanHover">GIFTS</span>
+          {" "}
+          <div className="bottomBorder">
+            <span className="spanHover">GIFTS</span>
+          </div>
           <div className="menu_experiment">
             <div className="menu_one  gift">
               <ul>
@@ -358,19 +412,31 @@ export default function NavbarList() {
                 <li>Luxury Gifts</li>
               </ul>
               <ul>
-                <img src="https://sslimages.shoppersstop.com/sys-master/root/h42/hb1/10032515383326/promotionBanner_Gifts_EGV_20170719.jpg" alt=""/>
+                <img
+                  src="https://sslimages.shoppersstop.com/sys-master/root/h42/hb1/10032515383326/promotionBanner_Gifts_EGV_20170719.jpg"
+                  alt=""
+                />
               </ul>
               <ul>
-                <img src="https://sslimages.shoppersstop.com/sys-master/root/h69/h90/10741873803294/promotionBanner_gifts-for-her_20180301.jpg" alt=""/>
+                <img
+                  src="https://sslimages.shoppersstop.com/sys-master/root/h69/h90/10741873803294/promotionBanner_gifts-for-her_20180301.jpg"
+                  alt=""
+                />
               </ul>
               <ul>
-                <img src="https://sslimages.shoppersstop.com/sys-master/root/h58/h8d/10741873737758/promotionBanner_gifts-for-him_20180301.jpg" alt=""/>
+                <img
+                  src="https://sslimages.shoppersstop.com/sys-master/root/h58/h8d/10741873737758/promotionBanner_gifts-for-him_20180301.jpg"
+                  alt=""
+                />
               </ul>
             </div>
           </div>
         </li>
         <li className="drop_one ">
-          <span className="spanHover">DISCOVER</span>
+          {" "}
+          <div className="bottomBorder">
+            <span className="spanHover">DISCOVER</span>
+          </div>
           <div className="menu_experiment">
             <div className="menu_one kids discover">
               <ul>
@@ -386,10 +452,16 @@ export default function NavbarList() {
                 <li>First Citizen Benefits</li>
               </ul>
               <ul>
-                <img src="https://sslimages.shoppersstop.com/sys-master/root/h7a/h2e/12667275313182/Menu-hover_Fc_20190426.jpg" alt=""/>
+                <img
+                  src="https://sslimages.shoppersstop.com/sys-master/root/h7a/h2e/12667275313182/Menu-hover_Fc_20190426.jpg"
+                  alt=""
+                />
               </ul>
               <ul>
-                <img src="https://sslimages.shoppersstop.com/sys-master/root/h28/hf6/11669171339294/promotionBanner_personalshoppers_20180522.jpg" alt=""/>
+                <img
+                  src="https://sslimages.shoppersstop.com/sys-master/root/h28/hf6/11669171339294/promotionBanner_personalshoppers_20180522.jpg"
+                  alt=""
+                />
               </ul>
             </div>
           </div>

@@ -1,0 +1,9 @@
+.img {
+  /* position: fixed; */
+  /* transition: transform 0.4s; */
+}
+.img:hover {
+  /* margin-left: -10rem; */
+  /* transform: scale(1.2); */
+  /* cursor: zoom-in; */
+}

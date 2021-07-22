@@ -15,7 +15,7 @@
 
 .menu_one {
   position: absolute;
-  width: 95%;
+  width: 100%;
   background: rgb(250, 250, 250);
   display: flex;
   z-index: 4;
@@ -27,11 +27,12 @@
 }
 .menu_experiment {
   display: none;
+  width: 100%;
 }
 .drop_one:hover > .menu_experiment {
   display: block;
   /* z-index: 4; */
-  margin-top: 15px;
+  /* margin-top: 15px; */
   background: white;
 }
 .drop_one:visited > .menu_experiment {
@@ -49,39 +50,46 @@
 }
 .spanHover {
   color: rgb(85, 81, 81);
+  /* padding-bottom: 20px; */
 }
 .spanHover:hover {
-  color: red;
-  text-decoration: underline;
-  text-decoration-color: red;
+  color: rgb(214, 54, 49);
+  /* text-decoration: underline; */
+  /* text-decoration-color: red; */
+}
+.bottomBorder {
+  padding: 10px 2rem;
+}
+.bottomBorder:hover {
+  border-bottom: 2px solid rgb(214, 54, 49);
 }
 .bargain {
-  margin-left: -2.5%;
+  margin-left: -0.5%;
 }
 .women {
-  margin-left: -13%;
+  margin-left: -11.5%;
 }
 .kids {
-  margin-left: -23%;
+  margin-left: -22.5%;
 }
 .beauty {
-  margin-left: -30%;
+  margin-left: -29%;
 }
 .men {
-  margin-left: -39.5%;
+  margin-left: -38.5%;
 }
 .home {
-  margin-left: -47%;
+  margin-left: -46.5%;
 }
 .cross {
-  margin-left: -58%;
+  margin-left: -58.5%;
 }
 .brand {
-  margin-left: -70%;
+  margin-left: -71%;
 }
 .gift {
-  margin-left: -79.5%;
+  margin-left: -80%;
 }
 .discover {
-  margin-left: -87%;
+  margin-left: -89%;
 }

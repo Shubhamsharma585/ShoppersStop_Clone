@@ -117,7 +117,7 @@ export default function NavBar({ handleOpenlogin, handleOpenregi }) {
             <TextField
               id="standard-basic"
               placeholder="search products & brands"
-              style={{ width: "350px" }}
+              style={{ width: "330px" }}
               value={category}
               color="#4BB1D9 "
               onChange={(e) => setCategory(e.target.value)}

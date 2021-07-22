@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import Card from "../Card/Card";
 import { ADDTOBAG } from "../../Redux/Registration/action";
+import styles from "./OneProduct.module.css";
 
 const black = {
   color: "black",
@@ -48,7 +49,7 @@ function OneProduct() {
     <div>
       <Card image="https://sslimages.shoppersstop.com/sys-master/root/he0/h6c/16769226899486/Covid-Strip-WEB.jpg" />
       <div style={{ width: "80%", margin: "auto", display: "flex" }}>
-        <div>
+        <div className={styles.img}>
           <img src={data.img} alt="picture" />
         </div>
 
