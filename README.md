@@ -53,7 +53,7 @@ You can also take the glimpse of our Project,just follow the below steps:
 
 1. Shoppersstop Page
 
-   ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/blob/main/public/snapshots/home.jpeg)
+   ![Shoppersstop](https://github.com/Shubhamsharma585/ShoppersStop_Clone/blob/main/client/public/snapshots/home.jpeg)
 
 
 
@@ -82,7 +82,7 @@ You can also take the glimpse of our Project,just follow the below steps:
 
 👤 **Tushar Sampat Taral**
 
-- Github: [Tushar Sampat Taral](https://github.com/TusharTaral)
+- Github: [Tushar Taral](https://github.com/TusharTaral)
 
 👤 **Manish Kumar Nayak**
 
