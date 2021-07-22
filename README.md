@@ -82,7 +82,7 @@ You can also take the glimpse of our Project,just follow the below steps:
 
 👤 **Tushar Sampat Taral**
 
-- Github: [Tushar Sampat Taral](https://github.com/TusharTaral)
+- Github: [Tushar Taral](https://github.com/TusharTaral)
 
 👤 **Manish Kumar Nayak**
 
