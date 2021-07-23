@@ -16,7 +16,7 @@ export const registering = (payload) => dispatch => {
     console.log(payload)
 
     dispatch(registerrequest())
-    Axios.post("https://manish-ss.herokuapp.com/user", {
+    Axios.post("https://ss-backend.vercel.app/user", {
         ...payload,
         emailVerified: false,
         address: [],
@@ -44,7 +44,7 @@ export const SignInlogin = (payload) => dispatch => {
     //console.log(payload.user.phoneNumber)
     dispatch(loginRequest())
 
-    Axios.get(`https://manish-ss.herokuapp.com/user/${payload.user.phoneNumber}`, {
+    Axios.get(`https://ss-backend.vercel.app/user/${payload.user.phoneNumber}`, {
 
     })
         .then((res) => {
@@ -99,7 +99,7 @@ const logout = (payload) => {
 
 export const ADDTOBAG = (payload, user_obj) => dispatch => {
 
-    Axios.patch(`https://manish-ss.herokuapp.com/user/${user_obj.object_id}`, {
+    Axios.patch(`https://ss-backend.vercel.app/user/${user_obj.object_id}`, {
         cart: [...user_obj.cart, payload]
     })
         .then((res) => {
@@ -138,7 +138,7 @@ const updateQuantity = (payload) => {
 
 export const ADD_ADDRESS = (payload, user_obj) => dispatch => {
     console.log(payload, user_obj)
-    Axios.patch(`https://manish-ss.herokuapp.com/user/${user_obj.object_id}`, {
+    Axios.patch(`https://ss-backend.vercel.app/user/${user_obj.object_id}`, {
         address: [...user_obj.address, payload]
     })
         .then((res) => {

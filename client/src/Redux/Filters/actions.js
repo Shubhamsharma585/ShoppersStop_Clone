@@ -24,7 +24,7 @@ export const getDatas = (category) => (dispatch) => {
     dispatch(getDataRequest())
 
     if (category === "men" || category === "women" || category === "beauty" || category === "kids") {
-        return axios.get('https://manish-ss.herokuapp.com/product', {
+        return axios.get('https://ss-backend.vercel.app/product', {
             params: {
                 c: category,
             }
@@ -32,7 +32,7 @@ export const getDatas = (category) => (dispatch) => {
             .then(res => dispatch(getDataSuccess(res.data)))
             .catch(err => dispatch(getDataFailure()))
     } else {
-        return axios.get('https://manish-ss.herokuapp.com/product', {
+        return axios.get('https://ss-backend.vercel.app/product', {
             params: {
                 name: category,
             }
@@ -51,7 +51,7 @@ export const getDatasByOffer = (data, offer) => (dispatch) => {
     dispatch(getDataRequest())
 
     if (offer !== '') {
-        return axios.get('https://manish-ss.herokuapp.com/product', {
+        return axios.get('https://ss-backend.vercel.app/product', {
             params: {
                 c: data,
                 discount: offer,
@@ -61,7 +61,7 @@ export const getDatasByOffer = (data, offer) => (dispatch) => {
             .catch(err => dispatch(getDataFailure()))
     }
     else {
-        return axios.get('https://manish-ss.herokuapp.com/product', {
+        return axios.get('https://ss-backend.vercel.app/product', {
             params: {
                 c: data,
             }
@@ -78,7 +78,7 @@ export const getDatasByPrice = (data, price) => (dispatch) => {
     dispatch(getDataRequest())
 
     if (price !== '') {
-        return axios.get('https://manish-ss.herokuapp.com/product', {
+        return axios.get('https://ss-backend.vercel.app/product', {
             params: {
                 c: data,
                 mrp: price,
@@ -88,7 +88,7 @@ export const getDatasByPrice = (data, price) => (dispatch) => {
             .catch(err => dispatch(getDataFailure()))
     }
     else {
-        return axios.get('https://manish-ss.herokuapp.com/product', {
+        return axios.get('https://ss-backend.vercel.app/product', {
             params: {
                 c: data,
             }
@@ -105,7 +105,7 @@ export const getDatasByDept = (data) => (dispatch) => {
     dispatch(getDataRequest())
 
 
-    return axios.get('https://manish-ss.herokuapp.com/product', {
+    return axios.get('https://ss-backend.vercel.app/product', {
         params: {
             c: data,
         }

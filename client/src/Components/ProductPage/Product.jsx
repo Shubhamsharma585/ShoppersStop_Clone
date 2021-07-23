@@ -59,7 +59,7 @@ export default function Product() {
 
   useEffect(() => {
     axios
-      .get("https://manish-ss.herokuapp.com/product", {
+      .get("https://ss-backend.vercel.app/product", {
         params: {
           c: cat,
         },
@@ -72,7 +72,7 @@ export default function Product() {
   }, [cat]);
   // useEffect(() => {
   //   axios
-  //     .get("https://manish-ss.herokuapp.com/product", {
+  //     .get("https://ss-backend.vercel.app/product", {
   //       params: {
   //         c: cat,
   //         name: productName,
