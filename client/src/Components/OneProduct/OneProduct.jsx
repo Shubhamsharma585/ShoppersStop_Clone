@@ -25,7 +25,7 @@ function OneProduct() {
 
   useEffect(() => {
     axios
-      .get("https://manish-ss.herokuapp.com/product/" + id)
+      .get("https://ss-backend.vercel.app/product/" + id)
       .then((res) => setData(res.data.data))
       .catch((err) => console.log(err));
   }, []);

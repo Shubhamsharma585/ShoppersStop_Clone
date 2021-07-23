@@ -18,7 +18,7 @@ function Cart() {
   var mobile = useSelector((state) => state.regi.number);
 
   useEffect(() => {
-    Axios.get(`https://manish-ss.herokuapp.com/user/${mobile}`).then((res) => {
+    Axios.get(`https://ss-backend.vercel.app/user/${mobile}`).then((res) => {
       console.log(res.data.data);
       console.log(res.data.data[0]);
       if (res.data.data[0]) {
@@ -33,7 +33,7 @@ function Cart() {
     var Favorite = favorite;
     Favorite.push(new_itm[0]);
 
-    Axios.patch(`https://manish-ss.herokuapp.com/user/${object_id}`, {
+    Axios.patch(`https://ss-backend.vercel.app/user/${object_id}`, {
       favorite: Favorite,
     }).then((res) => {
       Dispatch(Update_cart(cart));
@@ -43,7 +43,7 @@ function Cart() {
   const remove_itm = (q) => {
     var new_cart = cart.filter((itm) => itm._id != q);
 
-    Axios.patch(`https://manish-ss.herokuapp.com/user/${object_id}`, {
+    Axios.patch(`https://ss-backend.vercel.app/user/${object_id}`, {
       cart: new_cart,
     }).then((res) => {
       console.log(new_cart);
@@ -56,7 +56,7 @@ function Cart() {
     const new_cart = cart.map((itm) =>
       itm._id === id ? { ...itm, quantity: qua } : itm
     );
-    Axios.patch(`https://manish-ss.herokuapp.com/user/${object_id}`, {
+    Axios.patch(`https://ss-backend.vercel.app/user/${object_id}`, {
       cart: new_cart,
     }).then((res) => {
       //  console.log(res.data.data)

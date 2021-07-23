@@ -52,14 +52,14 @@ function Payment() {
 
   const [cart, setCart] = useState([]);
   useEffect(() => {
-    Axios.get(`https://manish-ss.herokuapp.com/user/${mobile}`).then((res) => {
+    Axios.get(`https://ss-backend.vercel.app/user/${mobile}`).then((res) => {
       setCart(res.data.data[0].cart);
     });
   }, []);
 
   const send_order = () => {
-    Axios.patch(`https://manish-ss.herokuapp.com/user/${object_id}`, {
-      orders: [...orders, ...cart],
+    Axios.patch(`https://ss-backend.vercel.app/user/${object_id}`, {
+      orders: [...cart, ...orders],
       cart: [],
     }).then((res) => {
       console.log(res.data.data);
