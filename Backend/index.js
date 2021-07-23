@@ -7,10 +7,10 @@ app.use(cors({
     origin: "*" 
 }))
 app.use(express.json()) 
-
+const PORT=process.env.PORT || 1200;
   
 const connect = () => {
-    return mongoose.connect("mongodb+srv://manisgdb:manish@cluster0.ufnzw.mongodb.net/shoppers?retryWrites=true&w=majority", {
+    return mongoose.connect(process.env.database || "mongodb+srv://manisgdb:manish@cluster0.ufnzw.mongodb.net/shoppers?retryWrites=true&w=majority", {
         useNewUrlParser: true,
         useCreateIndex: true,
         useFindAndModify: false,
@@ -97,7 +97,9 @@ const usersSchema = mongoose.Schema({
 const Product = mongoose.model("product", productSchema);
 const User = mongoose.model("user", usersSchema);
 
-
+app.get("/",async(req,res)=>{
+    res.send("good one success")
+})
 app.get("/product", async (req, res) => {
     let c = req.query.c;
     let name = req.query.name;
@@ -154,7 +156,7 @@ app.patch("/user/:id", async (req, res) => {
 
 const start = async () => {
     await connect();
-    app.listen(1200, () => {
+    app.listen(PORT, () => {
         console.log("listening to 1200")
     })
 }
