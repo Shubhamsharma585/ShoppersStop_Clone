@@ -14,7 +14,7 @@ import {
 export default function Product() {
   const urlSearchParams = new URLSearchParams(window.location.search);
   const reduxCat = useSelector((state) => state.data.datas);
-  console.log(reduxCat);
+  // console.log(reduxCat);
   const dispatch = useDispatch();
   const history = useHistory();
   const [category, setCategory] = useState("");
@@ -81,7 +81,7 @@ export default function Product() {
   //     .then((res) => setData(res.data))
   //     .catch((err) => console.log(err));
   // }, [cat || productName]);
-  console.log(data, cat);
+  // console.log(data, cat);
   return (
     <div className="sideFilter">
       <div>

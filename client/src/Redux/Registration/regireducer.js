@@ -31,7 +31,7 @@ const initstate = {
 
 function regireducer(state = initstate, {type, payload}) 
 {
-    console.log(state, type, payload)
+    //console.log(state, type, payload)
     switch(type)
     {
         case REGISTER_REQUEST: 

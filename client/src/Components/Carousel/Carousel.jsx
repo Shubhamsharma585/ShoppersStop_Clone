@@ -25,7 +25,7 @@ function Carousel({ images,onclick }) {
 
   return (
     <div onClick={onclick} style={carousel_div}>
-      <img width="100%" src={images[index]} />
+      <img width="100%" alt="img" src={images[index]} />
       <span style={indicator_box}>
         {images.map((item, i) => (
           <span

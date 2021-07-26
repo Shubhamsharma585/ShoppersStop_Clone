@@ -15,20 +15,20 @@ const black = {
 function OneProduct() {
   const { id } = useParams();
   const [data, setData] = useState({});
-  const [size, setSize] = useState("XL");
+  const [size, setSize] = useState("");
   const [alert, setAlert] = useState("");
   const [color, setColor] = useState(false);
 
   const dispatch = useDispatch();
   var user_obj = useSelector((state) => state.regi);
-  var object_id = useSelector((state) => state.regi.object_id);
+
 
   useEffect(() => {
     axios
       .get("https://ss-backend.vercel.app/product/" + id)
       .then((res) => setData(res.data.data))
       .catch((err) => console.log(err));
-  }, []);
+  });
 
   const handleAddToBag = () => {
     const payload = {
@@ -36,12 +36,18 @@ function OneProduct() {
       quantity: 1,
       size,
     };
+  if(size!==""){
 
     dispatch(ADDTOBAG(payload, user_obj));
     setAlert("Product added to the Bag!");
+  }
+  else{
+    setAlert("Please select a size!");
+  }
   };
   const selectSize = (item) => {
     setSize(item);
+    setAlert("")
     setColor(true);
   };
 
@@ -50,7 +56,7 @@ function OneProduct() {
       <Card image="https://sslimages.shoppersstop.com/sys-master/root/he0/h6c/16769226899486/Covid-Strip-WEB.jpg" />
       <div style={{ width: "80%", margin: "auto", display: "flex" }}>
         <div className={styles.img}>
-          <img src={data.img} alt="picture" />
+          <img src={data.img} alt="img" />
         </div>
 
         <div style={{ marginLeft: "2%", color: "gray" }}>
@@ -85,11 +91,13 @@ function OneProduct() {
             {data.size &&
               data.size.map((item) => (
                 <button
+                key={item}
+                className={size ===item?styles.bg:null}
                   onClick={() => selectSize(item)}
                   style={{
                     padding: "1% 3%",
                     margin: "10px 10px 0px 0px",
-                    fontWeight: "bold",
+                    fontWeight: "bold", 
                   }}
                 >
                   {item}
@@ -97,7 +105,7 @@ function OneProduct() {
               ))}
           </div>
           {color && <p>Size Selected!</p>}
-          <div style={{ color: size != "" ? "green" : "red" }}>{alert}</div>
+          <div style={{ color: size !== "" ? "green" : "red" }}>{alert}</div>
           <button
             onClick={handleAddToBag}
             style={{

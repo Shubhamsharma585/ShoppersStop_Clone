@@ -1,9 +1,6 @@
-.img {
-  /* position: fixed; */
-  /* transition: transform 0.4s; */
-}
-.img:hover {
-  /* margin-left: -10rem; */
-  /* transform: scale(1.2); */
-  /* cursor: zoom-in; */
+.bg{
+    background:rgb(240, 20, 75);
+    border:1px solid gray;
+    border-radius: 3px;
+    color:#fff;
 }
