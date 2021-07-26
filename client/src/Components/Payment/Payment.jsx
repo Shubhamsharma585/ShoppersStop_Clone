@@ -89,16 +89,16 @@ function Payment() {
   const [invalid, setInvalid] = useState("");
 
   const coupon = () => {
-    if (cou == "HAPPY50") {
+    if (cou === "HAPPY50") {
       setDis(50);
       setInvalid("true");
-    } else if (cou == "HAPPY100") {
+    } else if (cou === "HAPPY100") {
       setDis(100);
       setInvalid("true");
-    } else if (cou == "HAPPY200") {
+    } else if (cou === "HAPPY200") {
       setDis(200);
       setInvalid("true");
-    } else if (cou == "HAPPY500") {
+    } else if (cou === "HAPPY500") {
       setDis(500);
       setInvalid("true");
     } else {
@@ -223,7 +223,7 @@ function Payment() {
   ) : (
     <div>
       <div>
-        <img src={banner} className={styles.top} />
+        <img src={banner} alt="img" className={styles.top} />
       </div>
 
       <div className={styles.main_cont}>
@@ -411,7 +411,7 @@ function Payment() {
 
           {payment && (
             <div className={styles.payment_div}>
-              <img src={payment_banner} className={styles.payment_banner} />
+              <img src={payment_banner} alt="img" className={styles.payment_banner} />
 
               <div className={styles.paymentoptions}>
                 <div className={styles.paymentleft}>
@@ -508,12 +508,12 @@ function Payment() {
               APPLY
             </div>
           </div>
-          {invalid == "false" && (
+          {invalid === "false" && (
             <p style={{ color: "maroon", margin: "5px 10px -10px -40px" }}>
               coupon code is invalid!
             </p>
           )}
-          {invalid == "true" && (
+          {invalid === "true" && (
             <p style={{ color: "green", margin: "5px 10px -10px -10px" }}>
               coupon applied Successfully!
             </p>

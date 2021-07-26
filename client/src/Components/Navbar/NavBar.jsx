@@ -18,7 +18,7 @@ export default function NavBar({ handleOpenlogin, handleOpenregi }) {
   const Dispatch = useDispatch();
   var login = useSelector((state) => state.regi.isloggedIn);
   var regiCart = useSelector((state) => state.regi.cart);
-  console.log(regiCart);
+  //console.log(regiCart);
   const history = useHistory();
   const [show, handleShow] = React.useState(false);
   const [search, setSearch] = React.useState(false);
@@ -45,7 +45,7 @@ export default function NavBar({ handleOpenlogin, handleOpenregi }) {
       .signOut()
       .then(function () {
         Dispatch(loggingout());
-        console.log("User Logged Out!");
+        //console.log("User Logged Out!");
       })
       .catch(function (error) {
         // An error happened.
@@ -180,98 +180,111 @@ export default function NavBar({ handleOpenlogin, handleOpenregi }) {
             />
             {!login && (
               <div className="signHover">
-                <li>
-                  <span
-                    style={{
-                      textDecoration: "none",
-                      fontSize: "14px",
-                      color: "grey",
-                    }}
-                    onClick={handleOpenlogin}
-                  >
-                    SIGN IN
-                  </span>
-                  {/* <Link to={"/login"} style={{textDecoration:"none"}}> <span style={{textDecoration:"none", color:"grey"}}>SIGN IN</span></Link> */}
-                  <hr
-                    style={{ marginLeft: "-20px", border: "solid 1px #e0dede" }}
-                  />
-                </li>
-                <li>
-                  <span
-                    style={{
-                      textDecoration: "none",
-                      fontSize: "14px",
-                      color: "grey",
-                    }}
-                    onClick={handleOpenregi}
-                  >
-                    SIGN UP
-                  </span>
-                  {/* <Link to={"/registration"} style={{textDecoration:"none"}}> <span style={{textDecoration:"none", color:"grey"}}>SIGN UP</span></Link> */}
-                </li>
+                <span
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "15px",
+                    color: "black",
+                    cursor: "pointer",marginLeft:"14px"
+                  }}
+                  onClick={handleOpenlogin}
+                >
+                  SIGN IN
+                </span>
+                <span
+                  style={{
+                    backgroundColor: "rgb(209, 208, 208)",
+                    height: "1px",
+                    width: "100%",
+                    margin: "12px 0px",
+                  }}
+                />
+                <span
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "15px",
+                    color: "black",
+                    cursor: "pointer",marginLeft:"14px"
+                  }}
+                  onClick={handleOpenregi}
+                >
+                  SIGN UP
+                </span>
               </div>
             )}
             {login && (
               <div className="signHover">
-                <li>
-                  <Link
-                    to={"/profile"}
-                    style={{
-                      textDecoration: "none",
-                      fontSize: "12px",
-                      color: "grey",
-                    }}
-                  >
-                    MY ACCOUNT
-                  </Link>
-                  <hr
-                    style={{
-                      marginLeft: "-20px",
-                      fontSize: "12px",
-                      border: "solid 1px #e0dede",
-                    }}
-                  />
-                </li>
-                <li>
-                  <Link
-                    to={"/profile"}
-                    style={{
-                      textDecoration: "none",
-                      fontSize: "12px",
-                      color: "grey",
-                    }}
-                  >
-                    ORDERS{" "}
-                  </Link>
-                  <hr
-                    style={{
-                      marginLeft: "-20px",
-                      fontSize: "12px",
-                      border: "solid 1px #e0dede",
-                    }}
-                  />
-                </li>
-                <li>
-                  <Link
-                    to={"/profile"}
-                    style={{
-                      textDecoration: "none",
-                      fontSize: "12px",
-                      color: "grey",
-                    }}
-                  >
-                    PROFILE
-                  </Link>
-                  <hr
-                    style={{
-                      marginLeft: "-20px",
-                      border: "solid 1px #e0dede",
-                    }}
-                  />
-                </li>
-                <li style={{ fontSize: "12px" }} onClick={LogOut}>
+                <Link
+                  to={"/profile"}
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "15px",
+                    color: "black",
+                    marginLeft:"14px"
+                  }}
+                >
+                  MY ACCOUNT
+                </Link>
+                <span
+                  style={{
+                    backgroundColor: "rgb(209, 208, 208)",
+                    height: "1px",
+                    width: "100%",
+                    margin: "12px 0px",
+                  }}
+                />
+
+                <Link
+                  to={"/profile"}
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "15px",
+                    color: "black",
+                    marginLeft:"14px"
+                  }}
+                >
+                  ORDERS{" "}
+                </Link>
+                <span
+                  style={{
+                    backgroundColor: "rgb(209, 208, 208)",
+                    height: "1px",
+                    width: "100%",
+                    margin: "12px 0px",
+                  }}
+                />
+
+                <Link
+                  to={"/profile"}
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "15px",
+                    color: "black",
+                    marginLeft:"14px"
+                  }}
+                >
+                  PROFILE
+                </Link>
+                <span
+                  style={{
+                    backgroundColor: "rgb(209, 208, 208)",
+                    height: "1px",
+                    width: "100%",
+                    margin: "12px 0px",
+                  }}
+                />
+                <span
+                  style={{
+                    textDecoration: "none",
+                    fontSize: "15px",
+                    color: "black",
+                    cursor: "pointer",
+                    marginLeft:"14px"
+                  }}
+                  onClick={LogOut}
+                >
                   SIGN OUT
-                </li>
+                </span>
               </div>
             )}
           </div>

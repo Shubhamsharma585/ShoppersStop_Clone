@@ -48,47 +48,30 @@
   background-color: white;
 }
 .signHover {
-  width: 130px;
-  background: white;
+  display: flex;
+  flex-direction:column;
+  background: rgb(255, 255, 255);
   visibility: hidden;
   position: relative;
-  top: 20%;
-  right: 50%;
-  padding-left: 20px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border-bottom: 1px solid rgb(197, 196, 196);
-  border-left: 1px solid rgb(236, 234, 234);
-  /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5); */
-  /* box-shadow: -10px 13px 5px -5px rgba(202, 188, 188, 0.73); */
-  /* -webkit-box-shadow: -16px 13px 12px -5px rgba(202, 188, 188, 0.73);
-  -moz-box-shadow: -16px 13px 12px -5px rgba(202, 188, 188, 0.73); */
-  /* margin-left: 100px; */
+  right:60%;
+  top:10px;
+  width:170px;
+  border-radius:3px;
+  padding:14px 0px;
+  border-left: 1px solid rgb(209, 208, 208);
+  border-bottom: 1px solid rgb(209, 208, 208);
+  box-shadow: -12px 13px 13px -5px rgba(0,0,0,0.75);
+-webkit-box-shadow: -12px 13px 13px -5px rgba(0,0,0,0.75);
+-moz-box-shadow: -12px 13px 13px -5px rgba(0,0,0,0.75);
+
 }
+
 .signin {
   width: 100px;
   box-shadow: -120px 13px 5px -5px rgba(202, 188, 188, 0.73);
 }
-.signHover > li {
-  list-style: none;
-  /* line-height: 1cm; */
-  color: rgb(92, 94, 95);
-  background: white;
-  width: 150px;
-  text-decoration: none;
-  height: 35px;
-  padding-left: 0px;
-  cursor: pointer;
-  /* margin-left: -100px; */
-}
-
-.signHover > li > Link {
-  text-decoration: none;
-  border-radius: 5px;
-}
 
 .signIn:hover > div {
-  /* display: block; */
   visibility: visible;
 }
 .cardLength {
