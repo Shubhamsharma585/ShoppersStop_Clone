@@ -61,7 +61,9 @@ function Reg({ handleCloseregi, handleOpenlogin }) {
     auth.signInWithPhoneNumber(number, recaptcha).then((e) => {
       let code = prompt(`enter the otp`, ``);
 
-      if (code == null) return;
+      if (code == null) {
+        code = prompt(`enter the otp`, ``);
+      }
       e.confirm(code)
         .then((result) => {
           console.log(result.user, "user");

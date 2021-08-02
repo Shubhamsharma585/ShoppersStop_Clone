@@ -49,21 +49,20 @@
 }
 .signHover {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   background: rgb(255, 255, 255);
   visibility: hidden;
   position: relative;
-  right:60%;
-  top:10px;
-  width:170px;
-  border-radius:3px;
-  padding:14px 0px;
+  right: 60%;
+  top: 10px;
+  width: 170px;
+  border-radius: 3px;
+  padding: 14px 0px;
   border-left: 1px solid rgb(209, 208, 208);
   border-bottom: 1px solid rgb(209, 208, 208);
-  box-shadow: -12px 13px 13px -5px rgba(0,0,0,0.75);
--webkit-box-shadow: -12px 13px 13px -5px rgba(0,0,0,0.75);
--moz-box-shadow: -12px 13px 13px -5px rgba(0,0,0,0.75);
-
+  box-shadow: -12px 13px 13px -5px rgba(107, 106, 106, 0.75);
+  -webkit-box-shadow: -12px 13px 13px -5px rgba(117, 114, 114, 0.75);
+  -moz-box-shadow: -12px 13px 13px -5px rgba(109, 108, 108, 0.75);
 }
 
 .signin {
